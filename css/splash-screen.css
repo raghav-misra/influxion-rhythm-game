@@ -6,12 +6,7 @@
 
 /* Reset Styles */
 
-body, html {
-	text-align: center;
-	background: var(--blue-grey);
-	width: 100%;
-	height: 100vh;
-}
+
 html {
 	animation: fade-in 1.5s ease-in-out;
 }
@@ -187,10 +182,15 @@ input[type="text"]:hover, input[type="text"]:focus {
     padding: 10px;
     border-bottom-right-radius: 10px;
     border-top-left-radius: 10px;
-    left: -10px;
+	left: -10px;
+	box-shadow: 2px 2px 10px var(--blue-grey);
     background: white;
 	color: royalblue;
+	border-right: 2px var(--blue-grey) solid;
+	border-bottom: 2px var(--blue-grey) solid;
+	z-index: 3;
 }
+
 
 .credits-tile .c-source{
     margin: 0;
@@ -202,14 +202,26 @@ input[type="text"]:hover, input[type="text"]:focus {
 	padding-top: 25px;
 	padding-left: 5px;
     height: 100px;
+	background: rgba(255, 255, 255, 0.171);
+	color: var(--blue-grey);
+	text-shadow: 2px 2px white;
+}
+
+.credits-tile .c-source span{
 	font-size: 35px;
 	color: var(--blue-grey);
-	background: rgba(255, 255, 255, 0.192);
+	text-shadow: 2px 2px white;
+}
+
+.credits-tile .c-source span.reverse{
+	font-size: 35px;
+	color: white;
+	text-shadow: 2px 2px var(--blue-grey);
 }
 
 .credits-scroll{
     overflow: auto;
-    height: 425px;
+	height: 450px;
 }
 
 .credits-scroll::-webkit-scrollbar{
@@ -224,7 +236,11 @@ input[type="text"]:hover, input[type="text"]:focus {
 
 .btn.credits{
     color: var(--blue-grey);
-    border-color: var(--blue-grey);
+	border-color: var(--blue-grey);
+	padding: 7.5px;
+	position: relative;
+	bottom: 6px;
+	font-size: 17.5px;
     transition: background 0.75s ease-in-out, color 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
 }
 
