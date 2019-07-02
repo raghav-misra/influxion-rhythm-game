@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Influxion</title>
+    <link rel="stylesheet" href="css/shared.css"/>
+    <link rel="stylesheet" href="css/splash-screen.css"/>
+</head>
+<body>
+    <header>
+        <span class="title">INFLUXION</span><br>
+        <button id="choose-game" class="tab btn">Play The Game</button>
+        <button id="choose-build" class="tab btn">Make A Level</button>
+        <button id="open-credits" class="tab btn">View Credits</button>
+        <div class="enter-name" id="enter-name">
+            <span class='pre-input'>First Name:</span>
+            <input id="first-name" type="text" placeholder="John"/>
+            <a id="redirect" data-tooltip="Let's Go!" class="check"><i class="fas fa-check"></i></a>
+        </div>
+        <div id="first-name-error">
+            Please Enter Your First Name
+        </div>
+    </header>
+    <div id="credits-window">
+        <h1>Credits</h1>
+        <hr>
+        <div class="credits-scroll">
+            <a href="https://fontawesome.com" target="_blank">
+                <div class="credits-tile" 
+                style="background-image: url('img/credits/font-awesome.png')">
+                    <span class="c-name">Icons</span>
+                    <span class="c-source">Font Awesome</span>
+                </div>
+            </a>
+            <a href="https://beeple-crap.com" target="_blank">
+                <div class="credits-tile" 
+                style="background-image: url('img/credits/beeple.webp')">
+                    <span class="c-name">Video Backgrounds</span>
+                    <span class="c-source" style="color:white;">Beeple</span>
+                </div>
+            </a>
+            <a href="https://fonts.google.com" target="_blank">
+                <div class="credits-tile" 
+                style="background-image: url('img/credits/google-fonts.png')">
+                    <span class="c-name">Typography</span>
+                    <span class="c-source">Google Fonts</span>
+                </div>
+            </a>
+        </div>
+        <hr>
+        <button id="close-credits" class="btn credits">Okay!</button>
+    </div>
+    <div id="semi-overlay"></div>
+    <div id="loader">
+        <img id="load-svg"/>
+    </div>
+    
+    <script src="js/index.js"></script>
+    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
+</body>
+</html>

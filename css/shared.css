@@ -1,0 +1,62 @@
+/* Fonts: Oswald & Squada One */
+@import url('https://fonts.googleapis.com/css?family=Oswald|Squada+One&display=swap');
+/* ------------------------- */
+
+:root{
+    --blue-grey: rgb(33, 47, 59);
+    --blue-grey-translucent: rgba(33, 47, 59, 0.918);
+    --disabled-red: rgb(216, 112, 112);
+}
+
+*{
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    color: var(--blue-grey);
+}
+
+hr{
+    height: 0;
+    border: none;
+
+    border-top: 2px var(--blue-grey) solid;
+}
+
+.btn{
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    background: transparent;
+    border: 2px white solid;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 10px;
+    transition: background 0.75s ease-in-out, color 0.75s ease-in-out;
+}
+
+.btn:hover:not([disabled]){
+    color: var(--blue-grey);
+    background: white;
+}
+
+@keyframes fade-in{
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+
+@keyframes fade-out{
+    from{opacity: 1;}
+    to{opacity: 0;}
+}
+
+@keyframes rotate{
+    from{transform: rotate(0deg);}
+    to{transform: rotate(360deg);}
+}
+
+@keyframes rotate-90-back{
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(90deg);}
+}
