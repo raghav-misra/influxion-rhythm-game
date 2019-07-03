@@ -75,7 +75,6 @@ function goToNameCheck(locationURL){
 
 function loader(locateURL, fName){
     document.getElementById("load-svg").src = "img/loader.svg";
-    document.getElementById("load-svg").style.animation = "rotate-90-back 4s ease-in-out infinite";
     setTimeout(()=>{
         location.href = locateURL + "?f=" + fName;
     }, 7900);

@@ -140,7 +140,6 @@ input[type="text"]:hover, input[type="text"]:focus {
     left: calc(50vw - 250px);
     width: 500px;
     height: 281.25px;
-    animation: none;
 }
 
 /* Credits Window */
