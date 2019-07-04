@@ -35,7 +35,14 @@ var inGame = true
 var lastBeat = 1
 var beatStage = 2
 var tutBeat = false;
-// Starter Code:
+// Starter Code & MIDI init
+var Player = new MidiPlayer.Player(function(event) {
+	console.log(event);
+});
+var ac = new AudioContext()
+Soundfont.instrument(ac, 'clavinet').then(function (clavinet) {
+    clavinet.play('C4')
+  })
 
 // Beats:
 var beat1 = {
