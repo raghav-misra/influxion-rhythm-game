@@ -2,7 +2,7 @@
 var size = window.innerWidth;
 var height = window.innerHeight;
 var music = new Howl({
-      src: ['sound.mp3']
+      src: ['maps/onestop.wav']
     });
 var gravity = 0.3;
 var keys = []
@@ -37,7 +37,19 @@ var playerPosition = {
 mainLayer.add(player);
 
 
-//Testig spike
+//Spike
+function createSpike(){
+    var spike = new Konva.Wedge({
+        radius: 70,
+        angle: 60,
+        fill: 'red',
+        stroke: 'black',
+        strokeWidth: 4,
+        rotation: -120
+    });
+    console.log(spike)
+    mainLayer.add(spike)
+}
 
 
 window.onkeydown = function(event) {

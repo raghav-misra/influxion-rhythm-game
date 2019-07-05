@@ -34,7 +34,9 @@
 		transform: scaleY(100);
 	}
 }
-
+.hide{
+	display: none !important;
+}
 .rating {
 	position: absolute;
 	text-align: center;
