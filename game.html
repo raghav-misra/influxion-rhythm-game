@@ -7,13 +7,53 @@
     <title>Influxion - Game</title>
     <link href="css/game.css" rel="stylesheet"/>
     <link href="css/shared.css" rel="stylesheet"/>
+    <link href="css/levels-ui.css" rel="stylesheet"/>
 </head>
 <body>
-<div id='canvas' class='canvas'></div>
- 
-   
-    
-   
+<div id="levels">
+    <div class="sticky-hdr">
+        <header>
+            <span class="ttl">LEVELS</span>
+            <hr class="white">
+        </header>
+        <div id="legend">
+            <span class="legend-item">
+                <i style="color:cornflowerblue;" class="fas fa-circle"></i>
+                &nbsp;⁠—⁠—&nbsp;Easy&nbsp;&nbsp;&nbsp;&nbsp;
+            </span><br>
+            <span class="legend-item">
+                <i style="color:green;" class="fas fa-circle"></i>
+                &nbsp;⁠—⁠—&nbsp;Normal
+            </span><br>
+            <span class="legend-item">
+                <i style="color:var(--disabled-red);" class="fas fa-circle"></i>
+                &nbsp;⁠—⁠—&nbsp;Difficult
+            </span>
+            <hr class="white">
+        </div>
+    </div>
+    <div id="level-list">
+        <div class="lvl easy">
+            <div class="lvl-number">01</div>
+            <div class="lvl-name">Reaction Time!</div>
+            <span class="lvl-title">Tutorial Level</span>
+            <hr>
+            <span class="lvl-song s-name">Song: Man's Not Hot</span>
+            <span class="lvl-song s-artist">Artist: Big Shaq</span>
+            <button class="btn">Play!</button>
+        </div>
+        <div class="lvl easy">
+            <div class="lvl-number">02</div>
+            <div class="lvl-name">Beat Jump</div>
+            <span class="lvl-title">Tutorial Level</span>
+            <hr>
+            <span class="lvl-song s-name">Song: Spectre</span>
+            <span class="lvl-song s-artist">Artist: Alan Walker</span>
+            <button class="btn">Play!</button>
+        </div>
+    </div>
+</div>
+<div id='canvas' class='canvas'></div>  
 </body>
  <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
