@@ -1,29 +1,44 @@
-var size = window.innerWidth;
-var height = window.innerHeight;
+//load path dynamicly later
+var path = "maps/onestop.json"
+var map = {error:true}
+var spikes = []
+loadMap(path) // loads the map data
 
-var stage = new Konva.Stage({
-  container: 'game',   // id of container <div>
-  width: 500,
-  height: 500
-});
-// then create layer
-var layer = new Konva.Layer();
+function loadMap(path) {
+	load(path, function(data) {
+		loadGame(data)
+	})
+}
 
-// create our shape
-var circle = new Konva.Circle({
-  x: stage.width() / 2,
-  y: stage.height() / 2,
-  radius: 70,
-  fill: 'red',
-  stroke: 'black',
-  strokeWidth: 4
-});
 
-// add the shape to the layer
-layer.add(circle);
 
-// add the layer to the stage
-stage.add(layer);
+function loadGame(data){
+  map = data
+  map.beats.notes.forEach(function(note){
+    spikes.push(note)
+  })
+  setInterval(update, 1000 / 30); //30fps
+}
 
-// draw the image
-layer.draw();
+
+
+
+
+
+
+//utils
+function load(path, success, error) 
+{
+	var xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState === XMLHttpRequest.DONE) {
+			if (xhr.status === 200) {
+				if (success) success(JSON.parse(xhr.responseText));
+			} else {
+				if (error) error(xhr);
+			}
+		}
+	};
+	xhr.open("GET", path, true);
+	xhr.send();
+}
