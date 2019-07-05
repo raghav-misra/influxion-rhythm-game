@@ -6,17 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Influxion - Game</title>
     <link href="css/game.css" rel="stylesheet"/>
+		<link href="css/levels-ui.css" rel="stylesheet"/>
     <link href="css/shared.css" rel="stylesheet"/>
 </head>
 <body onkeypress="input(event)">
-  
- 
-   
-    
-    
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js"></script>
-    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
-    <script src="js/game.js"></script>
+<div id='game' style="display:none;" class='canvas'></div>
+<div id="levels">
+	<header>
+		<span class="ttl">LEVELS</span>
+		<hr class="white">
+	</header>
+	<div id="level-list">
+		<div class="lvl easy">
+			<div class="lvl-number">01</div>
+			<div class="lvl-rating">Easy</div>
+			<button class="btn">Play!</button>
+		</div>
+		<div class="lvl normal">
+			<div class="lvl-number">02</div>
+			<div class="lvl-rating">Normal</div>
+			<button class="btn">Play!</button>
+		</div>
+		<div class="lvl difficult">
+			<div class="lvl-number">03</div>
+			<div class="lvl-rating">Difficult</div>
+			<button class="btn">Play!</button>
+		</div>
+	</div>
+</div>
 </body>
+	<script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js"></script>
+	<script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
+	<script src="js/game.js"></script>
+	<script src="js/game.ui.js"></script>
 </html>

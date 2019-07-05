@@ -10,7 +10,7 @@
 	width: 100px;
 	background: white;
     height: 5px;
-    transition: all 0.2s ease-in-out;
+	transition: all 0.2s ease-in-out;
 }
 
 .viz.red{

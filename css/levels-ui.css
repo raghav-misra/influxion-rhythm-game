@@ -1,0 +1,145 @@
+body{
+	animation: fade-in 1s ease-in-out;
+}
+
+header .ttl{
+	font-family: 'Squada One', sans-serif;
+	font-size: 50px;
+	animation: color-change-title 7.5s ease-in-out infinite;
+}
+
+header{
+	padding: 10px;
+}
+header hr{
+	margin: 10px;
+}
+
+#level-list{
+	padding: 5px;
+	text-align: center;
+}
+
+.lvl{
+	margin: 10px;
+	width: 250px;
+	height: 300px;
+	display: inline-block;
+	position: relative;
+	border: 5px solid transparent;
+	background: white;
+	border-radius: 20px;
+}
+
+.lvl .lvl-rating{
+	display: inline-block;
+	font-size: 20px;
+	padding-top: 5px;
+	border-top-right-radius: 10px;
+	padding-bottom: 5px;
+	width: 250px;
+	color: var(--blue-grey);
+}
+
+.lvl.easy .lvl-rating{
+	background: cornflowerblue;
+}
+
+.lvl.easy{
+	border-color: cornflowerblue;
+}
+
+.lvl.normal .lvl-rating{
+	background: green;
+}
+
+.lvl.normal{
+	border-color: green;
+}
+.lvl.difficult .lvl-rating{
+	background: var(--disabled-red);
+}
+
+.lvl.difficult{
+	border-color: var(--disabled-red);
+}
+
+.lvl .btn{
+	color: var(--blue-grey);
+	background: transparent;
+	width: 100px;
+	border: 2px solid var(--blue-grey);
+	position: absolute;
+	bottom: 5px;
+	left: calc(70px);
+}
+
+.lvl .btn:hover{
+	color: white !important;
+	background: var(--blue-grey) !important;
+}
+
+.lvl .lvl-number{
+	display: inline-block;
+	top: -8px;
+	font-size: 20px;
+	padding: 15px;
+	border-bottom-right-radius: 10px;
+	left: -8px;
+	background: var(--blue-grey);
+	position: absolute;
+}
+
+@keyframes color-change-title {
+	0% {
+		color: cornflowerblue;
+	}
+	25% {
+		color: green;
+	}
+	50% {
+		color: rgb(175, 53, 175);
+	}
+	75% {
+		color: rgb(175, 163, 53);
+	}
+	100% {
+		color: cornflowerblue;
+	}
+}
+
+@keyframes color-change-border {
+	0% {
+		border-color: cornflowerblue;
+	}
+	25% {
+		border-color: green;
+	}
+	50% {
+		border-color: rgb(175, 53, 175);
+	}
+	75% {
+		border-color: rgb(175, 163, 53);
+	}
+	100% {
+		border-color: cornflowerblue;
+	}
+}
+
+@keyframes color-change-background {
+	0% {
+		background-color: cornflowerblue;
+	}
+	25% {
+		background-color: green;
+	}
+	50% {
+		background-color: rgb(175, 53, 175);
+	}
+	75% {
+		background-color: rgb(175, 163, 53);
+	}
+	100% {
+		background-color: cornflowerblue;
+	}
+}
