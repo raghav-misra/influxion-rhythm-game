@@ -3,6 +3,7 @@ var boss = document.getElementById("bossDiv");
 
 // Music Variable:
 var song = null;
+var timeNextBeat = null;
 
 // Vars for health and points scored:
 var userScore = 0;
@@ -21,6 +22,11 @@ var inGame = true;
 
 // setInterval Var:
 var updateInterval = null;
+
+// Update Score Func:
+function updateScore(score){
+
+}
 
 // Move boss to signal next beat:
 function bossGoToKey(){
@@ -72,8 +78,8 @@ function buildGame(data){
 // Update Function:
 function updateGame(){
   var timeCurrentSong = song.seek();
-  var timeNextBeat = parseFloat(toFixed(beatMap.beatArray[beatMap.arrayCounter].time, 2));
-	if(timeNextBeat - timeCurrentSong <= 6){
+  timeNextBeat = parseFloat(toFixed(beatMap.beatArray[beatMap.arrayCounter].time, 2));
+	if(timeNextBeat - timeCurrentSong <= 1){
     console.log("That was beat #" + beatMap.arrayCounter);
     bossGoToKey();
     pressReady = true;
@@ -115,15 +121,15 @@ function checkPress(key){
   activateBeat(beats[key.code].element);
   pressReady = false;
   if (rnd == beats[key.code].number) {
-    if (nextBeatTime - song.seek() <= 0.1) {
+    if (timeNextBeat - song.seek() <= 0.1) {
       addRating("Perfect");
       updateScore(10);
     } 
-    else if (nextBeatTime - currentTime <= 1) {
+    else if (timeNextBeat - currentTime <= 1) {
       addRating("Good");
       updateScore(5);
     } 
-    else if(nextBeatTime = currentTime >= 1.4){
+    else if(timeNextBeat = currentTime >= 1.4){
       addRating("Early");
       updateScore(0);
     }
@@ -149,5 +155,4 @@ function addRating(rating){
 }
 
 // Code To Execute:
-
 loadMIDI("maps/onestop.json");
