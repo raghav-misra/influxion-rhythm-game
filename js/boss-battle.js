@@ -64,7 +64,7 @@ function buildGame(data){
 		tmpMap.beatArray.push(note);
   });
   beatMap = tmpMap;
-  song = new Howl({ src: [tmpMap.info.path] });
+  song = new Howl({ src: ["maps/"+tmpMap.info.path] });
   song.on("load", function() { song.play(); });
   updateInterval = setInterval(updateGame, 1000 / 60);
 }
@@ -149,4 +149,5 @@ function addRating(rating){
 }
 
 // Code To Execute:
+
 loadMIDI("maps/onestop.json");

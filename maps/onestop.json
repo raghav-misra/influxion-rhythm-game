@@ -1,83 +1,136 @@
 {
-    "info": {
-      "levelName": "Tutorial",
-      "songName": "Onestop",
-      "path": "maps/onestop.mp3"
-    },
-    "startTime": 0,
-    "beats": {
-      "startTime": 39.493688,
-      "notes": [
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 39.493688,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 45.189893,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 50.886098,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "C#7",
-          "midi": 97,
-          "time": 51.645592,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 57.341797,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "C7",
-          "midi": 96,
-          "time": 63.797496,
-          "velocity": 0.7952755905511811,
-          "duration": 0.3856805468750011
-        },
-        {
-          "name": "C7",
-          "midi": 96,
-          "time": 64.93673700000001,
-          "velocity": 0.7952755905511811,
-          "duration": 0.385680546874994
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 70.253195,
-          "velocity": 0.7952755905511811,
-          "duration": 0.19580704687500372
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 70.84654968750002,
-          "velocity": 0.7952755905511811,
-          "duration": 0.19580704687500372
-        },
-        {
-          "name": "F7",
-          "midi": 101,
-          "time": 71.42803728125001,
-          "velocity": 0.7952755905511811,
-          "duration": 0.24327542187499773
-        }
-      ]
-    }
+  "info": {
+    "levelName": "Tutorial",
+    "songName": "Onestop",
+    "path": "onestop.mp3",
+    "background": "space.png"
+  },
+  "texts": {
+    "text" : [
+      {
+        
+        "value": "Influxion - Tutorial",
+        "fontSize": 80,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 100
+      },
+      {
+        
+        "value": "A rhythmic platformer",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 200
+      },
+      {
+        
+        "value": "The shooting star will create spikes to the beat of the music..",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 700,
+        "y": 100
+      },
+      {
+        
+        "value": "Press space to jump over the spikes",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 1000,
+        "y": 200
+      },
+      {
+        
+        "value": "The star will also create large stones which you can break by holding X",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 2000,
+        "y": 400
+      }
+    ]
+  },
+  "beats": {
+  
+    "notes": [
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 37.7800,
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 42.29,
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 46.76,
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "C#7",
+        "midi": 97,
+        "time": 47.38,
+        "type": "attack",
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 51.89,
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "C7",
+        "midi": 96,
+        "time": 56.99,
+        "velocity": 0.7952755905511811,
+        "duration": 0.3856805468750011
+      },
+      {
+        "name": "C7",
+        "midi": 96,
+        "time": 57.90,
+        "velocity": 0.7952755905511811,
+        "duration": 0.385680546874994
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 62.10,
+        "type": "attack",
+        "velocity": 0.7952755905511811,
+        "duration": 0.19580704687500372
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 62.56,
+        "type": "attack",
+        "velocity": 0.7952755905511811,
+        "duration": 0.19580704687500372
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 63.02,
+        "type": "attack",
+        "velocity": 0.7952755905511811,
+        "duration": 0.24327542187499773
+      }
+    ]
   }
+}
