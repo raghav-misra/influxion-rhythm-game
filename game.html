@@ -1,68 +1,69 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Influxion - Game</title>
-    <link href="css/game.css" rel="stylesheet"/>
-    <link href="css/shared.css" rel="stylesheet"/>
-    <link href="css/levels-ui.css" rel="stylesheet"/>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>Influxion - Game</title>
+	<link href="css/game.css" rel="stylesheet">
+	<link href="css/shared.css" rel="stylesheet">
+	<link href="css/levels-ui.css" rel="stylesheet">
 </head>
 <body onkeypress="checkPress(event)">
-<div id="levels">
-    <div class="sticky-hdr">
-        <header>
-            <span class="ttl">LEVELS</span>
-            <button onclick="document.getElementById('levels').classList.add('hide')">debug close level</button>
-            <hr class="white">
-        </header>
-        <div id="legend">
-            <span class="legend-item">
-                <i style="color:cornflowerblue;" class="fas fa-circle"></i>
-                &nbsp;⁠—⁠—&nbsp;Easy&nbsp;&nbsp;&nbsp;&nbsp;
-            </span><br>
-            <span class="legend-item">
-                <i style="color:green;" class="fas fa-circle"></i>
-                &nbsp;⁠—⁠—&nbsp;Normal
-            </span><br>
-            <span class="legend-item">
-                <i style="color:var(--disabled-red);" class="fas fa-circle"></i>
-                &nbsp;⁠—⁠—&nbsp;Difficult
-            </span>
-            <hr class="white">
-        </div>
-    </div>
-    <div id="level-list">
-        <div class="lvl easy">
-            <div class="lvl-number">01</div>
-            <div class="lvl-name">Tutorial Level</div>
-            <br><br>
-            <hr>
-            <span class="lvl-song s-name">Song: Man's Not Hot</span>
-            <span class="lvl-song s-artist">Artist: Big Shaq</span>
-            <button class="btn">Play!</button>
-        </div>
-    </div>
-    <div 
-</div>
-<div id='canvas' class='canvas'></div> 
-<div class="boss-battle">
-  <div class="viz-contain">
-    <div id="viz1" class="red viz"></div>
-    <div id="viz2" class="blue viz"></div>
-    <div id="viz3" class="yellow viz"></div>
-    <div id="viz4" class="green viz"></div>
-  </div>
-  <h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
-</div>
+	<div id="levels">
+		<div class="sticky-hdr">
+			<header>
+				<span class="ttl">LEVELS</span> <button onclick="document.getElementById('levels').classList.add('hide')">debug close level</button>
+				<hr class="white">
+			</header>
+			<div id="legend">
+				<span class="legend-item"><i class="fas fa-circle" style="color:cornflowerblue;"></i> &nbsp;⁠—⁠—&nbsp;Easy&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
+				<span class="legend-item"><i class="fas fa-circle" style="color:green;"></i> &nbsp;⁠—⁠—&nbsp;Normal</span><br>
+				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i> &nbsp;⁠—⁠—&nbsp;Difficult</span>
+				<hr class="white">
+			</div>
+		</div>
+		<div id="level-list">
+			<div class="lvl easy">
+				<div class="lvl-number">
+					01
+				</div>
+				<div class="lvl-name">
+					Tutorial Level
+				</div><br>
+				<br>
+				<hr>
+				<span class="lvl-song s-name">Song: Man's Not Hot</span> <span class="lvl-song s-artist">Artist: Big Shaq</span> <button class="btn">Play!</button>
+			</div>
+		</div>
+		<div></div>
+		<div class='canvas' id='canvas'></div>
+		<div class="boss-battle">
+            <div id="boss-contain">
+                <div id="bossDiv">BOSS</div>
+            </div>
+			<div class="viz-contain">
+				<div class="red viz" id="viz1"></div>
+				<div class="blue viz" id="viz2"></div>
+				<div class="yellow viz" id="viz3"></div>
+				<div class="green viz" id="viz4"></div>
+			</div>
+			<h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
+		</div>
+		<script src="https://unpkg.com/konva@3.3.3/konva.min.js">
+		</script> 
+		<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js">
+		</script> 
+		<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
+		</script> 
+		<script src="https://kit.fontawesome.com/b8185e1d28.js">
+		</script> 
+		<script src="js/init.js">
+		</script> 
+		<script src="js/game.js">
+		</script> 
+		<script src="js/boss-battle.js">
+		</script>
+	</div>
 </body>
-<script src="js/boss-battle.js"></script>
- <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js"></script>
-    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/game.js"></script>
 </html>
