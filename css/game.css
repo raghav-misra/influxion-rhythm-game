@@ -1,15 +1,36 @@
-.viz-container{
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    top: calc(50vh - 30px);
+.boss-battle{
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  z-index: 8;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: var(--blue-grey); 
+}
+
+.ratings{
+  width: 100%;
+  font-size: 30px;
+  position: fixed;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  bottom: calc(100vh - 625px);
+}
+
+.viz-contain{
+  width: 100%;
+  position: fixed;
+  bottom: calc(100vh - 550px);
 }
 
 .viz{
+  border-radius: 20px;
+  margin: 30px;
 	display: inline-block;
 	width: 100px;
 	background: white;
-    height: 5px;
+  height: 10px;
 	transition: all 0.2s ease-in-out;
 }
 
@@ -29,14 +50,10 @@
     background: rgb(57, 182, 57);
 }
 
-@keyframes up-down-1{
-	50%{
-		transform: scaleY(100);
-	}
-}
 .hide{
 	display: none !important;
 }
+/*
 .rating {
 	position: absolute;
 	text-align: center;
@@ -73,6 +90,7 @@
 		opacity: 0;
 	}
 }
+*/
 
 @keyframes shake {
     10%, 90% {

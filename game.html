@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +10,7 @@
     <link href="css/shared.css" rel="stylesheet"/>
     <link href="css/levels-ui.css" rel="stylesheet"/>
 </head>
-<body>
+<body onkeypress="checkPress(event)">
 <div id="levels">
     <div class="sticky-hdr">
         <header>
@@ -36,26 +37,28 @@
     <div id="level-list">
         <div class="lvl easy">
             <div class="lvl-number">01</div>
-            <div class="lvl-name">Reaction Time!</div>
-            <span class="lvl-title">Tutorial Level</span>
+            <div class="lvl-name">Tutorial Level</div>
+            <br><br>
             <hr>
             <span class="lvl-song s-name">Song: Man's Not Hot</span>
             <span class="lvl-song s-artist">Artist: Big Shaq</span>
             <button class="btn">Play!</button>
         </div>
-        <div class="lvl easy">
-            <div class="lvl-number">02</div>
-            <div class="lvl-name">Beat Jump</div>
-            <span class="lvl-title">Tutorial Level</span>
-            <hr>
-            <span class="lvl-song s-name">Song: Spectre</span>
-            <span class="lvl-song s-artist">Artist: Alan Walker</span>
-            <button class="btn">Play!</button>
-        </div>
     </div>
+    <div 
 </div>
-<div id='canvas' class='canvas'></div>  
+<div id='canvas' class='canvas'></div> 
+<div class="boss-battle">
+  <div class="viz-contain">
+    <div id="viz1" class="red viz"></div>
+    <div id="viz2" class="blue viz"></div>
+    <div id="viz3" class="yellow viz"></div>
+    <div id="viz4" class="green viz"></div>
+  </div>
+  <h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
+</div>
 </body>
+<script src="js/boss-battle.js"></script>
  <script src="https://unpkg.com/konva@3.3.3/konva.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js"></script>

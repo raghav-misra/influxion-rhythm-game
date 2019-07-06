@@ -2,9 +2,9 @@
 var size = window.innerWidth;
 var height = window.innerHeight;
 var music = new Howl({
-      src: ['maps/onestop.wav']
+      src: ['maps/onestop.mp3']
     });
-var gravity = 0.3;
+var gravity = 0.5;
 var keys = []
 var jumpAnim
 var stage = new Konva.Stage({
@@ -20,8 +20,7 @@ window.onkeyup = function(event) {
     keys[event.key] = false;
 };
 //Player Data
-var player = new Konva.Circle({
-    radius: 40,
+var player = new Konva.Rect({
     width: 50,
     height: 50,
     fill: 'red',
@@ -37,19 +36,6 @@ var playerPosition = {
 mainLayer.add(player);
 
 
-//Spike
-function createSpike(){
-    var spike = new Konva.Wedge({
-        radius: 70,
-        angle: 60,
-        fill: 'red',
-        stroke: 'black',
-        strokeWidth: 4,
-        rotation: -120
-    });
-    console.log(spike)
-    mainLayer.add(spike)
-}
 
 
 window.onkeydown = function(event) {
@@ -80,6 +66,9 @@ function playerInputHandler() {
 
 function update() {
     playerInputHandler()
+    spikes.forEach(function(spike){
+      spike.setX(spike.getX() - 2) //2 = speed
+    })
     mainLayer.draw()
 }
 

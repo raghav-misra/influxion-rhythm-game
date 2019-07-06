@@ -96,15 +96,6 @@ hr{
 	font-size: 15px
 }
 
-.lvl .lvl-title{
-	display: block;
-	text-align: center;
-	padding: 5px;
-	margin-top: 10px;
-	color: var(--blue-grey);
-	font-size: 25px;
-}
-
 .lvl .btn:hover{
 	color: white !important;
 	background: var(--blue-grey) !important;
