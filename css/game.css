@@ -9,6 +9,44 @@
   background: var(--blue-grey); 
 }
 
+/* Game Stats */
+.stats{
+  display: block;
+  position: absolute;
+  left: 15px;
+  top: 30px;
+  font-size: 20px;
+  right: 15px;
+  text-align: right;
+  width: calc(100% - 30px);
+}
+.stats.health{
+  top: 60px;
+}
+.stats.boss{
+  top: 90px;
+}
+.stats span[css-contain]{
+  background: cornflowerblue;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-bottom: 2px solid cornflowerblue;
+  width: 130px;
+  box-shadow: 7px 7px 8px rgba(255, 255, 255, 0.493);
+  display: inline-block;
+  border-left: 2px white solid;
+  border-right: 2px white solid;
+}
+.stats.score span[css-contain]{
+  border-top: 2px solid white;
+}
+.stats.boss span[css-contain]{
+  border-bottom: 2px solid white;
+}
+.stats *{
+  font-size: 20px;
+}
+/* Ratings */
 .ratings{
   width: 100%;
   font-size: 30px;
@@ -17,8 +55,6 @@
   padding-bottom: 15px;
   bottom: calc(100vh - 625px);
 }
-
-
 
 /* Visualizer Divs */
 .viz-contain{

@@ -107,7 +107,7 @@ function spikeManager() { //Creates spikes to beat
 	timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
 	beatStage++
 	if (map.beats.notes[beatStage] == undefined) {
-		return endGame();
+		return winGame();
 	}
 	setTimeout(function() {
 		if (map.beats.notes[beatStage].type == "attack") {
@@ -119,11 +119,20 @@ function spikeManager() { //Creates spikes to beat
 	}, timeUntilNextBeat * 1000) //seconds to miliseconds
 }
 
-function endGame() {
+function loseGame() {
+	soundEffects.lose.play();
 	music.stop()
 	clearInterval(gameLoop)
 	cancelAnimationFrame(starAnimLoop)
 }
+
+function winGame(){
+	soundEffects.win.play();
+	endGame();
+	clearInterval(gameLoop)
+	cancelAnimationFrame(starAnimLoop);
+}
+
 //utils
 function load(path, success, error) {
 	var xhr = new XMLHttpRequest();

@@ -24,8 +24,13 @@ var inGame = true;
 var updateInterval = null;
 
 // Update Score Func:
-function updateScore(score){
-
+function updateScore(scoreChange, userHPChange, bossHPChange){
+  userScore = userScore + scoreChange;
+  userHP = userHP + userHPChange;
+  bossHP = bossHP + bossHPChange;
+  document.getElementById("score").innerText = userScore;
+  document.getElementById("health").innerHTML = userHP;
+  document.getElementById("boss-health").innerHTML = bossHP;
 }
 
 // Move boss to signal next beat:
@@ -125,22 +130,26 @@ function checkPress(key){
   activateBeat(beats[key.code].element);
   pressReady = false;
   if (rnd == beats[key.code].number) {
-    if (timeNextBeat - song.seek() <= 0.1) {
+    if (timeNextBeat - song.seek() <= 1.5) {
       addRating("Perfect");
-      updateScore(10);
+      updateScore(10, 1, -5);
     } 
-    else if (timeNextBeat - song.seek() <= 1) {
+    else if (timeNextBeat - song.seek() <= 3.5) {
       addRating("Good");
-      updateScore(5);
+      updateScore(5, 0, -5);
     } 
-    else if(timeNextBeat = song.seek() >= 1.4){
+    else if(timeNextBeat = song.seek() > 3.5){
       addRating("Early");
-      updateScore(0);
+      updateScore(0, 0, 0);
+    }
+    else {
+      addRating("Wrong");
+      updateScore(-7, -5, 0);
     }
   } 
   else {
     addRating("Wrong");
-    updateScore(-10);
+    updateScore(-7, -5, 0);
   }
 }
 
@@ -159,4 +168,4 @@ function addRating(rating){
 }
 
 // Code To Execute:
-// loadMIDI("maps/onestop.json");
+//loadMIDI("maps/onestop.json");

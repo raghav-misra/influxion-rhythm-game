@@ -8,6 +8,8 @@
 	<link href="css/game.css" rel="stylesheet">
 	<link href="css/shared.css" rel="stylesheet">
 	<link href="css/levels-ui.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/b8185e1d28.js">
+	</script>  
 </head>
 <body onkeypress="checkPress(event)">
 	<div class='canvas' id='canvas'></div>
@@ -18,9 +20,9 @@
 			</div>
 		</div>
 		<div class="scoreboard">
-			<div class="user-score stats">&nbsp;Your Score:&nbsp;<span id="score"></span></div>
-			<div class="user-score stats">Your Health:&nbsp;<span id="health"></span></div>
-			<div class="user-score stats">Boss Health:&nbsp;<span id="boss-health"></span></div>
+			<div class="stats score"><span css-contain>&nbsp;Your Score:&nbsp;<span id="score">0</span></span></div>
+			<div class="stats health"><span css-contain>Your Health:&nbsp;<span id="health">100</span></span></div>
+			<div class="stats boss"><span css-contain>Boss Health:&nbsp;<span id="boss-health">100</span></span></div>
 		</div>
 		<div class="viz-contain">
 			<div class="red viz" id="viz1"></div>
@@ -57,21 +59,20 @@
 			</div>
 		</div>
 		<div></div>
-		
-		<script src="https://unpkg.com/konva@3.3.3/konva.min.js">
-		</script> 
-		<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js">
-		</script> 
-		<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
-		</script> 
-		<script src="https://kit.fontawesome.com/b8185e1d28.js">
-		</script> 
-		<script src="js/init.js">
-		</script> 
-		<script src="js/game.js">
-		</script> 
-		<script src="js/boss-battle.js">
-		</script>
 	</div>
+	<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
+	</script> 
+	<script src="js/sounds.js">
+	</script>
+	<script src="https://unpkg.com/konva@3.3.3/konva.min.js">
+	</script> 
+	<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js">
+	</script> 
+	<script src="js/init.js">
+	</script> 
+	<script src="js/game.js">
+	</script> 
+	<script src="js/boss-battle.js">
+	</script>
 </body>
 </html>
