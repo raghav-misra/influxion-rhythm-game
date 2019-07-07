@@ -55,7 +55,12 @@
   padding-bottom: 15px;
   bottom: calc(100vh - 625px);
 }
-
+.canvas{
+  background-color: #080828;
+}
+.cutscene{
+  background-color: #080828;
+}
 /* Visualizer Divs */
 .viz-contain{
   width: 100%;
@@ -125,4 +130,26 @@
   80% { transform: translate(-1px, -1px) rotate(1deg); }
   90% { transform: translate(1px, 2px) rotate(0deg); }
   100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/*Animations */
+.fade-out {
+	-webkit-animation: fade-out 1s ease-in-out forwards;
+	animation: fade-out 1s ease-in-out forwards;
+}
+@-webkit-keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+@keyframes fade-out {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

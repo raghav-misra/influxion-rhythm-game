@@ -10,6 +10,7 @@ var jumpAnim
 var starAnim = 50
 var starAnimLoop
 var textsAnimLoop
+var rockSpeedY = 5
 var starAnimType = 'down'
 var swordOn = false
 var stage = new Konva.Stage({
@@ -27,24 +28,34 @@ window.onkeyup = function(event) {
 var background
 var backgroundLoad = false
 var background2
-var backgroundLayer = new Konva.Layer();
+var background3
+var backgroundLayer = new Konva.FastLayer();
 var backgroundImage = new Image();
-var backgoundSpeed = 3;
+var backgoundSpeed = 0.1;
+var backgroundLoad = false
 backgroundImage.onload = function() {
 	background = new Konva.Image({
 		x: 0,
 		y: 0,
 		image: backgroundImage,
 		width: size,
-		height: height,
+		height: 550,
+	});
+  background3 = new Konva.Image({
+		x: size,
+		y: 0,
+		image: backgroundImage,
+		width: size,
+		height: 550,
 	});
 	backgroundLayer.add(background)
+  backgroundLayer.add(background3)
 	background2 = new Konva.Rect({
 		x: 0,
 		y: 550,
 		fill: 'black',
 		width: size,
-		height: height,
+		height: 550,
 	});
 	backgroundLayer.add(background2)
 	backgroundLoad = true
@@ -55,16 +66,17 @@ backgroundImage.onload = function() {
 	background.listening(false)
 	background2.listening(false)
 	backgroundLayer.draw()
+  backgroundLoad = true
 }
 //Text layer
-var textLayer = new Konva.Layer();
+var textLayer = new Konva.FastLayer();
 //Main layer Players,Stars,Spikes
-var mainLayer = new Konva.Layer();
+var mainLayer = new Konva.FastLayer();
 //Player Data
 var player = new Konva.Rect({
 	width: 50,
 	height: 50,
-	fill: '#580103',
+	fill: '#4FC0A7',
 	y: 500,
 	x: 40,
 });
@@ -85,7 +97,9 @@ var playerPosition = {
 	speedY: 5,
 	jump: false
 }
-player.listening(false)
+player.perfectDrawEnabled(false);
+player.transformsEnabled('position')
+
 mainLayer.add(player);
 //starData Data + Animations
 var star = new Konva.Star({
@@ -131,6 +145,8 @@ function update() {
 	moveSpikes()
 	moveEnemy()
 	moveTexts()
+  moveBackground()
+  backgroundLayer.draw()
 	textLayer.draw()
 	mainLayer.draw()
 }
@@ -145,34 +161,68 @@ function jump() {
 	playerPosition.speedY -= gravity;
 	window.requestAnimationFrame(jump);
 }
+//move background
+function moveBackground(){
+  if(backgroundLoad){
+   background.setX(background.getX() - backgoundSpeed)
+   background3.setX(background3.getX() - backgoundSpeed)
+    if (background.getX() < -size){
+        background.setX(size)
+    }
+     if (background3.getX() < -size){
+        background3.setX(size)
+    }
+  }
+        
+}
 
 function moveSpikes() {
 	spikes.forEach(function(spike, i) {
-		if (spikes[i].getX() <= 0) {
+    if (map.beats.notes[beatStage] == undefined && spikes[spikes.length - 1].getX() <= 0) {
+            return winGame();
+        }
+		else if (spikes[i].getX() <= 0) {
 			spikes[i].destroy()
 			spikes.splice(i, 1)
 			//refine spike parms
 		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 10, spikes[i].height() - 10, spikes[i].getX(), spikes[i].getY())) {
 			loseGame()
-		}
+    }
 		spike.setX(spike.getX() - 2) //2 = speed
 	})
 }
 
 function moveEnemy() {
 	enemies.forEach(function(spike, i) {
-		if (enemies[i].getX() <= 0) {
+    if (map.beats.notes[beatStage] == undefined && enemies[enemies.length - 1].getX() <= 0) {
+            return winGame();
+        }
+		else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
 		} else if (checkCollisions(sword.width(), sword.height(), sword.getX(), sword.getY(), enemies[i].width() - 5, enemies[i].height() - 5, enemies[i].getX(), enemies[i].getY())) {
 			if (swordOn) {
-				//effect later?
-				enemies[i].destroy()
-				enemies.splice(i, 1)
+                var breakRock = new Konva.Tween({
+                    node: enemies[i],
+                    y: 1000,
+                    duration: 0.4,
+                    scaleX: 1,
+                    scaleY: 1,
+                    easing: Konva.Easings.EaseIn,
+                    onFinish: function() {
+
+                        breakRock.destroy();
+                    }
+                });
+                breakRock.play()
+              
+		
 			} else {
 				loseGame()
 			}
-		}
+		}else if (map.beats.notes[beatStage] == undefined && enemies[i].getX() <= 0) {
+            return winGame();
+        }
 		spike.setX(spike.getX() - 2) //2 = speed
 	})
 }
@@ -197,6 +247,9 @@ starAnimLoop = window.requestAnimationFrame(animateStar);
 
 function moveTexts() {
 	textmap.forEach(function(text, i) {
+        if(text.getX() > size){
+            textLayer.add(text)
+        }
 		if (textmap[i].getX() + textmap[i].width() <= 0) {
 			textmap[i].destroy()
 			textmap.splice(i, 1)

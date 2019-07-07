@@ -1,4 +1,5 @@
 //load path dynamicly later
+
 var path = "maps/onestop.json"
 var map = {
 	error: true
@@ -18,7 +19,18 @@ function loadMap(path) {
 }
 
 function loadGame(data) {
+  document.getElementById('canvas').classList.remove('hide')
+  clearInterval(gameLoop)
+  music.stop()
+  backgroundLayer.removeChildren()
+  textmap = []
+  textLayer.removeChildren()
+  mainLayer.removeChildren()
+  spikes = []
+  enemies = []
 	map = data
+  mainLayer.add(player);
+  mainLayer.add(star);
 	map.beats.notes.forEach(function(note) { //load spike positions
 		spikesData.push(note)
 	})
@@ -35,15 +47,21 @@ function loadGame(data) {
 			fill: textData.fill
 		});
 		console.log(size + textData.x)
-		textmap.push(text)
-		textLayer.add(text)
+    textmap.push(text)
+    text.transformsEnabled('position')
+    player.perfectDrawEnabled(false);
+		
 	})
 	//load music
 	music.src = "maps/" + map.info.path
 	music.on("load", function() {
-		music.play()
-		spikeManager()
+		
 	})
+  	music.on("play", function() {
+		  spikeManager()
+	})
+  music.play()
+
 	gameLoop = setInterval(update, 1000 / 60); //60fps
 }
 //spikes
@@ -68,7 +86,8 @@ function createSpike() {
 		scaleY: 1,
 		easing: Konva.Easings.EaseIn,
 		onFinish: function() {
-			spikes.push(spike)
+      spikes.push(spike)
+      drop.destroy();
 		}
 	});
 	drop.play()
@@ -95,7 +114,8 @@ function createEnemy() {
 		scaleY: 1,
 		easing: Konva.Easings.EaseIn,
 		onFinish: function() {
-			enemies.push(spike)
+      enemies.push(spike)
+      drop.destroy();
 		}
 	});
 	drop.play()
@@ -106,9 +126,6 @@ function spikeManager() { //Creates spikes to beat
 	var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
 	timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
 	beatStage++
-	if (map.beats.notes[beatStage] == undefined) {
-		return winGame();
-	}
 	setTimeout(function() {
 		if (map.beats.notes[beatStage].type == "attack") {
 			createEnemy()
@@ -124,13 +141,21 @@ function loseGame() {
 	music.stop()
 	clearInterval(gameLoop)
 	cancelAnimationFrame(starAnimLoop)
+  setTimeout(function(){
+  loadMap(path)
+  },2000)
+	
 }
 
 function winGame(){
+  music.stop()
 	soundEffects.win.play();
-	endGame();
-	clearInterval(gameLoop)
+  bossIntroCutscene();
+  setTimeout(function(){
+  clearInterval(gameLoop)
 	cancelAnimationFrame(starAnimLoop);
+  },1000)
+	
 }
 
 //utils
