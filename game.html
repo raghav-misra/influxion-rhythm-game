@@ -10,7 +10,26 @@
 	<link href="css/levels-ui.css" rel="stylesheet">
 </head>
 <body onkeypress="checkPress(event)">
-    <div class='canvas' id='canvas'></div>
+	<div class='canvas' id='canvas'></div>
+	<div id="boss-battle-ui" class="boss-battle hide">
+		<div id="boss-contain">
+			<div id="bossDiv">
+				BOSS
+			</div>
+		</div>
+		<div class="scoreboard">
+			<div class="user-score stats">&nbsp;Your Score:&nbsp;<span id="score"></span></div>
+			<div class="user-score stats">Your Health:&nbsp;<span id="health"></span></div>
+			<div class="user-score stats">Boss Health:&nbsp;<span id="boss-health"></span></div>
+		</div>
+		<div class="viz-contain">
+			<div class="red viz" id="viz1"></div>
+			<div class="blue viz" id="viz2"></div>
+			<div class="yellow viz" id="viz3"></div>
+			<div class="green viz" id="viz4"></div>
+		</div>
+		<h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
+	</div>
 	<div id="levels">
 		<div class="sticky-hdr">
 			<header>
@@ -38,19 +57,7 @@
 			</div>
 		</div>
 		<div></div>
-	
-		<div class="boss-battle">
-            <div id="boss-contain">
-                <div id="bossDiv">BOSS</div>
-            </div>
-			<div class="viz-contain">
-				<div class="red viz" id="viz1"></div>
-				<div class="blue viz" id="viz2"></div>
-				<div class="yellow viz" id="viz3"></div>
-				<div class="green viz" id="viz4"></div>
-			</div>
-			<h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
-		</div>
+		
 		<script src="https://unpkg.com/konva@3.3.3/konva.min.js">
 		</script> 
 		<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js">

@@ -9,7 +9,7 @@
     "text" : [
       {
         
-        "value": "Influxion - Tutorial",
+        "value": "Welcome To The Tutorial.",
         "fontSize": 80,
         "fontFamily": "Oswald",
         "fill": "white",
@@ -18,7 +18,7 @@
       },
       {
         
-        "value": "A rhythmic platformer",
+        "value": "Each Influxion level has two parts: the platformer, and the boss battle.",
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",

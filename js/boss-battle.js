@@ -79,11 +79,15 @@ function buildGame(data){
 function updateGame(){
   var timeCurrentSong = song.seek();
   timeNextBeat = parseFloat(toFixed(beatMap.beatArray[beatMap.arrayCounter].time, 2));
-	if(timeNextBeat - timeCurrentSong <= 1){
+	if(timeNextBeat - timeCurrentSong <= 2){
     console.log("That was beat #" + beatMap.arrayCounter);
     bossGoToKey();
     pressReady = true;
     beatMap.arrayCounter += 1;
+    if(beatMap.arrayCounter >= beatMap.beatArray.length - 1){
+      clearInterval(updateInterval);
+      console.log("OMG We Finished The Map!");
+    }
   }
 }
 
@@ -125,11 +129,11 @@ function checkPress(key){
       addRating("Perfect");
       updateScore(10);
     } 
-    else if (timeNextBeat - currentTime <= 1) {
+    else if (timeNextBeat - song.seek() <= 1) {
       addRating("Good");
       updateScore(5);
     } 
-    else if(timeNextBeat = currentTime >= 1.4){
+    else if(timeNextBeat = song.seek() >= 1.4){
       addRating("Early");
       updateScore(0);
     }
@@ -155,4 +159,4 @@ function addRating(rating){
 }
 
 // Code To Execute:
-loadMIDI("maps/onestop.json");
+// loadMIDI("maps/onestop.json");
