@@ -1,4 +1,4 @@
-var game = document.getElementById('canvas'); 
+var game = document.getElementById('canvas');
 var cutsceneDiv = document.getElementById('cutscene')
 
 var stageCutscene = new Konva.Stage({

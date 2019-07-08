@@ -2,7 +2,7 @@
 var size = window.innerWidth;
 var height = window.innerHeight;
 var music = new Howl({
-	src: ['maps/onestop.mp3'] 
+	src: ['maps/onestop.mp3']
 });
 var gravity = 0.5;
 var keys = []

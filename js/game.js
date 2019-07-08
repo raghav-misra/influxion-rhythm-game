@@ -1,5 +1,5 @@
 /* Platformer */
- 
+
 //load path dynamicly later
 
 var path = "maps/onestop.json"
@@ -268,7 +268,7 @@ function buildGame(data){
   });
   beatMap = tmpMap;
   song = new Howl({ src: ["maps/"+tmpMap.info.path] });
-  song.on("load", function() { song.play(); });
+  song.play();
 	console.log("loadedgametotally");
   updateInterval = setInterval(updateGame, 1000 / 60);
 }
@@ -276,6 +276,10 @@ function buildGame(data){
 // Update Function:
 function updateGame(){
   var timeCurrentSong = song.seek();
+	if(song.seek == 0){
+		song.stop();
+		song.play();
+	}
   timeNextBeat = parseFloat(toFixed(beatMap.beatArray[beatMap.arrayCounter].time, 2));
 	if(timeNextBeat - timeCurrentSong <= 2){
     console.log("That was beat #" + beatMap.arrayCounter);
@@ -333,7 +337,7 @@ function checkPress(key){
     } 
     else if(timeNextBeat = song.seek() > 3.5){
       addRating("Early");
-      updateScore(0, 0, 0);
+      updateScore(1, -1, -1);
     }
     else {
       addRating("Wrong");
