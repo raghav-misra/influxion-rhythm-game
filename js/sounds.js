@@ -3,7 +3,7 @@ var soundEffects = {
         src: ["audio/win.mp3"]
     }),
     lose: new Howl({
-        src: ["audio/lose.mp3"]
+        src: ["audio/lose.mp3"] 
     }),
     bossTalk: new Howl({
         src: ["audio/bossTalk.wav"]

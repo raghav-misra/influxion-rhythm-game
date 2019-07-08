@@ -1,5 +1,5 @@
 /* Platformer */
-
+ 
 //load path dynamicly later
 
 var path = "maps/onestop.json"

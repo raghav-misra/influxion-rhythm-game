@@ -31,7 +31,7 @@ openCredits.onclick = ()=>{
     
 }
 
-closeCredits.onclick = ()=>{
+closeCredits.onclick = ()=>{ 
     creditsWindow.style.animation = "fade-out 1s";
     creditsOverlay.style.animation = "fade-out 1s";
     setTimeout(()=>{
