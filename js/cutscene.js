@@ -22,22 +22,9 @@ function bossIntroCutscene() {
             width: 15,
             height: 15,
             fill: 'white',
-            shadowColor: '#db3f3f',
+            shadowColor: '#F8D092',
             shadowBlur: 20,
-            shadowOpacity: 0.1,
-            numPoints: 5,
-            innerRadius: 15,
-            outerRadius: 15,
-            y: 50,
-            x: 600
-        });
-        var redStar = new Konva.Star({
-            width: 15,
-            height: 15,
-            fill: '#db3f3f',
-            shadowColor: '#db3f3f',
-            shadowBlur: 20,
-            shadowOpacity: 0.1,
+            shadowOpacity: 0.9,
             numPoints: 5,
             innerRadius: 15,
             outerRadius: 15,
@@ -48,9 +35,9 @@ function bossIntroCutscene() {
             width: 15,
             height: 15,
             fill: '#6495ed',
-            shadowColor: '#6495ed',
-            shadowBlur: 1,
-            shadowOpacity: 0.1,
+            shadowColor: '#F8D092',
+            shadowBlur: 20,
+            shadowOpacity: 0.9,
             numPoints: 5,
             innerRadius: 15,
             outerRadius: 15,
@@ -61,9 +48,9 @@ function bossIntroCutscene() {
             width: 15,
             height: 15,
             fill: '#fafa24',
-            shadowColor: '#fafa24',
-            shadowBlur: 1,
-            shadowOpacity: 0.1,
+            shadowColor: '#F8D092',
+            shadowBlur: 20,
+            shadowOpacity: 0.9,
             numPoints: 5,
             innerRadius: 15,
             outerRadius: 15,
@@ -74,9 +61,9 @@ function bossIntroCutscene() {
             width: 15,
             height: 15,
             fill: '#39b639',
-            shadowColor: '#39b639',
-            shadowBlur: 1,
-            shadowOpacity: 0.1,
+            shadowColor: '#F8D092',
+            shadowBlur: 20,
+            shadowOpacity: 0.9,
             numPoints: 5,
             innerRadius: 15,
             outerRadius: 15,
@@ -112,7 +99,7 @@ function bossIntroCutscene() {
         stageCutscene.add(cutsceneLayer0)
         //Add the objects needed for this cutscene
         cutsceneLayer0.add(background)
-        cutsceneLayer0.add(background3) //ground
+        cutsceneLayer0.add(background2) //ground
 
         cutsceneLayer1.add(star)
         cutsceneLayer1.add(player)

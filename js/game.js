@@ -26,9 +26,10 @@ function loadGameUI(){
 }
 
 function loadGame(data) {
+	if(gameRunning == false){
 	loadGameUI();
-	beatStage = 0;
-  clearInterval(gameLoop)
+	gameRunning = true
+	clearInterval(gameLoop)
   music.stop()
   backgroundLayer.removeChildren()
   textmap = []
@@ -69,8 +70,9 @@ function loadGame(data) {
 		  spikeManager()
 	})
   music.play()
-
+	beatStage = 0
 	gameLoop = setInterval(update, 1000 / 60); //60fps
+}
 }
 //spikes
 function createSpike() {
@@ -79,9 +81,14 @@ function createSpike() {
 		y: 80,
 		sides: 3,
 		radius: 15,
-		fill: 'white',
+		fill: 'transparent',
+		shadowColor: '#F8D092',
+		shadowBlur: 20,
+		shadowOpacity: 0.9,
 		scaleX: 0.4,
 		scaleY: 0.4,
+		stroke: 'white',
+    strokeWidth: 3
 	});
 	spikes.push(spike)
 	mainLayer.add(spike)
@@ -110,6 +117,9 @@ function createEnemy() {
 		fill: 'red',
 		scaleX: 0.4,
 		scaleY: 0.4,
+		shadowColor: 'red',
+		shadowBlur: 20,
+		shadowOpacity: 0.9
 	});
 	enemies.push(spike)
 	mainLayer.add(spike)
@@ -140,6 +150,7 @@ function spikeManager() { //Creates spikes to beat
 			if (map.beats.notes[beatStage].type == "attack") {
 				createEnemy()
 			} else {
+				soundEffects.spikeCreate.play()
 				createSpike()
 			}
 			spikeManager()
@@ -152,10 +163,13 @@ function spikeManager() { //Creates spikes to beat
 }
 
 function loseGame() {
+	gameRunning = false
+	console.log(gameRunning)
 	soundEffects.lose.play();
 	music.stop()
 	clearInterval(gameLoop)
 	cancelAnimationFrame(starAnimLoop)
+	beatStage = 0
   setTimeout(function(){
   loadMap(path)
   },2000)

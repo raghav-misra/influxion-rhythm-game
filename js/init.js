@@ -14,6 +14,7 @@ var rockSpeedY = 5
 var starAnimType = 'down'
 var swordOn = false
 var gameWonAlready = false;
+var gameRunning = false;
 var stage = new Konva.Stage({
 	container: 'canvas', // id of container <div>
 	width: size,
@@ -53,7 +54,7 @@ backgroundImage.onload = function() {
 	backgroundLayer.add(background3)
 	background2 = new Konva.Rect({
 		x: 0,
-		y: 550,
+		y: 555,
 		fill: 'black',
 		width: size,
 		height: 550,
@@ -185,7 +186,8 @@ function moveSpikes() {
 			spikes[i].destroy()
 			spikes.splice(i, 1)
 			//refine spike parms
-		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 10, spikes[i].height() - 10, spikes[i].getX(), spikes[i].getY())) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 10, spikes[i].height() - 10, spikes[i].getX(), spikes[i].getY()) && gameRunning) {
+			gameRunning = false
 			loseGame()
 		}
 		spike.setX(spike.getX() - 2) //2 = speed
@@ -201,7 +203,7 @@ function moveEnemy() {
 		} else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
-		} else if (checkCollisions(sword.width(), sword.height(), sword.getX(), sword.getY(), enemies[i].width() - 5, enemies[i].height() - 5, enemies[i].getX(), enemies[i].getY())) {
+		} else if (checkCollisions(sword.width(), sword.height(), sword.getX(), sword.getY(), enemies[i].width() - 5, enemies[i].height() - 5, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],
@@ -216,6 +218,7 @@ function moveEnemy() {
 				});
 				breakRock.play()
 			} else {
+				gameRunning = false
 				loseGame()
 			}
 		} else if (map.beats.notes[beatStage] == undefined && enemies[i].getX() <= 0) {
