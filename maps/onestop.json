@@ -3,13 +3,13 @@
     "levelName": "Tutorial",
     "songName": "Onestop",
     "path": "onestop.mp3",
-    "background": "space.png"
+    "background": "stars.png"
   },
   "texts": {
     "text" : [
       {
         
-        "value": "Welcome To The Tutorial.",
+        "value": "Tutorial",
         "fontSize": 80,
         "fontFamily": "Oswald",
         "fill": "white",
@@ -31,7 +31,7 @@
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",
-        "x": 700,
+        "x": 1000,
         "y": 100
       },
       {
@@ -49,7 +49,7 @@
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",
-        "x": 2000,
+        "x": 2300,
         "y": 400
       }
     ]
@@ -82,7 +82,6 @@
         "name": "C#7",
         "midi": 97,
         "time": 47.38,
-        "type": "attack",
         "velocity": 0.7952755905511811,
         "duration": 0.3856805468750011
       },
@@ -111,7 +110,6 @@
         "name": "F7",
         "midi": 101,
         "time": 62.10,
-        "type": "attack",
         "velocity": 0.7952755905511811,
         "duration": 0.19580704687500372
       },
@@ -127,6 +125,14 @@
         "name": "F7",
         "midi": 101,
         "time": 63.02,
+        "type": "attack",
+        "velocity": 0.7952755905511811,
+        "duration": 0.24327542187499773
+      },
+      {
+        "name": "F7",
+        "midi": 101,
+        "time": 63.48,
         "type": "attack",
         "velocity": 0.7952755905511811,
         "duration": 0.24327542187499773

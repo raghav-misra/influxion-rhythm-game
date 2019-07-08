@@ -40,7 +40,6 @@ header .title {
 }
 .check::after {
 	content: attr(data-tooltip);
-	color: white;
 	opacity: 0;
 	position: absolute;
 	width: 50px;

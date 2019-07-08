@@ -77,21 +77,62 @@ hr{
 }
 
 /* Level Card Song & Artist */
+.lvl.easy .lvl-song-info{
+	background: cornflowerblue;
+	padding: 10px;
+}
+
+.lvl.normal .lvl-song-info{
+	background: green;
+	padding: 10px;
+}
+
+.lvl.difficult .lvl-song-info{
+	background: var(--disabled-red);
+	padding: 10px;
+}
+
+.lvl .lvl-song-info{
+	top: 60px;
+	position: relative;
+}
+
 .lvl .lvl-song{
 	color: var(--blue-grey);
 	display: block;
-	font-size: 15px
+	margin: 2.5px;
+	font-size: 15px;
+}
+
+/* Level Number */
+.lvl .lvl-number{
+	position: absolute;
+	font-size: 22.5px;
+	width: 50px;
+	border-bottom-right-radius: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: 0;
+	top: -5px;
+	left: -5px;
+	background: var(--blue-grey);
 }
 
 /* Level Card Button */
 .lvl .btn{
 	color: var(--blue-grey);
 	background: transparent;
-	width: 100px;
+	width: 75px;
+	padding: 5px;
 	border: 2px solid var(--blue-grey);
+	left: calc(70px);
+}
+
+.lvl-btn-contain{
 	position: absolute;
 	bottom: 5px;
-	left: calc(70px);
+	width: 100%;
+	text-align: center;
 }
 
 .lvl .btn:hover{

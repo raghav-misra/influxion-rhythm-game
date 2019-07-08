@@ -12,7 +12,10 @@
 	</script>  
 </head>
 <body onkeypress="checkPress(event)">
-	<div class='canvas' id='canvas'></div>
+	<div class='canvas hide' id='canvas'></div>
+  <div class='cutscene hide' id='cutscene'>
+    <h1>sadasd</h1>
+  </div>
 	<div id="boss-battle-ui" class="boss-battle hide">
 		<div id="boss-contain">
 			<div id="bossDiv">
@@ -30,12 +33,12 @@
 			<div class="yellow viz" id="viz3"></div>
 			<div class="green viz" id="viz4"></div>
 		</div>
-		<h4 class="ratings" id="ratings">Good, Perfect, Wrong, Earlyy, GEEYYY</h4>
+		<h4 class="ratings" id="ratings">mbruh ratins go here</h4>
 	</div>
 	<div id="levels">
 		<div class="sticky-hdr">
 			<header>
-				<span class="ttl">LEVELS</span> <button onclick="document.getElementById('levels').classList.add('hide')">debug close level</button>
+				<span class="ttl">LEVELS</span>
 				<hr class="white">
 			</header>
 			<div id="legend">
@@ -47,19 +50,21 @@
 		</div>
 		<div id="level-list">
 			<div class="lvl easy">
-				<div class="lvl-number">
-					01
+				<div class="lvl-number">00</div>
+				<div class="lvl-name">Tutorial Level</div>
+				<div class="lvl-song-info">
+					<span class="lvl-song s-name">Song: OneStop</span><hr>
+					<span class="lvl-song s-artist">Artist: David Yackley</span>
 				</div>
-				<div class="lvl-name">
-					Tutorial Level
-				</div><br>
-				<br>
-				<hr>
-				<span class="lvl-song s-name">Song: Man's Not Hot</span> <span class="lvl-song s-artist">Artist: Big Shaq</span> <button class="btn">Play!</button>
+				<div class="lvl-btn-contain">
+					<button onclick="loadMap('maps/onestop.json');" class="lvl-btn btn">Play!</button>
+				</div>
 			</div>
 		</div>
 		<div></div>
 	</div>
+
+
 	<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
 	</script> 
 	<script src="js/sounds.js">
@@ -72,7 +77,7 @@
 	</script> 
 	<script src="js/game.js">
 	</script> 
-	<script src="js/boss-battle.js">
+  <script src="js/cutscene.js">
 	</script>
 </body>
 </html>
