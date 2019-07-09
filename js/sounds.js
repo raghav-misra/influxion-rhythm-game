@@ -15,7 +15,8 @@ var soundEffects = {
         src: ["audio/starExplosion.wav"]
     }),
     spikeCreate: new Howl({
-        src: ["audio/spikeCreate.wav"]
+        src: ["audio/spikeCreate.wav"],
+        volume: 0.3
     })
     
 };

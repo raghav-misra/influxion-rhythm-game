@@ -189,6 +189,7 @@ function moveSpikes() {
 		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 10, spikes[i].height() - 10, spikes[i].getX(), spikes[i].getY()) && gameRunning) {
 			gameRunning = false
 			loseGame()
+			console.log()
 		}
 		spike.setX(spike.getX() - 2) //2 = speed
 	})
@@ -209,8 +210,6 @@ function moveEnemy() {
 					node: enemies[i],
 					y: 1000,
 					duration: 0.4,
-					scaleX: 1,
-					scaleY: 1,
 					easing: Konva.Easings.EaseIn,
 					onFinish: function() {
 						breakRock.destroy();

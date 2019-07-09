@@ -21,7 +21,7 @@ function bossIntroCutscene() {
         var redStar = new Konva.Star({
             width: 15,
             height: 15,
-            fill: 'white',
+            fill: '#db3f3f',
             shadowColor: '#F8D092',
             shadowBlur: 20,
             shadowOpacity: 0.9,
@@ -98,6 +98,7 @@ function bossIntroCutscene() {
         stageCutscene.add(cutsceneLayer1)
         stageCutscene.add(cutsceneLayer0)
         //Add the objects needed for this cutscene
+        cutsceneLayer0.add(background3)
         cutsceneLayer0.add(background)
         cutsceneLayer0.add(background2) //ground
 
@@ -161,7 +162,10 @@ function bossIntroCutscene() {
                                cutsceneLayer1.add(textCut1)
                                cutsceneLayer1.add(textCut2)
                                cutsceneLayer1.draw();
-                               openBossDiv();
+                               setTimeout(() => {
+                                openBossDiv();
+                               }, 5000);
+                         
                              }
 
                         })

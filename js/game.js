@@ -1,7 +1,6 @@
 /* Platformer */
 
 //load path dynamicly later
-
 var path = "maps/onestop.json"
 var map = {
 	error: true
@@ -12,7 +11,9 @@ var spikes = []
 var enemies = []
 var beatStage = 0
 var timeUntilNextBeat = 0
-var gameLoop
+var globalId = 0 
+
+
 function loadMap(path) {
 	load(path, function(data) {
 		loadGame(data)
@@ -26,10 +27,12 @@ function loadGameUI(){
 }
 
 function loadGame(data) {
+	console.log('asd')
 	if(gameRunning == false){
+		globalId++
 	loadGameUI();
 	gameRunning = true
-	clearInterval(gameLoop)
+	clearInterval(window.gameLoop)
   music.stop()
   backgroundLayer.removeChildren()
   textmap = []
@@ -55,7 +58,6 @@ function loadGame(data) {
 			fontFamily: textData.fontFamily,
 			fill: textData.fill
 		});
-		console.log(size + textData.x)
     textmap.push(text)
     text.transformsEnabled('position')
     player.perfectDrawEnabled(false);
@@ -66,12 +68,13 @@ function loadGame(data) {
 	music.on("load", function() {
 		
 	})
-  	music.on("play", function() {
-		  spikeManager()
-	})
-  music.play()
-	beatStage = 0
-	gameLoop = setInterval(update, 1000 / 60); //60fps
+  setTimeout(function(){
+		music.play()
+		spikeManager(globalId)
+		window.gameLoop = setInterval(update, 1000 / 60); //60fps
+		beatStage = 0
+	},1000)
+
 }
 }
 //spikes
@@ -88,7 +91,7 @@ function createSpike() {
 		scaleX: 0.4,
 		scaleY: 0.4,
 		stroke: 'white',
-    strokeWidth: 3
+    strokeWidth: 4
 	});
 	spikes.push(spike)
 	mainLayer.add(spike)
@@ -113,7 +116,7 @@ function createEnemy() {
 		x: 1200,
 		y: 80,
 		sides: 4,
-		radius: 30,
+		radius: 50,
 		fill: 'red',
 		scaleX: 0.4,
 		scaleY: 0.4,
@@ -139,8 +142,15 @@ function createEnemy() {
 	drop.play()
 }
 
-function spikeManager() { //Creates spikes to beat
+function spikeManager(current) { //Creates spikes to beat
+
 	if (gameWonAlready) return;
+	if (current !== globalId){
+		beatStage = 0
+
+
+	}else{
+
 	var currentTime = music.seek()
 	var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
 	timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
@@ -153,7 +163,7 @@ function spikeManager() { //Creates spikes to beat
 				soundEffects.spikeCreate.play()
 				createSpike()
 			}
-			spikeManager()
+			spikeManager(current)
 			console.log("omg success");
 		}
 		catch(error){
@@ -161,13 +171,14 @@ function spikeManager() { //Creates spikes to beat
 		}
 	}, timeUntilNextBeat * 1000) //seconds to miliseconds
 }
+}
 
 function loseGame() {
 	gameRunning = false
 	console.log(gameRunning)
 	soundEffects.lose.play();
 	music.stop()
-	clearInterval(gameLoop)
+	clearInterval(window.gameLoop)
 	cancelAnimationFrame(starAnimLoop)
 	beatStage = 0
   setTimeout(function(){
@@ -181,7 +192,7 @@ function winGame(){
 	soundEffects.win.play();
   bossIntroCutscene();
   setTimeout(function(){
-  clearInterval(gameLoop)
+  clearInterval(window.gameLoop)
 	cancelAnimationFrame(starAnimLoop);
   },1000)
 	
