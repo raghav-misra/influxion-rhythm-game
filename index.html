@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Influxion - Welcome</title>
     <link rel="stylesheet" href="css/shared.css"/>
+		<script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
     <link rel="stylesheet" href="css/splash-screen.css"/>
 </head>
 <body>
@@ -56,8 +57,19 @@
     <div id="loader">
         <img id="load-svg"/>
     </div>
-    
     <script src="js/index.js"></script>
-    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
+		<script type="text/javascript">
+			// Song Called Wind - p00s
+			var menuMusic = new Audio('audio/main-screen.mp3');
+			window.onmouseover = ()=>{
+				var promise = menuMusic.play();
+				if (promise !== undefined) {
+					promise.then(_ => {
+					}).catch(error => {
+							console.log(error);
+					});
+			} 
+			}
+		</script>
 </body>
 </html>

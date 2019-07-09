@@ -300,6 +300,12 @@ function buildGame(data){
 
 // Update Function:
 function updateGame(){
+	if(bossHP <= 0){
+		return levelCompleted("You killed the boss!", [true, 4]);
+	}
+	else if(userHP <= 0){
+		return levelCompleted("You were killed by the boss!", [false, 0]);
+	}
   var timeCurrentSong = song.seek();
 	if(song.seek == 0){
 		song.stop();
@@ -312,8 +318,8 @@ function updateGame(){
     pressReady = true;
     beatMap.arrayCounter += 1;
     if(beatMap.arrayCounter >= beatMap.beatArray.length - 1){
-      clearInterval(updateInterval);
       console.log("OMG We Finished The Map!");
+			return levelCompleted("You Survived The Boss!", calcStarScore(userScore));
     }
   }
 }
@@ -389,4 +395,22 @@ function addRating(rating){
   document.getElementById("ratings").innerText = rating; 
 }
 
-// Code To Execute:
+// Complete Level + Star Scoring:
+function levelCompleted(message, starsWin){
+	setTimeout(function(){
+		clearInterval(updateInterval);
+		alert(message);
+		if(starsWin[0]) alert("Good Job!");
+		else if(message=="You Survived The Boss!"&&starsWin==0) alert("But you didn't score enough to win the level.");
+		else alert("Noooooo. You lost.");
+		alert("You got " + starsWin[1] + " stars.");
+	}, 2000);
+}
+
+function calcStarScore(score){
+	var starArray = beatMap.info.starScores;
+	if (score >= starArray[0]) return [true, 1];
+	if (score >= starArray[1]) return [true, 2];
+	if (score >= starArray[2]) return [true, 3];
+	return [false, 0];
+}
