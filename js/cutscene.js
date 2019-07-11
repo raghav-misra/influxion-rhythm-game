@@ -73,6 +73,7 @@ function bossIntroCutscene() {
         var textCut = new Konva.Text({
          x: 400,
          y: 10,
+         opacity: 0,
         text: 'You reached the end of the level...',
         fontSize: 30,
         fontFamily: 'Oswald',
@@ -81,6 +82,7 @@ function bossIntroCutscene() {
          var textCut1 = new Konva.Text({
          x: 400,
          y: 50,
+         opacity: 0,
         text: 'Now that you have learned the flow of this song..',
         fontSize: 30,
         fontFamily: 'Oswald',
@@ -88,6 +90,7 @@ function bossIntroCutscene() {
         });
         var textCut2 = new Konva.Text({
          x: 400,
+         opacity: 0,
          y: 90,
         text: 'Its time for your final test..',
         fontSize: 30,
@@ -108,6 +111,9 @@ function bossIntroCutscene() {
         //Draw the layers
         cutsceneLayer0.draw()
         cutsceneLayer1.draw()
+        cutsceneLayer1.draw()
+        cutsceneLayer1.draw()
+        
 
 
         //Animations used in this cutscene
@@ -162,6 +168,20 @@ function bossIntroCutscene() {
                                cutsceneLayer1.add(textCut1)
                                cutsceneLayer1.add(textCut2)
                                cutsceneLayer1.draw();
+                               textCut.to({
+                                opacity: 1,
+                                duration: 1
+
+                              })
+                              textCut1.to({
+                                opacity: 1,
+                                duration: 1
+                              })
+                              textCut2.to({
+                                opacity: 1,
+                                duration: 1
+                              })
+                              soundEffects.bossTalk.play()
                                setTimeout(() => {
                                 openBossDiv();
                                }, 5000);

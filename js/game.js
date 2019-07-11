@@ -64,10 +64,7 @@ function loadGame(data) {
 		
 	})
 	//load music
-	music.src = "maps/" + map.info.path
-	music.on("load", function() {
-		
-	})
+	music = new Howl({ src: ["maps/"+map.info.path] });
   setTimeout(function(){
 		music.play()
 		spikeManager(globalId)
@@ -116,7 +113,7 @@ function createEnemy() {
 		x: 1200,
 		y: 80,
 		sides: 4,
-		radius: 50,
+		radius: 20,
 		fill: 'red',
 		scaleX: 0.4,
 		scaleY: 0.4,
@@ -154,6 +151,7 @@ function spikeManager(current) { //Creates spikes to beat
 	var currentTime = music.seek()
 	var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
 	timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
+
 	beatStage++
 	setTimeout(function() {
 		try{
