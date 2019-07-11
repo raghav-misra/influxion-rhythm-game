@@ -27,7 +27,6 @@ function loadGameUI(){
 }
 
 function loadGame(data) {
-	console.log('asd')
 	if(gameRunning == false){
 		globalId++
 	loadGameUI();
@@ -68,7 +67,8 @@ function loadGame(data) {
   setTimeout(function(){
 		music.play()
 		spikeManager(globalId)
-		window.gameLoop = requestAnimationFrame(update) //will try to draw 60fps
+		lastFrameTime = new Date().valueOf;
+		update(new Date().valueOf);
 		beatStage = 0
 	},1000)
 

@@ -20,10 +20,10 @@ var stage = new Konva.Stage({
 	width: size,
 	height: height
 });
-window.onkeydown = function(event) {
+window.onkeydown = function (event) {
 	keys[event.key] = true;
 };
-window.onkeyup = function(event) {
+window.onkeyup = function (event) {
 	keys[event.key] = false;
 };
 //Background layer
@@ -35,7 +35,7 @@ var backgroundLayer = new Konva.FastLayer();
 var backgroundImage = new Image();
 var backgoundSpeed = 0.5;
 var backgroundLoad = false
-backgroundImage.onload = function() {
+backgroundImage.onload = function () {
 	background = new Konva.Image({
 		x: 0,
 		y: 0,
@@ -141,20 +141,21 @@ function playerInputHandler() {
 	}
 }
 //Main draw function
-function update() {if(gameRunning){
-	backgroundLayer.draw()
-	textLayer.draw()
-	mainLayer.draw()
-playerInputHandler()
-moveSpikes()
-moveEnemy()
-moveTexts()
-moveBackground()
-requestAnimationFrame(update)
+function update(time) {
+	if (gameRunning) {
+		backgroundLayer.draw()
+		textLayer.draw()
+		mainLayer.draw()
+		playerInputHandler()
+		moveSpikes()
+		moveEnemy()
+		moveTexts()
+		moveBackground
+		window.gameLoop = requestAnimationFrame(update)
 
-}else{
-	return;
-}
+	} else {
+		return;
+	}
 }
 
 function jump() {
@@ -182,9 +183,9 @@ function moveBackground() {
 }
 
 function moveSpikes() {
-	spikes.forEach(function(spike, i) {
+	spikes.forEach(function (spike, i) {
 		if (map.beats.notes[beatStage] == undefined && spikes[spikes.length - 1].getX() <= 0) {
-			if(gameWonAlready == false) winGame();
+			if (gameWonAlready == false) winGame();
 			gameWonAlready = true;
 			return;
 		} else if (spikes[i].getX() <= 0) {
@@ -201,9 +202,9 @@ function moveSpikes() {
 }
 
 function moveEnemy() {
-	enemies.forEach(function(spike, i) {
+	enemies.forEach(function (spike, i) {
 		if (map.beats.notes[beatStage] == undefined && enemies[enemies.length - 1].getX() <= 0) {
-			if(gameWonAlready == false) winGame();
+			if (gameWonAlready == false) winGame();
 			gameWonAlready = true;
 			return;
 		} else if (enemies[i].getX() <= 0) {
@@ -216,7 +217,7 @@ function moveEnemy() {
 					y: 1000,
 					duration: 0.4,
 					easing: Konva.Easings.EaseIn,
-					onFinish: function() {
+					onFinish: function () {
 						breakRock.destroy();
 					}
 				});
@@ -226,7 +227,7 @@ function moveEnemy() {
 				loseGame()
 			}
 		} else if (map.beats.notes[beatStage] == undefined && enemies[i].getX() <= 0) {
-			if(gameWonAlready == false) winGame();
+			if (gameWonAlready == false) winGame();
 			gameWonAlready = true;
 			return;
 		}
@@ -253,7 +254,7 @@ function animateStar() {
 starAnimLoop = window.requestAnimationFrame(animateStar);
 
 function moveTexts() {
-	textmap.forEach(function(text, i) {
+	textmap.forEach(function (text, i) {
 		if (text.getX() > size) {
 			textLayer.add(text)
 		}
