@@ -27,12 +27,11 @@ function loadGameUI(){
 }
 
 function loadGame(data) {
-	console.log('asd')
 	if(gameRunning == false){
 		globalId++
 	loadGameUI();
 	gameRunning = true
-	clearInterval(window.gameLoop)
+	cancelAnimationFrame(window.gameLoop)
   music.stop()
   backgroundLayer.removeChildren()
   textmap = []
@@ -68,7 +67,7 @@ function loadGame(data) {
   setTimeout(function(){
 		music.play()
 		spikeManager(globalId)
-		window.gameLoop = setInterval(update, 1000 / 60); //60fps
+		window.gameLoop = requestAnimationFrame(update) //will try to draw 60fps
 		beatStage = 0
 	},1000)
 
@@ -77,82 +76,54 @@ function loadGame(data) {
 //spikes
 function createSpike() {
 	var spike = new Konva.RegularPolygon({ //spike drawer
-		x: 1200,
-		y: 80,
+		x: 800,
+		y: 545,
 		sides: 3,
 		radius: 15,
 		fill: 'transparent',
 		shadowColor: '#F8D092',
 		shadowBlur: 20,
 		shadowOpacity: 0.9,
-		scaleX: 0.4,
-		scaleY: 0.4,
 		stroke: 'white',
     strokeWidth: 4
 	});
-	spikes.push(spike)
 	mainLayer.add(spike)
-	var drop = new Konva.Tween({
-		node: spike,
-		x: 800,
-		y: 545,
-		duration: 1,
-		scaleX: 1,
-		scaleY: 1,
-		easing: Konva.Easings.EaseIn,
-		onFinish: function() {
-      spikes.push(spike)
-      drop.destroy();
-		}
-	});
-	drop.play()
+	spikes.push(spike)
+	
+
 }
 
 function createEnemy() {
 	var spike = new Konva.RegularPolygon({ //spike drawer
-		x: 1200,
-		y: 80,
+		x: 800,
+		y: 540,
 		sides: 4,
 		radius: 20,
 		fill: 'red',
-		scaleX: 0.4,
-		scaleY: 0.4,
 		shadowColor: 'red',
 		shadowBlur: 20,
 		shadowOpacity: 0.9
 	});
-	enemies.push(spike)
 	mainLayer.add(spike)
-	var drop = new Konva.Tween({
-		node: spike,
-		x: 800,
-		y: 540,
-		duration: 1,
-		scaleX: 1,
-		scaleY: 1,
-		easing: Konva.Easings.EaseIn,
-		onFinish: function() {
-      enemies.push(spike)
-      drop.destroy();
-		}
-	});
-	drop.play()
+	enemies.push(spike)
+	
+
 }
 
 function spikeManager(current) { //Creates spikes to beat
 
 	if (gameWonAlready) return;
 	if (current !== globalId){
-		beatStage = 0
+		return;
 
 
 	}else{
 
 	var currentTime = music.seek()
 	var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
-	timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
+	timeUntilNextBeat = nextBeatTime - currentTime - 4.5
+	console.log(timeUntilNextBeat)
 
-	beatStage++
 	setTimeout(function() {
 		try{
 			if (map.beats.notes[beatStage].type == "attack") {
@@ -169,6 +140,7 @@ function spikeManager(current) { //Creates spikes to beat
 		}
 	}, timeUntilNextBeat * 1000) //seconds to miliseconds
 }
+	
 }
 
 function loseGame() {
@@ -176,7 +148,7 @@ function loseGame() {
 	console.log(gameRunning)
 	soundEffects.lose.play();
 	music.stop()
-	clearInterval(window.gameLoop)
+	cancelAnimationFrame(window.gameLoop)
 	cancelAnimationFrame(starAnimLoop)
 	beatStage = 0
   setTimeout(function(){
@@ -186,11 +158,12 @@ function loseGame() {
 }
 
 function winGame(){
+	gameRunning = false
   music.stop()
 	soundEffects.win.play();
   bossIntroCutscene();
   setTimeout(function(){
-  clearInterval(window.gameLoop)
+	cancelAnimationFrame(window.gameLoop)
 	cancelAnimationFrame(starAnimLoop);
   },1000)
 	

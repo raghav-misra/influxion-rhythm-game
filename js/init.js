@@ -15,6 +15,19 @@ var starAnimType = 'down'
 var swordOn = false
 var gameWonAlready = false;
 var gameRunning = false;
+var fps = {
+	thirty:{
+		delay: 5.5,
+		number: 30,
+
+	},
+	sixity:{
+		delay: 11,
+		number: 60
+
+	}
+}
+var selectedFps = fps.sixity //defualt draw at 60fps
 var stage = new Konva.Stage({
 	container: 'canvas', // id of container <div>
 	width: size,
@@ -102,6 +115,27 @@ var playerPosition = {
 player.perfectDrawEnabled(false);
 player.transformsEnabled('position')
 mainLayer.add(player);
+//create spike/enemey effect
+var createEffect = new Konva.Rect({
+	x:0,
+	y: 545,
+	width: 100,
+	height: height,
+	opacity: 0
+})
+/*var createEffectAnim = new Konva.Tween({
+	opacity: 1,
+	duration: 0.5,
+	easing: Konva.Easings.ElasticEaseInOut,
+	onFinish: function() {
+		createEffectAnim.reset()
+		
+
+		  }
+
+})*/
+createEffect.listening(false)
+mainLayer.add(createEffect)
 //starData Data + Animations
 var star = new Konva.Star({
 	width: 20,
@@ -142,14 +176,26 @@ function playerInputHandler() {
 }
 //Main draw function
 function update() {
+	if(gameRunning){
+		backgroundLayer.draw()
+		textLayer.draw()
+		mainLayer.draw()
 	playerInputHandler()
 	moveSpikes()
 	moveEnemy()
 	moveTexts()
 	moveBackground()
-	backgroundLayer.draw()
-	textLayer.draw()
-	mainLayer.draw()
+	if(selectedFps.number == 30){
+	setTimeout(function() {
+		requestAnimationFrame(update)
+	  }, 1000 / 30);
+	}else{
+		requestAnimationFrame(update)
+	}
+
+	}else{
+		return;
+	}
 }
 
 function jump() {
@@ -191,7 +237,7 @@ function moveSpikes() {
 			loseGame()
 			console.log()
 		}
-		spike.setX(spike.getX() - 2) //2 = speed
+		spike.setX(spike.getX() - 2 * selectedFps.mutiplyer) //speed = 2px * fps mutiplyer
 	})
 }
 
@@ -225,7 +271,7 @@ function moveEnemy() {
 			gameWonAlready = true;
 			return;
 		}
-		spike.setX(spike.getX() - 2) //2 = speed
+		spike.setX(spike.getX() - 2 * selectedFps.mutiplyer) //speed = 2px * fps mutiplyer
 	})
 }
 
