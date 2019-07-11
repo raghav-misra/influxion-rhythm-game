@@ -35,13 +35,6 @@
                     <span class="c-source"><span>Font Awesome</span></span>
                 </div>
             </a>
-            <a href="https://beeple-crap.com" target="_blank">
-                <div class="credits-tile" 
-                style="background-image: url('img/credits/beeple.webp')">
-                    <span class="c-name">Video Backgrounds</span>
-                    <span class="c-source"><span class="reverse">Beeple</span></span>
-                </div>
-            </a>
             <a href="https://fonts.google.com" target="_blank">
                 <div class="credits-tile" 
                 style="background-image: url('img/credits/google-fonts.png')">
@@ -55,21 +48,9 @@
     </div>
     <div id="semi-overlay"></div>
     <div id="loader">
-        <img id="load-svg"/>
+        <img src="assets/blank.gif" id="load-svg"/>
     </div>
+		<script src="js/particles.js"></script>
     <script src="js/index.js"></script>
-		<script type="text/javascript">
-			// Song Called Wind - p00s
-			var menuMusic = new Audio('audio/main-screen.mp3');
-			window.onmouseover = ()=>{
-				var promise = menuMusic.play();
-				if (promise !== undefined) {
-					promise.then(_ => {
-					}).catch(error => {
-							console.log(error);
-					});
-			} 
-			}
-		</script>
 </body>
 </html>

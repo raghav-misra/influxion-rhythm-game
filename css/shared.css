@@ -22,6 +22,7 @@ body, html {
 	background: var(--blue-grey);
 }
 
+/* <hr>, <hr class="white"> */
 hr{
     height: 0; 
     border: none;
@@ -32,6 +33,7 @@ hr.white{
     border-top: 2px white solid;
 }
 
+/* <button class="btn">...</button> */
 .btn{
     padding: 15px;
     font-size: 20px;
@@ -49,6 +51,7 @@ hr.white{
     background: white;
 }
 
+/* Animations */
 @keyframes fade-in{
     from{opacity: 0;}
     to{opacity: 1;}
@@ -62,4 +65,34 @@ hr.white{
 @keyframes rotate{
     from{transform: rotate(0deg);}
     to{transform: rotate(360deg);}
+}
+
+/* Color-Change Animations */
+@keyframes color-change-text {
+	0% {color: cornflowerblue;}
+	25% {color: green;}
+	50% {color: rgb(175, 53, 175);}
+	75% {color: rgb(175, 163, 53);}
+	100% {color: cornflowerblue;}
+}
+@keyframes color-change-border {
+	0% {border-color: cornflowerblue;}
+	25% {border-color: green;}
+	50% {border-color: rgb(175, 53, 175);}
+	75% {border-color: rgb(175, 163, 53);}
+	100% {border-color: cornflowerblue;}
+}
+@keyframes color-change-background {
+	0% {background-color: cornflowerblue;}
+	25% {background-color: green;}
+	50% {background-color: rgb(175, 53, 175);}
+	75% {background-color: rgb(175, 163, 53);}
+	100% {background-color: cornflowerblue;}
+}
+@keyframes color-change-text-border {
+	0% {color: cornflowerblue;border-color: cornflowerblue;}
+	25% {color: green;border-color: green;}
+	50% {color: rgb(175, 53, 175);border-color: rgb(175, 53, 175);}
+	75% {color: rgb(175, 163, 53);border-color: rgb(175, 163, 53);}
+	100% {color: cornflowerblue;border-color: cornflowerblue;}
 }

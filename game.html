@@ -41,10 +41,12 @@
 				<hr class="white">
 			</header>
 			<div id="legend">
-				<span class="legend-item"><i class="fas fa-circle" style="color:cornflowerblue;"></i> &nbsp;⁠—⁠—&nbsp;Easy&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
-				<span class="legend-item"><i class="fas fa-circle" style="color:green;"></i> &nbsp;⁠—⁠—&nbsp;Normal</span><br>
-				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i> &nbsp;⁠—⁠—&nbsp;Difficult</span><br>
-				<hr class="white">
+				<div style="width: 150px; text-align: left; display: inline-block;">
+					<span class="legend-item"><i class="fas fa-circle" style="color:cornflowerblue;"></i>&nbsp;⁠—⁠—&nbsp;Easy</span><br>
+					<span class="legend-item"><i class="fas fa-circle" style="color:green;"></i>&nbsp;⁠—⁠—&nbsp;Normal</span><br>
+				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i>&nbsp;⁠—⁠—&nbsp;Difficult</span>
+				</div>
+				<br><hr class="white">
 			</div>
 		</div>
 		<div id="level-list">
@@ -59,7 +61,7 @@
 					<button onclick="loadMap('maps/onestop.json');" class="lvl-btn btn">Play!</button>
 				</div>
 			</div>
-			<div class="lvl easy">
+			<div class="lvl difficult">
 				<div class="lvl-number">01</div>
 				<div class="lvl-name">Town</div>
 				<div class="lvl-song-info">
@@ -70,20 +72,16 @@
 					<button onclick="loadMap('maps/town.json');" class="lvl-btn btn">Play!</button>
 				</div>
 			</div>
-				<!-- set framerate--><br><br>
-			
-				<p>Seeing Lag? Set the framerate to 30fps</p>
-				<button onclick="alert('set to 30'); selectedFps = fps.thirty"class="lvl-btn btn">30fps</button>
-				<button onclick="alert('set to 30'); selectedFps = fps.sixity" class="lvl-btn btn">60fps</button>
 		</div>
 		
 		<div></div>
 	</div>
-	<div id="popup">
-		<span id="popup-title">Title My DOOD</span>
-		<hr>
-		<span id="popup-body">Lorem Ipserbrnrt rntrh5h54h i forgot the rest fett uwu mangore tomadre por favor quel nempa sigh none </span>
-		<span id="popup-btn">Okay</span>
+	<div id="popup" class="hide">
+		<span id="popup-title">Tantalizing Title</span>
+		<hr class="white">
+		<span id="popup-body">Tempermental Text</span>
+		<hr class="white">
+		<button id="popup-btn" class="btn">Beautiful Button</button>
 	</div>
 	<script src="js/ui.js">
 	</script>

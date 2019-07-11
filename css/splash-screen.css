@@ -6,18 +6,17 @@
 
 /* Reset Styles */
 
-
 html {
 	animation: fade-in 1.5s ease-in-out;
 }
-
 /* Header, Centering, Titles */
+
 header {
 	display: inline-block;
 	padding-top: calc(50vh - 250px);
 	position: fixed;
 	left: 0;
-	background: var(--blue-grey);
+	background: transparent;
 	height: 100vh;
 	width: 100vw;
 	z-index: 1;
@@ -27,10 +26,10 @@ header .title {
 	font-family: "Squada One", sans-serif;
 	font-size: 200px;
 	color: cornflowerblue;
-	animation: color-change-title 7.5s ease-in-out infinite;
+	animation: color-change-text 7.5s ease-in-out infinite;
 }
-
 /* Name Input */
+
 .enter-name {
 	visibility: hidden;
 	position: relative;
@@ -86,7 +85,7 @@ input[type="text"] {
 	transition: border-bottom-color 0.5s ease-in-out;
 }
 input[type="text"]:focus {
-	animation: color-change-text-border-input 7.5s ease-in-out infinite;
+	animation: color-change-border 7.5s ease-in-out infinite;
 }
 input[type="text"]:not(focus) {
 	animation: none;
@@ -96,6 +95,7 @@ input[type="text"]:hover, input[type="text"]:focus {
 	border-bottom-color: white;
 }
 /* Button Style Overrides */
+
 .btn.tab {
 	width: 150px;
 	animation: color-change-text-border 7.5s ease-in-out infinite;
@@ -123,219 +123,124 @@ input[type="text"]:hover, input[type="text"]:focus {
 	font-size: 17.5px;
 }
 
-/* Loader Animation */
-#loader {
-	z-index: 0;
-	position: fixed;
-    top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-}
-
-#loader img{
-    position: absolute;
-    top: calc(50vh - 170px);
-    left: calc(50vw - 250px);
-    width: 500px;
-    height: 281.25px;
-}
-
 /* Credits Window */
 
-#credits-window{
-    text-align: center;
-    width: 600px;
-    height: 600px;
-    border-radius: 10px;
-    position: fixed;
-    background: white;
-    top: calc(50vh - 300px);
-    left: calc(50vw - 300px);
+#credits-window {
+	text-align: center;
+	width: 600px;
+	height: 600px;
+	border-radius: 10px;
+	position: fixed;
+	background: white;
+	top: calc(50vh - 300px);
+	left: calc(50vw - 300px);
 	z-index: 4;
 	display: none;
 }
-
-#semi-overlay{
+#semi-overlay {
 	display: none;
 }
-
-#credits-window *{
-    margin: 10px;
+#credits-window * {
+	margin: 10px;
 }
-
-#credits-window h1{
-    font-size: 25px;
-		color: var(--blue-grey);
+#credits-window h1 {
+	font-size: 25px;
+	color: var(--blue-grey);
 }
-
-.credits-tile span, .credits-tile span i{
-    font-size: 20px;
+.credits-tile span, .credits-tile span i {
+	font-size: 20px;
 }
-
-.credits-tile .c-name{
-    font-size: 25px;
-    position: absolute;
-    top: -10px;
-    margin: 0;
-    padding: 10px;
-    border-bottom-right-radius: 10px;
-    border-top-left-radius: 10px;
+.credits-tile .c-name {
+	font-size: 25px;
+	position: absolute;
+	top: -10px;
+	margin: 0;
+	padding: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
 	left: -10px;
 	box-shadow: 2px 2px 10px var(--blue-grey);
-    background: white;
+	background: white;
 	color: royalblue;
 	border-right: 2px var(--blue-grey) solid;
 	border-bottom: 2px var(--blue-grey) solid;
 	z-index: 3;
 }
-
-
-.credits-tile .c-source{
-    margin: 0;
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: -10px;
-    left: -10px;
+.credits-tile .c-source {
+	margin: 0;
+	display: block;
+	position: absolute;
+	width: 100%;
+	top: -10px;
+	left: -10px;
 	padding-top: 25px;
 	padding-left: 5px;
-    height: 100px;
+	height: 100px;
 	background: rgba(255, 255, 255, 0.171);
 	color: var(--blue-grey);
 	text-shadow: 2px 2px white;
 }
-
-.credits-tile .c-source span{
+.credits-tile .c-source span {
 	font-size: 35px;
 	color: var(--blue-grey);
 	text-shadow: 2px 2px white;
 }
-
-.credits-tile .c-source span.reverse{
+.credits-tile .c-source span.reverse {
 	font-size: 35px;
 	color: white;
 	text-shadow: 2px 2px var(--blue-grey);
 }
-
-.credits-scroll{
-    overflow: auto;
+.credits-scroll {
+	overflow: auto;
 	height: 450px;
 }
-
-.credits-scroll::-webkit-scrollbar{
+.credits-scroll::-webkit-scrollbar {
 	background: white;
 	width: 10px;
 }
-
-.credits-scroll::-webkit-scrollbar-thumb{
+.credits-scroll::-webkit-scrollbar-thumb {
 	background: var(--blue-grey);
 	border-radius: 20px;
 }
-
-.btn.credits{
-    color: var(--blue-grey);
+.btn.credits {
+	color: var(--blue-grey);
 	border-color: var(--blue-grey);
 	padding: 7.5px;
 	position: relative;
 	bottom: 6px;
 	font-size: 17.5px;
-    transition: background 0.75s ease-in-out, color 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
+	transition: background 0.75s ease-in-out, color 0.75s ease-in-out, box-shadow 0.75s ease-in-out;
 }
-
-.btn.credits:hover{
-    box-shadow: 0 0 10px var(--blue-grey);
-    background: var(--blue-grey);
-    color: white;
+.btn.credits:hover {
+	box-shadow: 0 0 10px var(--blue-grey);
+	background: var(--blue-grey);
+	color: white;
 }
-
-.credits-tile{
-    background-color: cornflowerblue;
-    height: 100px;
+.credits-tile {
+	background-color: cornflowerblue;
+	height: 100px;
 	color: white;
 	background-position: center;
-    background-size: cover;
+	background-size: cover;
 	position: relative;
 	overflow: hidden;
 	border-radius: 10px;
 	border: 2px var(--blue-grey) solid;
 }
-
-.credits-tile *{
-    color: white;
+.credits-tile * {
+	color: white;
 }
-
-#semi-overlay{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: 3;
-    background: var(--blue-grey-translucent);
+#semi-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 3;
+	background: var(--blue-grey-translucent);
 }
-
 /* Animations */
 
-@keyframes color-change-title {
-	0% {
-		color: cornflowerblue;
-	}
-	25% {
-		color: green;
-	}
-	50% {
-		color: rgb(175, 53, 175);
-	}
-	75% {
-		color: rgb(175, 163, 53);
-	}
-	100% {
-		color: cornflowerblue;
-	}
-}
-@keyframes color-change-text-border {
-	0% {
-		color: cornflowerblue;
-		border-color: cornflowerblue;
-	}
-	25% {
-		color: green;
-		border-color: green;
-	}
-	50% {
-		color: rgb(175, 53, 175);
-		border-color: rgb(175, 53, 175);
-	}
-	75% {
-		color: rgb(175, 163, 53);
-		border-color: rgb(175, 163, 53);
-	}
-	100% {
-		color: cornflowerblue;
-		border-color: cornflowerblue;
-	}
-}
-@keyframes color-change-text-border-input {
-	0% {
-		border-color: white;
-	}
-	20% {
-		border-color: cornflowerblue;
-	}
-	40% {
-		border-color: green;
-	}
-	60% {
-		border-color: rgb(175, 53, 175);
-	}
-	80% {
-		border-color: rgb(175, 163, 53);
-	}
-	100% {
-		border-color: white;
-	}
-}
 @keyframes repeat-first-name {
 	50% {
 		transform: scale(1.5);
@@ -348,4 +253,23 @@ input[type="text"]:hover, input[type="text"]:focus {
 	100% {
 		transform: translateX(-100vw);
 	}
+}
+/* Particles & Loader */
+
+#loader {
+	background: var(--blue-grey);
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	z-index: 0;
+	top: 0;
+	left: 0;
+}
+#loader img {
+	border: none;
+	position: absolute;
+	top: calc(50vh - 170px);
+	left: calc(50vw - 250px);
+	width: 500px;
+	height: 281.25px;
 }

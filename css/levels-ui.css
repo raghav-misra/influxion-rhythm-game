@@ -154,25 +154,39 @@ hr{
 	background: white;
 }
 
-/* Animations */
-@keyframes color-change-title {
-	0% {color: cornflowerblue;}
-	25% {color: green;}
-	50% {color: rgb(175, 53, 175);}
-	75% {color: rgb(175, 163, 53);}
-	100% {color: cornflowerblue;}
+/* Custom Alert/Popup Dialog */
+#popup{
+	position: fixed;
+	top: 20px;
+	width: 400px;
+	padding: 10px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: auto;
+	z-index: 667;
+	background: var(--blue-grey);
+	box-shadow: 0 0 15px rgba(255, 255, 255, 0.404);
+	left: calc(50vw - 210px);
+	border: 2px white solid;
+	border-radius: 5px;
 }
-@keyframes color-change-border {
-	0% {border-color: cornflowerblue;}
-	25% {border-color: green;}
-	50% {border-color: rgb(175, 53, 175);}
-	75% {border-color: rgb(175, 163, 53);}
-	100% {border-color: cornflowerblue;}
+
+#popup #popup-title{
+	animation: color-change-text 5s ease-in-out infinite;
+	display: block;
+	font-family: 'Squada One', sans-serif;
+	text-transform: uppercase;
+	font-size: 25px;
 }
-@keyframes color-change-background {
-	0% {background-color: cornflowerblue;}
-	25% {background-color: green;}
-	50% {background-color: rgb(175, 53, 175);}
-	75% {background-color: rgb(175, 163, 53);}
-	100% {background-color: cornflowerblue;}
+
+#popup #popup-body{
+	margin: 5px;
+	display: block;
+	font-size: 17.5px;
+}
+
+#popup #popup-btn{
+	padding: 5px;
+	font-size: 15px;
+	margin: 5px;
 }

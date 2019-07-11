@@ -75,7 +75,27 @@ function goToNameCheck(locationURL){
 
 function loader(locateURL, fName){
     document.getElementById("load-svg").src = "img/loader.svg";
+		document.getElementById("load-svg").style.animation = "fade-in 1s ease-in-out";
     setTimeout(()=>{
         location.href = locateURL + "?f=" + fName;
     }, 7900);
 }
+
+// Particles.JS
+particlesJS.load('loader', 'assets/particles.json', function() {
+  console.log('callback - particles.js config loaded');
+});
+
+
+// Song Called Wind - p00s
+var menuMusic = new Audio('audio/main-screen.mp3');
+window.onmouseover = ()=>{
+	var promise = menuMusic.play();
+	if (promise !== undefined) {
+		promise.then(_ => {
+		}).catch(error => {
+				console.log(error);
+		});
+	} 
+}
+		
