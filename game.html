@@ -13,8 +13,7 @@
 </head>
 <body onkeypress="checkPress(event)">
 	<div class='canvas hide' id='canvas'></div>
-  <div class='cutscene hide' id='cutscene'>
-    <h1>sadasd</h1>
+  <div class='cutscene hide' id='cutscene'><h1></h1>
   </div>
 	<div id="boss-battle-ui" class="boss-battle hide">
 		<div id="boss-contain">
@@ -44,7 +43,7 @@
 			<div id="legend">
 				<span class="legend-item"><i class="fas fa-circle" style="color:cornflowerblue;"></i> &nbsp;⁠—⁠—&nbsp;Easy&nbsp;&nbsp;&nbsp;&nbsp;</span><br>
 				<span class="legend-item"><i class="fas fa-circle" style="color:green;"></i> &nbsp;⁠—⁠—&nbsp;Normal</span><br>
-				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i> &nbsp;⁠—⁠—&nbsp;Difficult</span>
+				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i> &nbsp;⁠—⁠—&nbsp;Difficult</span><br>
 				<hr class="white">
 			</div>
 		</div>
@@ -57,7 +56,7 @@
 					<span class="lvl-song s-artist">Artist: David Yackley</span>
 				</div>
 				<div class="lvl-btn-contain">
-					<button onclick="path='maps/onestop.json';loadMap('maps/onestop.json');" class="lvl-btn btn">Play!</button>
+					<button onclick="loadMap('maps/onestop.json');" class="lvl-btn btn">Play!</button>
 				</div>
 			</div>
 			<div class="lvl easy">
@@ -68,14 +67,26 @@
 					<span class="lvl-song s-artist">Artist: Nathan Grigg</span>
 				</div>
 				<div class="lvl-btn-contain">
-					<button onclick="path='maps/town.json';loadMap('maps/town.json');" class="lvl-btn btn">Play!</button>
+					<button onclick="loadMap('maps/town.json');" class="lvl-btn btn">Play!</button>
 				</div>
 			</div>
+				<!-- set framerate--><br><br>
+			
+				<p>Seeing Lag? Set the framerate to 30fps</p>
+				<button onclick="alert('set to 30'); selectedFps = fps.thirty"class="lvl-btn btn">30fps</button>
+				<button onclick="alert('set to 30'); selectedFps = fps.sixity" class="lvl-btn btn">60fps</button>
 		</div>
+		
 		<div></div>
 	</div>
-
-
+	<div id="popup">
+		<span id="popup-title">Title My DOOD</span>
+		<hr>
+		<span id="popup-body">Lorem Ipserbrnrt rntrh5h54h i forgot the rest fett uwu mangore tomadre por favor quel nempa sigh none </span>
+		<span id="popup-btn">Okay</span>
+	</div>
+	<script src="js/ui.js">
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
 	</script> 
 	<script src="js/sounds.js">
