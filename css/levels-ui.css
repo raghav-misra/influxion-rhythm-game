@@ -27,7 +27,7 @@ header{
 header .ttl{
 	font-family: 'Squada One', sans-serif;
 	font-size: 50px;
-	animation: color-change-title 7.5s ease-in-out infinite;
+	animation: color-change-text 7.5s ease-in-out infinite;
 }
 
 /* <hr> */
@@ -93,7 +93,7 @@ hr{
 }
 
 .lvl .lvl-song-info{
-	top: 60px;
+	top: 30px;
 	position: relative;
 }
 
@@ -154,8 +154,22 @@ hr{
 	background: white;
 }
 
+/* Level Stars Rating */
+.lvl .lvl-star-rating i{
+	color: var(--star-yellow);
+	font-size: 35px;
+}
+
+.lvl .lvl-star-rating{
+	display: block;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 180px;
+}
+
 /* Custom Alert/Popup Dialog */
-#popup{
+#popup, #popup-2{
 	position: fixed;
 	top: 20px;
 	width: 400px;
@@ -171,7 +185,7 @@ hr{
 	border-radius: 5px;
 }
 
-#popup #popup-title{
+#popup #popup-title, #popup-2 #popup-title-2{
 	animation: color-change-text 5s ease-in-out infinite;
 	display: block;
 	font-family: 'Squada One', sans-serif;
@@ -179,14 +193,45 @@ hr{
 	font-size: 25px;
 }
 
-#popup #popup-body{
+#popup #popup-body, #popup-2, #popup-body-2{
 	margin: 5px;
 	display: block;
 	font-size: 17.5px;
 }
 
-#popup #popup-btn{
+#popup .btn, #popup-2 .btn{
 	padding: 5px;
 	font-size: 15px;
 	margin: 5px;
+}
+
+/* # of stars */
+#stars-count{
+	position: absolute;
+	top: 3px;
+	left: 0;
+	padding: 10px;
+	text-align: left;
+	display: block;
+	width: 100vw;
+	background: transparent;
+}
+
+#stars-count *{
+	margin: 2.5px;
+}
+
+#stars-count .amt{
+	color: white;
+	font-size: 25px;
+	display: inline-block;
+}
+
+#stars-count i{
+	color: yellow;
+	display: inline-block;
+	position: relative;
+	bottom: 2.5px;
+	font-size: 20px;
+	text-shadow: 0 0 7.5px white;
 }

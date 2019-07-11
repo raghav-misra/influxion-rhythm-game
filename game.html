@@ -9,12 +9,16 @@
 	<link href="css/shared.css" rel="stylesheet">
 	<link href="css/levels-ui.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/b8185e1d28.js">
-	</script>  
+	</script>
 </head>
 <body onkeypress="checkPress(event)">
-	<div class='canvas hide' id='canvas'></div>
-  <div class='cutscene hide' id='cutscene'><h1></h1>
-  </div>
+	<!-- Platformer Container -->
+	<div id='canvas' class='canvas hide'></div>
+	<!-- In-Game Cutscene Transition -->
+	<div id='cutscene' class='cutscene hide'>
+		<h1></h1>
+	</div>
+	<!-- Boss Battle UI -->
 	<div id="boss-battle-ui" class="boss-battle hide">
 		<div id="boss-contain">
 			<div id="bossDiv">
@@ -22,9 +26,15 @@
 			</div>
 		</div>
 		<div class="scoreboard">
-			<div class="stats score"><span css-contain>&nbsp;Your Score:&nbsp;<span id="score">0</span></span></div>
-			<div class="stats health"><span css-contain>Your Health:&nbsp;<span id="health">100</span></span></div>
-			<div class="stats boss"><span css-contain>Boss Health:&nbsp;<span id="boss-health">100</span></span></div>
+			<div class="stats score">
+				<span css-contain="">&nbsp;Your Score:&nbsp;<span id="score">0</span></span>
+			</div>
+			<div class="stats health">
+				<span css-contain="">Your Health:&nbsp;<span id="health">100</span></span>
+			</div>
+			<div class="stats boss">
+				<span css-contain="">Boss Health:&nbsp;<span id="boss-health">100</span></span>
+			</div>
 		</div>
 		<div class="viz-contain">
 			<div class="red viz" id="viz1"></div>
@@ -34,6 +44,7 @@
 		</div>
 		<h4 class="ratings" id="ratings">mbruh ratins go here</h4>
 	</div>
+	<!-- Levels Screen UI -->
 	<div id="levels">
 		<div class="sticky-hdr">
 			<header>
@@ -44,61 +55,52 @@
 				<div style="width: 150px; text-align: left; display: inline-block;">
 					<span class="legend-item"><i class="fas fa-circle" style="color:cornflowerblue;"></i>&nbsp;⁠—⁠—&nbsp;Easy</span><br>
 					<span class="legend-item"><i class="fas fa-circle" style="color:green;"></i>&nbsp;⁠—⁠—&nbsp;Normal</span><br>
-				<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i>&nbsp;⁠—⁠—&nbsp;Difficult</span>
-				</div>
-				<br><hr class="white">
+					<span class="legend-item"><i class="fas fa-circle" style="color:var(--disabled-red);"></i>&nbsp;⁠—⁠—&nbsp;Difficult</span>
+					<div id="stars-count">
+						<i class="fas fa-star"></i>
+						<span id="star-amount" class="amt">0</span>
+					</div>
+				</div><br>
+				<hr class="white">
 			</div>
 		</div>
 		<div id="level-list">
-			<div class="lvl easy">
-				<div class="lvl-number">00</div>
-				<div class="lvl-name">Tutorial Level</div>
-				<div class="lvl-song-info">
-					<span class="lvl-song s-name">Song: OneStop</span><hr>
-					<span class="lvl-song s-artist">Artist: David Yackley</span>
-				</div>
-				<div class="lvl-btn-contain">
-					<button onclick="loadMap('maps/onestop.json');" class="lvl-btn btn">Play!</button>
-				</div>
-			</div>
-			<div class="lvl difficult">
-				<div class="lvl-number">01</div>
-				<div class="lvl-name">Town</div>
-				<div class="lvl-song-info">
-					<span class="lvl-song s-name">Song: Town</span><hr>
-					<span class="lvl-song s-artist">Artist: Nathan Grigg</span>
-				</div>
-				<div class="lvl-btn-contain">
-					<button onclick="loadMap('maps/town.json');" class="lvl-btn btn">Play!</button>
-				</div>
-			</div>
 		</div>
-		
-		<div></div>
 	</div>
+	<!-- Popup/Alert Box -->
 	<div id="popup" class="hide">
 		<span id="popup-title">Tantalizing Title</span>
 		<hr class="white">
 		<span id="popup-body">Tempermental Text</span>
 		<hr class="white">
-		<button id="popup-btn" class="btn">Beautiful Button</button>
+		<button class="btn" id="popup-btn">Beautiful Button</button>
 	</div>
+	<div id="popup-2" class="hide">
+		<span id="popup-title-2">Tantalizing Title</span>
+		<hr class="white">
+		<span id="popup-body-2">Tempermental Text</span>
+		<hr class="white">
+		<button class="btn" id="popup-btn-yes">Beautiful Button</button>
+		<button class="btn" id="popup-btn-no">Beautiful Button</button>
+	</div>
+	<!-- Scripts -->
 	<script src="js/ui.js">
-	</script>
+	</script> 
+	<script src="js/storage.js">
+	</script> 
 	<script src="https://cdn.jsdelivr.net/npm/howler@2.1.2/dist/howler.min.js">
 	</script> 
 	<script src="js/sounds.js">
-	</script>
+	</script> 
 	<script src="https://unpkg.com/konva@3.3.3/konva.min.js">
 	</script> 
 	<script src="https://cdn.jsdelivr.net/npm/animejs@3.0.1/lib/anime.min.js">
-	</script> 
+	</script>
 	<script src="js/init.js">
 	</script> 
 	<script src="js/game.js">
 	</script> 
-  <script src="js/cutscene.js">
-	</script>
-
+	<script src="js/cutscene.js">
+	</script> 
 </body>
 </html>

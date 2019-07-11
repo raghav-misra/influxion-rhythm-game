@@ -16,7 +16,7 @@ var soundEffects = {
     }),
     spikeCreate: new Howl({
         src: ["audio/spikeCreate.wav"],
-        volume: 0.3
+        volume: 0.5
     })
     
 };

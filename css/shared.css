@@ -6,6 +6,7 @@
     --blue-grey: rgb(33, 47, 59);
     --blue-grey-translucent: rgba(33, 47, 59, 0.918);
     --disabled-red: rgb(216, 112, 112);
+		--star-yellow: rgb(156, 125, 46);
 }
 
 *{

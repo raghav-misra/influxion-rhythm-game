@@ -1,15 +1,15 @@
 {
   "info": {
-    "levelName": "Town",
+    "levelName": "Cityscape",
     "songName": "Town.mid",
     "path": "town.mp3",
     "background": "g1256.png",
-    "starScores": [5, 15, 45]
+    "starScores": [5, 15, 45] 
   },
   "texts": {
     "text": [{
 
-        "value": "Town.mid",
+        "value": "Cityscape",
         "fontSize": 80,
         "fontFamily": "Oswald",
         "fill": "white",
@@ -18,7 +18,7 @@
       },
       {
 
-        "value": "By Nathan Grigg",
+        "value": "Song (Town.mid) by Nathan Grigg",
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",
