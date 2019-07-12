@@ -109,10 +109,11 @@ function bossIntroCutscene() {
         cutsceneLayer1.add(player)
 
         //Draw the layers
+        
+        cutsceneLayer1.draw()
+        cutsceneLayer1.draw()
+        cutsceneLayer1.draw()
         cutsceneLayer0.draw()
-        cutsceneLayer1.draw()
-        cutsceneLayer1.draw()
-        cutsceneLayer1.draw()
         
 
 

@@ -1,9 +1,11 @@
 //create the game canvas and player
 var size = window.innerWidth;
 var height = window.innerHeight;
+var lastFrameRenderTime = null; //store when the last frame was drawn
 var music = new Howl({
 	src: ['maps/onestop.mp3']
 });
+var initMusic = 0 // prevent starting game on website load
 var gravity = 0.5;
 var keys = []
 var jumpAnim
@@ -63,6 +65,7 @@ backgroundImage.onload = function () {
 	backgroundLoad = true
 	background.cache()
 	background2.cache()
+	background3.cache()
 	background.transformsEnabled('position');
 	background2.transformsEnabled('position');
 	background.listening(false)
@@ -101,6 +104,7 @@ var playerPosition = {
 }
 player.perfectDrawEnabled(false);
 player.transformsEnabled('position')
+player.cache()
 mainLayer.add(player);
 //starData Data + Animations
 var star = new Konva.Star({
@@ -117,6 +121,7 @@ var star = new Konva.Star({
 	x: 1200
 });
 mainLayer.add(star);
+star.cache()
 star.listening(false)
 //add layer to stage
 stage.add(backgroundLayer)
@@ -142,7 +147,15 @@ function playerInputHandler() {
 }
 //Main draw function
 function update(time) {
+	
+	
 	if (gameRunning) {
+	var timeInBetweenFrames = time - lastFrameRenderTime
+	if(timeInBetweenFrames >= 100){ // adapt music if the game lags for over 0.1 seconds
+
+		music.seek(music.seek() + timeInBetweenFrames / 1000 )
+	}
+		lastFrameRenderTime = time
 		backgroundLayer.draw()
 		textLayer.draw()
 		mainLayer.draw()
@@ -150,7 +163,8 @@ function update(time) {
 		moveSpikes()
 		moveEnemy()
 		moveTexts()
-		moveBackground
+		moveBackground()
+		
 		window.gameLoop = requestAnimationFrame(update)
 
 	} else {
@@ -210,12 +224,12 @@ function moveEnemy() {
 		} else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
-		} else if (checkCollisions(sword.width(), sword.height(), sword.getX(), sword.getY(), enemies[i].width() - 5, enemies[i].height() - 5, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), enemies[i].width() - 25, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],
 					y: 1000,
-					duration: 0.4,
+					duration: 0.1,
 					easing: Konva.Easings.EaseIn,
 					onFinish: function () {
 						breakRock.destroy();
