@@ -1,7 +1,5 @@
 /* Platformer */
-
-//load path dynamicly later
-var path = "maps/onestop.json"
+var path = "";
 var map = {
 	error: true
 }
@@ -207,7 +205,7 @@ function winGame() {
 	gameRunning = false
 	music.stop()
 	soundEffects.win.play();
-	bossIntroCutscene();
+	bossIntroCutscene(path);
 	setTimeout(function () {
 		cancelAnimationFrame(window.gameLoop)
 		cancelAnimationFrame(starAnimLoop);
@@ -314,15 +312,19 @@ function buildGame(data) {
 	});
 	song.play();
 	console.log("loadedgametotally");
+	document.getElementById("boss-battle-ui").style.background = "url('../backgrounds/" + beatMap.info.background + "')";
+	document.getElementById("boss-battle-ui").style.backgroundPosition = "center";
+	document.getElementById("boss-battle-ui").style.backgroundSize = "cover";
 	updateInterval = setInterval(updateGame, 1000 / 60);
 }
 
 // Update Function:
 function updateGame() {
 	if (bossHP <= 0) {
-		return levelCompleted("You killed the boss!", [true, 4]);
+		console.log("Boss Killed OMG")
+		return levelCompleted("You killed the boss!", [true, 4, true]);
 	} else if (userHP <= 0) {
-		return levelCompleted("You were killed by the boss!", [false, 0]);
+		return levelCompleted("You were killed by the boss!", [false, 0, false]);
 	}
 	var timeCurrentSong = song.seek();
 	if (song.seek == 0) {
@@ -337,7 +339,7 @@ function updateGame() {
 		beatMap.arrayCounter += 1;
 		if (beatMap.arrayCounter >= beatMap.beatArray.length - 1) {
 			console.log("OMG We Finished The Map!");
-			return levelCompleted("You Survived The Boss!", calcStarScore(userScore));
+			return levelCompleted("You Survived The Boss!", calcStarScore(userScore, true));
 		}
 	}
 }
@@ -411,11 +413,12 @@ function addRating(rating) {
 
 // Complete Level + Star Scoring:
 function levelCompleted(message, starsWin) {
+	clearInterval(updateInterval);
 	setTimeout(function () {
-		clearInterval(updateInterval);
+		updateInterval = null;
 		alert(message);
 		if (starsWin[0]) alert("Good Job!");
-		else if (message == "You Survived The Boss!" && starsWin == 0) alert("But you didn't score enough to win the level.");
+		else if (message == "You Survived The Boss!" && starsWin == 0) alert("But you didn't score enough to get any stars.");
 		else alert("Noooooo. You lost.");
 		alert("You got " + starsWin[1] + " stars.");
 	}, 2000);
@@ -423,7 +426,7 @@ function levelCompleted(message, starsWin) {
 
 function calcStarScore(score) {
 	var starArray = beatMap.info.starScores;
-	if (score >= starArray[0]) return [true, 1];
+	if (score >= starArray[0]) return [true, 1, true];
 	if (score >= starArray[1]) return [true, 2];
 	if (score >= starArray[2]) return [true, 3];
 	return [false, 0];

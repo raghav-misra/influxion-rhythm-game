@@ -3,8 +3,8 @@
     "levelName": "Cityscape",
     "songName": "Town.mid",
     "path": "town.mp3",
-    "background": "g1256.png",
-    "starScores": [5, 15, 45] 
+    "background": "dark-mtns.png",
+    "starScores": [12, 24, 48] 
   },
   "texts": {
     "text": [{

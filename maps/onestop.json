@@ -3,8 +3,8 @@
 		"levelName": "Tutorial",
     "songName": "Onestop",
     "path": "onestop.mp3",
-    "background": "g1256.png",
-		"starScores": [5, 15, 45]
+    "background": "dark-mtns.png",
+		"starScores": [8, 16, 32]
   },
   "texts": {
     "text" : [

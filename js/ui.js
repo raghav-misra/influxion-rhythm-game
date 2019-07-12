@@ -28,6 +28,7 @@ var popup = {
 			};
 		}
 		else{
+			popup.isOpen = true;
 			popupBox.classList.remove("hide");
 			popupBox.style.animation = "fade-in 0.75s";
 			setTimeout(()=>{
