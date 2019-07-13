@@ -79,12 +79,16 @@ function createLevel(lvlObject){
 }
 
 // Create Levels:
-for (var lvlProp in dataArray["levels"]) {
-  if(dataArray["levels"].hasOwnProperty(lvlProp)){
-		dataArray.stars += dataArray.levels[lvlProp].starsEarned;
-		createLevel(dataArray.levels[lvlProp]);
+function buildLevels(){
+	levelList.innerHTML = "";
+	for (var lvlProp in dataArray["levels"]) {
+		if(dataArray["levels"].hasOwnProperty(lvlProp)){
+			dataArray.stars += dataArray.levels[lvlProp].starsEarned;
+			createLevel(dataArray.levels[lvlProp]);
+		}
 	}
 }
+buildLevels();
 
 // Get First Name
 dataArray.firstName = decodeURI(location.search.replace("?f=", "").toUpperCase());

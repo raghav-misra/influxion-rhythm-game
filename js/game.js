@@ -431,9 +431,15 @@ function levelCompleted(message, starsWin) {
 		updateInterval = null;
 		alert(message);
 		if (starsWin[0]) alert("Good Job!");
-		else if (message == "You Survived The Boss!" && starsWin == 0) alert("But you didn't score enough to get any stars.");
+		else if (message == "You Survived The Boss!" && starsWin[1] == 0) alert("But you didn't score enough to get any stars.");
 		else alert("Noooooo. You lost.");
 		alert("You got " + starsWin[1] + " stars.");
+		dataArray.stars = dataArray.stars + starsWin[1];
+		var nameTmp = beatMap.info.levelName;
+		dataArray.levels[nameTmp].completed = true;
+		dataArray.levels[nameTmp].starsEarned = starsWin[1];
+		buildLevels();
+		goBackToLevelScreen();
 	}, 2000);
 }
 
@@ -443,4 +449,7 @@ function calcStarScore(score) {
 	if (score >= starArray[1]) return [true, 2];
 	if (score >= starArray[2]) return [true, 3];
 	return [false, 0];
+}
+function goBackToLevelScreen(){
+
 }
