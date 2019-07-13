@@ -46,12 +46,12 @@
       },
       {
         
-        "value": "The star will also create large stones which you can break by holding X",
+        "value": "The star will also create large RED stones which you can break by holding X",
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",
-        "x": 2000,
-        "y": 400
+        "x": 1000,
+        "y": 300
       }
     ]
   },

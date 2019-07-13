@@ -1,6 +1,7 @@
 var soundEffects = {
     win: new Howl({
-        src: ["audio/win.mp3"]
+        src: ["audio/win.wav"],
+        volume: 1.5
     }),
     lose: new Howl({
         src: ["audio/lose.mp3"]
@@ -16,7 +17,7 @@ var soundEffects = {
     }),
     spikeCreate: new Howl({
         src: ["audio/spikeCreate.wav"],
-        volume: 0.5
+        volume: 0.3
     })
     
 };

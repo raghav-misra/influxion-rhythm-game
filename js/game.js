@@ -10,7 +10,7 @@ var enemies = []
 var beatStage = 0
 var timeUntilNextBeat = 0
 var globalId = 0
-
+var spikeCheck = true
 
 function loadMap(path) {
 	load(path, function (data) {
@@ -29,6 +29,7 @@ function loadGame(data) {
 		globalId++
 		loadGameUI();
 		gameRunning = true
+		spikeCheck = true
 		cancelAnimationFrame(window.gameLoop)
 		music.stop()
 		backgroundLayer.removeChildren()
@@ -66,6 +67,7 @@ function loadGame(data) {
 			src: ["maps/" + map.info.path],
 			onload: function(){
 				console.log('loaded')
+				
 				setTimeout(function () {
 					music.play()
 					spikeManager(globalId)
@@ -159,8 +161,8 @@ function spikeManager(current) { //Creates spikes to beat
 		var currentTime = music.seek()
 		var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
 		timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
-
 		beatStage++
+		
 	
 		if (current !== globalId) {
 			return;
@@ -169,9 +171,20 @@ function spikeManager(current) { //Creates spikes to beat
 		if(Math.sign(timeUntilNextBeat) == -1){
 			return;
 		}
+		if(beatStage == 1 && spikeCheck && timeUntilNextBeat >= 1){//fix insta spawn bug
+			beatStage-- // go back down so first beat is correctly placed
+			spikeCheck = false // turn off this check
+			nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
+			timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get correct first beat position
+			setTimeout(function () { //redo
+				spikeManager(current)
+			}, timeUntilNextBeat * 1000) //seconds to miliseconds
+			return;
+		}
 		try {
-		
+	
 			if (map.beats.notes[beatStage].type == "attack") {
+				soundEffects.spikeCreate.play()
 				createEnemy()
 			} else {
 				soundEffects.spikeCreate.play()

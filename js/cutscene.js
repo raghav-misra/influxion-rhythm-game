@@ -96,19 +96,19 @@ function bossIntroCutscene(xpathsong) {
 			fill: 'white'
 		});
 		//Add  needed layers to stageCutscene
-		stageCutscene.add(cutsceneLayer1)
-		stageCutscene.add(cutsceneLayer0)
-		//Add the objects needed for this cutscene
+        stageCutscene.add(cutsceneLayer0)
+        stageCutscene.add(cutsceneLayer1)
+        //Add the objects needed for this cutscene
+        cutsceneLayer1.add(star)
+		cutsceneLayer1.add(player)
 		cutsceneLayer0.add(background3)
 		cutsceneLayer0.add(background)
 		cutsceneLayer0.add(background2) //ground
-		cutsceneLayer1.add(star)
-		cutsceneLayer1.add(player)
-		//Draw the layers
+	
+        //Draw the layers
+        cutsceneLayer0.draw()
 		cutsceneLayer1.draw()
-		cutsceneLayer1.draw()
-		cutsceneLayer1.draw()
-		cutsceneLayer0.draw()
+	
 		//Animations used in this cutscene
 		soundEffects.starMove.play()
 		star.to({

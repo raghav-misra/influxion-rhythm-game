@@ -85,16 +85,13 @@ var player = new Konva.Rect({
 	y: 500,
 	x: 40,
 });
-var sword = new Konva.RegularPolygon({
-	x: 100,
-	y: 530,
-	sides: 3,
-	radius: 20,
-	fill: '#580103',
-	rotation: 90,
-	shadowColor: '#F8D092',
-	shadowBlur: 20,
-	shadowOpacity: 0.9,
+var sword = new Konva.Line({
+	x: 90,
+	y: 500,
+	points: [0, 0, 0, 50],
+	stroke: 'red',
+	opacity: 0,
+	tension: 1
 });
 var playerPosition = {
 	x: 40,
@@ -105,6 +102,7 @@ var playerPosition = {
 player.perfectDrawEnabled(false);
 player.transformsEnabled('position')
 player.cache()
+sword.perfectDrawEnabled(false)
 mainLayer.add(player);
 //starData Data + Animations
 var star = new Konva.Star({
@@ -131,9 +129,22 @@ stage.add(mainLayer);
 function playerInputHandler() {
 	if (keys["x"] == true && playerPosition.jump == false) {
 		mainLayer.add(sword)
+		var swordAnim = new Konva.Tween({
+			node: sword,
+			points: [10, 0, 10, 70],
+			duration: 0.2,
+			opacity: 1,
+			onFinish: function(){
+				swordAnim.destroy()
+			}
+		
+		})
+		swordAnim.play()
+
 		swordOn = true
 	} else if (keys[" "] == true) {
 		sword.remove()
+
 		if (playerPosition.jump == false) {
 			playerPosition.jump = true
 			playerPosition.speedY = 8
@@ -141,8 +152,19 @@ function playerInputHandler() {
 			jumpAnim = window.requestAnimationFrame(jump)
 		}
 	} else {
-		sword.remove()
-		swordOn = false
+		if(swordOn){
+		sword.to({
+			duration: 0.2,
+			opacity: 0,
+			points: [0, 0, 0, 70]
+		})
+		setTimeout(function(){
+			sword.remove()
+			swordOn = false
+		},501)
+	}
+		
+
 	}
 }
 //Main draw function
