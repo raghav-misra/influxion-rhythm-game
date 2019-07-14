@@ -67,13 +67,11 @@ function loadGame(data) {
 			src: ["maps/" + map.info.path],
 			onload: function(){
 				console.log('loaded')
-				
-				setTimeout(function () {
-					music.play()
-					spikeManager(globalId)
+				music.play()
+			},
+			onplay: function(){
+				spikeManager(globalId)
 					update()
-		
-				}, 100)
 			}
 		});
 		//Begin the game once music has loaded
@@ -162,13 +160,14 @@ function spikeManager(current) { //Creates spikes to beat
 		var nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
 		timeUntilNextBeat = nextBeatTime - currentTime - 5.5 //Get time until next beat -6 is how long it takes for the spike to load
 		beatStage++
-		
+		console.log(timeUntilNextBeat)
 	
 		if (current !== globalId) {
 			return;
 
 		}
 		if(Math.sign(timeUntilNextBeat) == -1){
+			spikeManager(current)
 			return;
 		}
 		if(beatStage == 1 && spikeCheck && timeUntilNextBeat >= 1){//fix insta spawn bug

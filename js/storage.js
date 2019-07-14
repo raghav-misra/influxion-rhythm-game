@@ -18,12 +18,24 @@ var dataArray = {
 			completed: false,
 			starsEarned: 0,
 			metadata: {
-				difficulty: "difficult",
+				difficulty: "normal",
 				number: "01",
 				name: "Cityscape", 
 				song: "Town", 
 				artist: "Nathan Grigg",
 				mapLocation: "maps/town.json"
+			}
+		},
+		paradise: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "normal",
+				number: "02",
+				name: "Paradise", 
+				song: "Gangsta'sParadise.mid", 
+				artist: "Jennifer Spengler",
+				mapLocation: "maps/gangstasparadise.json"
 			}
 		}
 	}
