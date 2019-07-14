@@ -4,7 +4,8 @@
     "songName": "Onestop",
     "path": "onestop.mp3",
     "background": "dark-mtns.png",
-		"starScores": [8, 16, 32]
+		"starScores": [8, 16, 32],
+    "noteColor": "white"
   },
   "texts": {
     "text" : [

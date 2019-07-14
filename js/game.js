@@ -84,7 +84,7 @@ function loadGame(data) {
 
 //spikes
 function createSpike() {
-	var spike = new Konva.RegularPolygon({ //spike drawer
+/*	var spike = new Konva.RegularPolygon({ //spike drawer
 		x: 1200,
 		y: 80,
 		sides: 3,
@@ -97,17 +97,31 @@ function createSpike() {
 		scaleY: 0.4,
 		stroke: 'white',
 		strokeWidth: 4
-	});
+	}); */
+	var spike = new Konva.Path({
+        x: 1200,
+        y: 80,
+        data:
+		'M222.941,60.444c-58.541-40.891-66.079-54.548-66.879-56.37L156.15,0l-4.215,0.5    c-12.646,1.474-17.09,10.16-17.72,15.153v221.19c-9.595-2.377-20.418-2.274-30.807,0.305    c-13.679,3.394-25.542,10.72-33.412,20.641c-8.088,10.193-11.041,21.811-8.344,32.629c2.681,17.013,22.659,29.85,46.455,29.85    c5.292,0,10.546-0.642,15.637-1.931c22.964-5.716,40.298-22.708,42.43-41.516h0.277l0.587-214.609    c11.77,1.169,48.892,9.627,85.747,67.406l6.766,10.617l0.038-12.591C259.601,126.056,259.356,88.472,222.941,60.444z',
+        fill: map.info.noteColor,
+        scale: {
+          x: 0.1,
+          y: 0.1
+		},
+		shadowColor: '#F8D092',
+		shadowBlur: 20,
+		shadowOpacity: 0.9
+      });
 	spikes.push(spike)
 	mainLayer.add(spike)
 	spike.cache()
 	var drop = new Konva.Tween({
 		node: spike,
 		x: 800,
-		y: 545,
+		y: 520,
 		duration: 1,
-		scaleX: 1,
-		scaleY: 1,
+		scaleX: 0.1,
+		scaleY: 0.1,
 		easing: Konva.Easings.EaseIn,
 		onFinish: function () {
 			spikes.push(spike)
@@ -122,7 +136,7 @@ function createEnemy() {
 		x: 1200,
 		y: 80,
 		sides: 4,
-		radius: 25,
+		radius: 27,
 		fill: 'red',
 		scaleX: 0.4,
 		scaleY: 0.4,

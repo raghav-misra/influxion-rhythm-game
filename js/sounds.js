@@ -4,7 +4,8 @@ var soundEffects = {
         volume: 1.5
     }),
     lose: new Howl({
-        src: ["audio/lose.mp3"]
+        src: ["audio/lose.mp3"],
+        volume: 0.4
     }),
     bossTalk: new Howl({
         src: ["audio/bossTalk.wav"]

@@ -131,7 +131,7 @@ function playerInputHandler() {
 		mainLayer.add(sword)
 		var swordAnim = new Konva.Tween({
 			node: sword,
-			points: [10, 0, 10, 70],
+			points: [5, 0, 5, 70],
 			duration: 0.2,
 			opacity: 1,
 			onFinish: function(){
@@ -154,14 +154,15 @@ function playerInputHandler() {
 	} else {
 		if(swordOn){
 		sword.to({
-			duration: 0.2,
+			duration: 0,
 			opacity: 0,
-			points: [0, 0, 0, 70]
+			points: [0, 0, 0, 70],
+			onFinish: function(){
+				sword.remove()
+				swordOn = false
+			}
 		})
-		setTimeout(function(){
-			sword.remove()
-			swordOn = false
-		},501)
+	
 	}
 		
 
@@ -228,7 +229,7 @@ function moveSpikes() {
 			spikes[i].destroy()
 			spikes.splice(i, 1)
 			//refine spike parms
-		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 10, spikes[i].height() - 10, spikes[i].getX(), spikes[i].getY()) && gameRunning) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), spikes[i].width() - 20, spikes[i].height() - 10, spikes[i].getX() + 13, spikes[i].getY()) && gameRunning) {
 			gameRunning = false
 			loseGame()
 			console.log()
@@ -246,7 +247,7 @@ function moveEnemy() {
 		} else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
-		} else if (checkCollisions(player.width(), player.height(), player.getX(), player.getY(), enemies[i].width() - 25, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX() + 10, player.getY(), enemies[i].width() - 25, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],
