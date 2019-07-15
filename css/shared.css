@@ -34,6 +34,12 @@ hr.white{
     border-top: 2px white solid;
 }
 
+/* Font-Face: DSEG */
+@font-face {
+    font-family: "DSEG";
+    src: url("../assets/dseg.woff") format('woff');
+}
+
 /* <button class="btn">...</button> */
 .btn{
     padding: 15px;

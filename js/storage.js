@@ -33,7 +33,7 @@ var dataArray = {
 				difficulty: "normal",
 				number: "02",
 				name: "Paradise", 
-				song: "Gangsta'sParadise.mid", 
+				song: "Gangsta's Paradise", 
 				artist: "Jennifer Spengler",
 				mapLocation: "maps/gangstasparadise.json"
 			}
