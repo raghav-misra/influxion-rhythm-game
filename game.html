@@ -5,13 +5,19 @@
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="ie=edge" http-equiv="X-UA-Compatible">
 	<title>Influxion - Game</title>
-	<link href="css/game.css" rel="stylesheet">
+	<link href="css/dseg.css" rel="stylesheet">
 	<link href="css/shared.css" rel="stylesheet">
+	<link href="css/game.css" rel="stylesheet">
 	<link href="css/levels-ui.css" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/b8185e1d28.js">
 	</script>
 </head>
 <body onkeypress="checkPress(event)">
+	<!-- Intro CD Player Container/Cutscene -->
+	<div id='cdplayer' class='cdplayer hide'>
+			
+		<img id='cd' src="img/cd.png"></img>
+	</div>
 	<!-- Platformer Container -->
 	<div id='canvas' class='canvas hide'></div>
 	<!-- In-Game Cutscene Transition -->

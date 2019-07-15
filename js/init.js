@@ -105,22 +105,32 @@ player.cache()
 sword.perfectDrawEnabled(false)
 mainLayer.add(player);
 //starData Data + Animations
-var star = new Konva.Star({
-	width: 20,
-	height: 20,
-	fill: 'white',
-	shadowColor: '#F8D092',
-	shadowBlur: 20,
-	shadowOpacity: 0.9,
-	numPoints: 5,
-	innerRadius: 20,
-	outerRadius: 20,
-	y: 50,
-	x: 1200
-});
-mainLayer.add(star);
-star.cache()
-star.listening(false)
+var star
+var starImage = new Image();
+starImage.onload = function(){
+	 star = new Konva.Image({
+		width: 50,
+		height: 50,
+		image: starImage,
+		shadowColor: '#F8D092',
+		shadowBlur: 20,
+		shadowOpacity: 0.9,
+		numPoints: 5,
+		innerRadius: 20,
+		outerRadius: 20,
+		y: 50,
+		x: 1200
+	});
+	star.offsetX(star.width() / 2);
+	star.offsetY(star.height() / 2);
+	mainLayer.add(star);
+	star.cache()
+	star.listening(false)
+	starAnimLoop = window.requestAnimationFrame(animateStar);
+	}
+	
+starImage.src = "img/cd.png"
+
 //add layer to stage
 stage.add(backgroundLayer)
 stage.add(textLayer)
@@ -275,10 +285,12 @@ function moveEnemy() {
 function animateStar() {
 	if (starAnimType == "down") {
 		starAnim += 0.1
+		star.rotation(star.rotation() + 1)
 		star.setY(starAnim)
 	}
 	if (starAnimType == "up") {
 		starAnim -= 0.1
+		star.rotation(star.rotation() + 1)
 		star.setY(starAnim)
 	}
 	if (starAnim <= 50) {
@@ -288,7 +300,7 @@ function animateStar() {
 	}
 	starAnimLoop = window.requestAnimationFrame(animateStar);
 }
-starAnimLoop = window.requestAnimationFrame(animateStar);
+
 
 function moveTexts() {
 	textmap.forEach(function (text, i) {

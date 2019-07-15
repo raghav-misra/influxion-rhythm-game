@@ -41,3 +41,11 @@ var popup = {
 		}
 	}
 }
+
+//CD Player
+var cdplayer = document.getElementById('cdplayer')
+var cd = document.getElementById('cd')
+function showCd(){
+	cdplayer.classList.remove('hide')
+	cd.classList.add('cdIn')
+}

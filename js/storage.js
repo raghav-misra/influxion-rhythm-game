@@ -18,7 +18,7 @@ var dataArray = {
 			completed: false,
 			starsEarned: 0,
 			metadata: {
-				difficulty: "normal",
+				difficulty: "easy",
 				number: "01",
 				name: "Cityscape", 
 				song: "Town", 
