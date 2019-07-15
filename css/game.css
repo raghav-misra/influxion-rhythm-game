@@ -119,15 +119,38 @@
 }
 /* cdPlayer */
 .cdplayer{
-  top: 30%;
+  top: 15%;
   left: 20%;
   position: fixed;
   z-index: 10;
   font-family: 'DSEG' !important;
+  background: white;
+  padding: 2%;
+  border-radius: 2px;
+}
+.cdplayer h2{
+  font-family: DSEG;
+  color:black;
+  font-size: 200%;
+  background-color: #B0A89E;
+  padding: 1%;
+}
+.cdplayer h4{
+  font-family: Squada One;
+  font-size: 130%;
+  color: black;
+
+}
+.cdplayer i{
+  color:black;
+  margin: 1%;
 }
 .cdplayer img{
   width: 50%;
   height: 50%;
+  transition: all 10s ease;
+  margin: 1%;
+  display: inline-block;
 
 
 }

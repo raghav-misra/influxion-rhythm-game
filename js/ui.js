@@ -48,4 +48,7 @@ var cd = document.getElementById('cd')
 function showCd(){
 	cdplayer.classList.remove('hide')
 	cd.classList.add('cdIn')
+	setTimeout(function(){
+		cd.style.transform = "rotate(90deg)"
+	},1000)
 }
