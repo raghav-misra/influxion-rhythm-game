@@ -45,10 +45,22 @@ var popup = {
 //CD Player
 var cdplayer = document.getElementById('cdplayer')
 var cd = document.getElementById('cd')
-function showCd(){
+var lcd = document.getElementById('lcdScreen')
+function showCd(levelName){
+	cd.style.transform = "rotate(0deg)"
+	lcd.innerText = "Please Insert a Disc"
+	soundEffects.cd.play()
 	cdplayer.classList.remove('hide')
 	cd.classList.add('cdIn')
 	setTimeout(function(){
-		cd.style.transform = "rotate(90deg)"
-	},1000)
+		lcd.innerText = "Now Playing: " + levelName
+		cd.style.transform = "rotate(9000deg)"
+		setTimeout(function(){
+			cdplayer.classList.add('fade-out')
+			setTimeout(function(){
+				cdplayer.classList.add('hide')
+				cdplayer.classList.remove('fade-out')
+			},1000)
+		},1000)
+	},3000)
 }

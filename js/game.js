@@ -14,6 +14,7 @@ var spikeCheck = true
 
 function loadMap(path) {
 	load(path, function (data) {
+		showCd(data.info.levelName)
 		loadGame(data)
 	})
 }
@@ -63,6 +64,9 @@ function loadGame(data) {
 
 		})
 		//load music
+		setTimeout(function(){
+
+		
 		music = new Howl({
 			src: ["maps/" + map.info.path],
 			onload: function(){
@@ -74,7 +78,8 @@ function loadGame(data) {
 					update()
 			}
 		});
-		//Begin the game once music has loaded
+		},3000)
+
 
 
 

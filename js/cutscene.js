@@ -16,11 +16,12 @@ function bossIntroCutscene(xpathsong) {
 		game.classList.add('hide')
 		cutsceneDiv.classList.remove('hide')
 		//Custom objects used in this cutscene
-		var redStar = new Konva.Star({
-			width: 15,
-			height: 15,
+		var redStar = new Konva.Image({
+            image: starImage,
+			width: 50,
+			height: 50,
 			fill: '#db3f3f',
-			shadowColor: '#F8D092',
+			shadowColor: '#db3f3f',
 			shadowBlur: 20,
 			shadowOpacity: 0.9,
 			numPoints: 5,
@@ -29,24 +30,26 @@ function bossIntroCutscene(xpathsong) {
 			y: 50,
 			x: 600
 		});
-		var blueStar = new Konva.Star({
-			width: 15,
-			height: 15,
+		var blueStar = new Konva.Image({
+            image: starImage,
+			width: 50,
+			height: 50,
 			fill: '#6495ed',
-			shadowColor: '#F8D092',
+			shadowColor: '#6495ed',
 			shadowBlur: 20,
 			shadowOpacity: 0.9,
 			numPoints: 5,
-			innerRadius: 15,
-			outerRadius: 15,
+			innerRadius: 50,
+			outerRadius: 50,
 			y: 50,
 			x: 600
 		});
-		var yellowStar = new Konva.Star({
-			width: 15,
-			height: 15,
+		var yellowStar =  new Konva.Image({
+            image: starImage,
+			width: 50,
+			height: 50,
 			fill: '#fafa24',
-			shadowColor: '#F8D092',
+			shadowColor: '#fafa24',
 			shadowBlur: 20,
 			shadowOpacity: 0.9,
 			numPoints: 5,
@@ -55,11 +58,12 @@ function bossIntroCutscene(xpathsong) {
 			y: 50,
 			x: 600
 		});
-		var greenStar = new Konva.Star({
-			width: 15,
-			height: 15,
+		var greenStar =  new Konva.Image({
+            image: starImage,
+			width: 50,
+			height: 50,
 			fill: '#39b639',
-			shadowColor: '#F8D092',
+			shadowColor: '#39b639',
 			shadowBlur: 20,
 			shadowOpacity: 0.9,
 			numPoints: 5,

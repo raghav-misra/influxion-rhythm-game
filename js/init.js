@@ -70,7 +70,6 @@ backgroundImage.onload = function () {
 	background2.transformsEnabled('position');
 	background.listening(false)
 	background2.listening(false)
-	backgroundLayer.draw()
 	backgroundLoad = true
 }
 //Text layer

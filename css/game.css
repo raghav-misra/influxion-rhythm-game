@@ -148,7 +148,7 @@
 .cdplayer img{
   width: 50%;
   height: 50%;
-  transition: all 10s ease;
+  transition: all 10s linear;
   margin: 1%;
   display: inline-block;
 
@@ -190,8 +190,8 @@
 	}
 }
 .cdIn {
-	-webkit-animation: cdIn 1s ease-in-out forwards;
-	animation: cdIn 1s ease-in-out forwards;
+	-webkit-animation: cdIn 2s ease-in-out backwards;
+	animation: cdIn 2s ease-in-out backwards;
 }
 @keyframes cdIn {
 	0% {
