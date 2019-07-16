@@ -220,7 +220,7 @@ function spikeManager(current) { //Creates spikes to beat
 }
 
 function loseGame() {
-	gameRunning = false
+	gameRunning = false;
 	soundEffects.lose.play();
 	cancelAnimationFrame(window.gameLoop)
 	music.stop()
@@ -228,7 +228,7 @@ function loseGame() {
 	beatStage = 0
 	setTimeout(function () {
 		loadMap(path)
-	}, 2000)
+	}, 1000);
 
 }
 

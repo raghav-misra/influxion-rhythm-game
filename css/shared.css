@@ -43,7 +43,7 @@ CSS Level 3 Optimized.
 
 @font-face {
     font-family: "DSEG";
-    src: url("./DSEG14ClassicMini-Light.woff") format('woff');
+    src: url("../assets/dseg.woff") format('woff');
   }
  
 

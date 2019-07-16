@@ -92,6 +92,7 @@ function createLevel(lvlObject){
 
 // Create Levels:
 function buildLevels(){
+	dataArray.stars = 0;
 	levelList.innerHTML = "";
 	for (var lvlProp in dataArray["levels"]) {
 		if(dataArray["levels"].hasOwnProperty(lvlProp)){
