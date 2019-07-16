@@ -7,6 +7,14 @@
 		"starScores": [8, 16, 32],
     "noteColor": "white"
   },
+  "effects":[
+    {
+      "time": "5",
+      "effectType": "bounces",
+      "effect": "bounceFoward",
+      "seconds": 0.2
+    }
+  ],
   "texts": {
     "text" : [
       {

@@ -8,9 +8,11 @@ var spikesData = []
 var spikes = []
 var enemies = []
 var beatStage = 0
+var effectStage = 0
 var timeUntilNextBeat = 0
 var globalId = 0
 var spikeCheck = true
+var effectCheck = true
 
 function loadMap(path) {
 	load(path, function (data) {
@@ -75,6 +77,7 @@ function loadGame(data) {
 			},
 			onplay: function(){
 				spikeManager(globalId)
+				effectManager(globalId)
 					update()
 			}
 		});
@@ -217,6 +220,45 @@ function spikeManager(current) { //Creates spikes to beat
 			spikeManager(current)
 		}, timeUntilNextBeat * 1000) //seconds to miliseconds
 	}
+}
+//effects
+function effectManager(current){
+	console.log("asd")
+	var nextEffect = map.effects[effectStage]
+	var currentTime = music.seek()
+	var nextEffectTime = parseFloat(toFixed(map.effects[effectStage].time, 2))
+	var timeUntilNextEffects = nextEffectTime - currentTime
+
+	
+	if (gameWonAlready) return;
+	if (current !== globalId) {
+		
+		return;
+
+	}
+	if(effectStage == 0 && effectCheck && timeUntilNextBeat >= 1){//fix insta spawn bug
+		
+		effectCheck = false // turn off this check
+		nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
+		timeUntilNextBeat = nextBeatTime - currentTime //Get correct first beat position
+		console.log(timeUntilNextBeat)
+		setTimeout(function () { //redo
+			effectManager(current)
+		}, timeUntilNextBeat * 1000) //seconds to miliseconds
+		return;
+	}
+
+	//trigger effect
+	effects[nextEffect.effectType][nextEffect.effect](nextEffect.seconds)
+	
+	
+	setTimeout(function(){
+		effectManager(current)
+	},timeUntilNextEffects)
+		
+		
+
+	
 }
 
 function loseGame() {
