@@ -1,5 +1,7 @@
 /* Fonts: Oswald & Squada One */
 @import url('https://fonts.googleapis.com/css?family=Oswald|Squada+One&display=swap');
+/* Font Awesome */
+@import url("../font-awesome/css/all.min.css");
 /* ------------------------- */
 
 :root{

@@ -111,7 +111,7 @@ function createLevel(lvlObject){
 }
 */
 // "Dynamic" Level Generator:
-var levelCode = "<div style='background: url(\"{7} \") top' data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{5}</div><div class=\"lvl-song-info\"><span style='color:{9}' class=\"lvl-song s-name\">{4}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';showCd('{3}');setTimeout(function(){loadMap('{7}')},2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+var levelCode = "<div style='background: url(\"{0}\")' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
 
 var levelList = document.getElementById("level-list");
 
@@ -128,16 +128,16 @@ String.prototype.format = function() {
 function createLevel(lvlObject){
 	var tmp = levelCode;
 	tmp = tmp.format(
-		lvlObject.completed.toString(),
-		lvlObject.metadata.difficulty, 
-		lvlObject.metadata.number, 
-		lvlObject.metadata.name, 
-		lvlObject.metadata.song, 
-		lvlObject.metadata.artist, 
-		lvlObject.metadata.mapLocation,
 		lvlObject.metadata.background,
-		lvlObject.metadata.songNameColor
-
+		lvlObject.completed.toString(),
+		lvlObject.metadata.difficulty,
+		lvlObject.metadata.number,
+		lvlObject.metadata.name,
+		lvlObject.metadata.songNameColor,
+		lvlObject.metadata.song,
+		lvlObject.metadata.mapLocation,
+		lvlObject.metadata.song,
+		lvlObject.metadata.mapLocation
 	);
 	if(lvlObject.starsEarned >= 1){
 		tmp = tmp.replace("far", "fas");
