@@ -29,11 +29,19 @@
 
     ]
   },
+  "effects": [{
+      "time": "50.50",
+      "effectType": "filters",
+      "effect": "flashStrong",
+      "seconds": 1.7
+    }
+
+  ],
   "beats": {
 
     "notes": [
 
-    
+
 
       {
         "time": 9.489744

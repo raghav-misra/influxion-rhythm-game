@@ -1,0 +1,338 @@
+{
+  "info": {
+    "levelName": "TalkBox",
+    "songName": "TalkBox",
+    "path": "talkbox.mp3",
+    "background": "dark-mtns.png",
+    "starScores": [12, 24, 48],
+    "noteColor": "white"
+  },
+  "texts": {
+    "text": [{
+
+        "value": "Cityscape",
+        "fontSize": 80,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 100
+      },
+      {
+
+        "value": "Song (TalkBox) by Dj Quads",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 200
+      }
+
+    ]
+  },
+  "effects": [{
+      "time": "3.5",
+      "effectType": "flips",
+      "effect": "horizontal",
+      "seconds": 0.08
+  },
+  {
+    "time": "3.6",
+    "effectType": "flips",
+    "effect": "remove",
+    "seconds": 0.08
+},
+{
+  "time": "3.7",
+  "effectType": "flips",
+  "effect": "vertical",
+  "seconds": 0.08
+},
+{
+  "time": "3.8",
+  "effectType": "flips",
+  "effect": "remove",
+  "seconds": 0.08
+},
+{
+  "time": "9.5",
+  "effectType": "filters",
+  "effect": "invert",
+  "seconds": 1.74
+},
+{
+  "time": "10",
+  "effectType": "filters",
+  "effect": "uninvert",
+  "seconds": 1
+},
+{
+  "time": "11.9",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.5
+},
+{
+  "time": "34.90",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.2
+},
+{
+  "time": "35.20",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.2
+},
+{
+  "time": "35.80",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.5
+},
+{
+  "time": "36.60",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.5
+},
+{
+  "time": "37",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.25
+},
+{
+  "time": "37.30",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.25
+},
+{
+  "time": "37.60",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.25
+},
+{
+  "time": "37.90",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.25
+},
+{
+  "time": "37.30",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.25
+},
+{
+  "time": "38.20",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.10
+},
+{
+  "time": "38.30",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.19
+},
+{
+  "time": "38.50",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.09
+},
+{
+  "time": "38.60",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "38.80",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "38.50",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "38.90",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "39",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "39.20",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 0.15
+},
+{
+  "time": "39.35",
+  "effectType": "filters",
+  "effect": "flashStrong",
+  "seconds": 1
+},
+{
+  "time": "44",
+  "effectType": "flips",
+  "effect": "horizontal",
+  "seconds": 0
+},
+{
+  "time": "65",
+  "effectType": "flips",
+  "effect": "remove",
+  "seconds": 0
+}
+
+
+   
+
+  ],
+  "beats": {
+
+    "notes": [
+
+      {
+        "time": 6.779000
+      },
+      {
+        "time": 7.942000
+      },
+      {
+        "time": 9.111000
+      },
+      {
+        "time": 10.287000
+      },
+      {
+        "time": 11.431000
+      },
+      {
+        "time": 12.615000
+      },
+      {
+        "time": 13.770000
+      },
+      {
+        "time": 14.927000
+      },
+      {
+        "time": 15.991000
+      },
+      {
+        "time": 17.263000
+      },
+      {
+        "time": 18.430000
+      },
+      {
+        "time": 19.590000
+      },
+      {
+        "time": 20.008000,
+        "type": "attack"
+      },
+      {
+        "time": 20.459000,
+        "type": "attack"
+      },
+      {
+        "time": 24.248000
+      },
+      {
+        "time": 25.418000
+      },
+      {
+        "time": 26.578000
+      },
+      {
+        "time": 27.749000
+      },
+      {
+        "time": 28.906000
+      },
+      {
+        "time": 29.971000
+      },
+      {
+        "time": 31.243000
+      },
+      {
+        "time": 32.408000
+      },
+      {
+        "time": 33.566000
+      },
+      {
+        "time": 34.630000
+      },
+      {
+        "time": 35.327000
+      },
+      {
+        "time": 47.553000
+      },
+      {
+        "time": 48.711000
+      },
+      {
+        "time": 51.045000
+      },
+      {
+        "time": 52.210000
+      },
+      {
+        "time": 54.543000
+      },
+      {
+        "time": 55.600000
+      },
+      {
+        "time": 56.873000
+      },
+      {
+        "time": 58.032000
+      },
+      {
+        "time": 59.199000
+      },
+      {
+        "time": 60.272000
+      },
+      {
+        "time": 61.528000
+      },
+      {
+        "time": 62.699000
+      },
+      {
+        "time": 63.857000
+      },
+      {
+        "time": 64.861000
+      },
+      {
+        "time": 65.379970
+      },
+      {
+        "time": 65.80,
+        "type": "attack"
+      }
+
+    ]
+  }
+}

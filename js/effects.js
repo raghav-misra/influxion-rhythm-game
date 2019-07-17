@@ -1,4 +1,4 @@
-var effectElement = document.body
+var effectElement = document.getElementById('canvas')
 var effectReady = true
 //Effects for in game use
 var effects = {

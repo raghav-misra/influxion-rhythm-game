@@ -16,7 +16,6 @@ var effectCheck = true
 
 function loadMap(path) {
 	load(path, function (data) {
-		showCd(data.info.levelName)
 		loadGame(data)
 	})
 }
@@ -29,6 +28,7 @@ function loadGameUI() {
 
 function loadGame(data) {
 	if (gameRunning == false) {
+		effects.flips.remove()
 		globalId++
 		loadGameUI();
 		gameRunning = true
@@ -40,6 +40,8 @@ function loadGame(data) {
 		textLayer.removeChildren()
 		mainLayer.removeChildren()
 		spikes = []
+		effectStage = 0
+		effectCheck = true
 		enemies = []
 		map = data
 		mainLayer.add(player);
@@ -49,6 +51,7 @@ function loadGame(data) {
 		})
 		//load background
 		backgroundImage.src = "backgrounds/" + map.info.background;
+		
 		//load texts
 		map.texts.text.forEach(function (textData) {
 			var text = new Konva.Text({ //spike drawer
@@ -66,9 +69,6 @@ function loadGame(data) {
 
 		})
 		//load music
-		setTimeout(function(){
-
-		
 		music = new Howl({
 			src: ["maps/" + map.info.path],
 			onload: function(){
@@ -81,7 +81,8 @@ function loadGame(data) {
 					update()
 			}
 		});
-		},3000)
+		starAnimLoop = window.requestAnimationFrame(animateStar);
+		
 
 
 
@@ -193,6 +194,7 @@ function spikeManager(current) { //Creates spikes to beat
 			return;
 		}
 		if(beatStage == 1 && spikeCheck && timeUntilNextBeat >= 1){//fix insta spawn bug
+			console.log("check ran")
 			beatStage-- // go back down so first beat is correctly placed
 			spikeCheck = false // turn off this check
 			nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
@@ -223,38 +225,45 @@ function spikeManager(current) { //Creates spikes to beat
 }
 //effects
 function effectManager(current){
-	console.log("asd")
+
 	var nextEffect = map.effects[effectStage]
 	var currentTime = music.seek()
-	var nextEffectTime = parseFloat(toFixed(map.effects[effectStage].time, 2))
-	var timeUntilNextEffects = nextEffectTime - currentTime
-
+	
 	
 	if (gameWonAlready) return;
 	if (current !== globalId) {
 		
 		return;
-
 	}
-	if(effectStage == 0 && effectCheck && timeUntilNextBeat >= 1){//fix insta spawn bug
+	if(effectStage == 0 && effectCheck){//fix insta spawn bug
 		
 		effectCheck = false // turn off this check
-		nextBeatTime = parseFloat(toFixed(map.beats.notes[beatStage].time, 2))
-		timeUntilNextBeat = nextBeatTime - currentTime //Get correct first beat position
-		console.log(timeUntilNextBeat)
+		currentTime = music.seek()
+		var nextEffectTime = parseFloat(toFixed(map.effects[effectStage].time, 2))
+		timeUntilNextEffects = nextEffectTime - currentTime 
+		console.log(timeUntilNextEffects + "in check")
 		setTimeout(function () { //redo
 			effectManager(current)
-		}, timeUntilNextBeat * 1000) //seconds to miliseconds
+		}, timeUntilNextEffects * 1000) //seconds to miliseconds
 		return;
 	}
 
 	//trigger effect
 	effects[nextEffect.effectType][nextEffect.effect](nextEffect.seconds)
 	
-	
+	//next effect
+	effectStage++
+	try{
+	var nextEffectTime = parseFloat(toFixed(map.effects[effectStage].time, 2))
+	}
+	catch{
+		return;
+	}
+	timeUntilNextEffects = nextEffectTime - currentTime 
+	console.log(timeUntilNextEffects + "||" + effectStage)
 	setTimeout(function(){
 		effectManager(current)
-	},timeUntilNextEffects)
+	},timeUntilNextEffects * 1000)
 		
 		
 
@@ -276,6 +285,7 @@ function loseGame() {
 
 function winGame() {
 	gameRunning = false
+	effects.flips.remove()
 	music.stop()
 	soundEffects.win.play();
 	bossIntroCutscene(path);

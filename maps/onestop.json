@@ -1,24 +1,34 @@
 {
   "info": {
-		"levelName": "Tutorial",
+    "levelName": "Tutorial",
     "songName": "Onestop",
     "path": "onestop.mp3",
     "background": "dark-mtns.png",
-		"starScores": [8, 16, 32],
+    "starScores": [8, 16, 32],
     "noteColor": "white"
   },
-  "effects":[
+  "effects": [{
+      "time": "12.64",
+      "effectType": "filters",
+      "effect": "flashStrong",
+      "seconds": 1.7
+    },
     {
-      "time": "5",
+      "time": "24.4",
       "effectType": "bounces",
       "effect": "bounceFoward",
-      "seconds": 0.2
+      "seconds": 0.5
+    },
+    {
+      "time": "36.33",
+      "effectType": "filters",
+      "effect": "flashStrong",
+      "seconds": 0.5
     }
   ],
   "texts": {
-    "text" : [
-      {
-        
+    "text": [{
+
         "value": "Tutorial",
         "fontSize": 80,
         "fontFamily": "Oswald",
@@ -27,7 +37,7 @@
         "y": 100
       },
       {
-        
+
         "value": "Each Influxion level has two parts: the platformer, and the boss battle.",
         "fontSize": 20,
         "fontFamily": "Oswald",
@@ -36,8 +46,8 @@
         "y": 200
       },
       {
-        
-        "value": "The Flying CD will create notes to the beat of the music..",
+
+        "value": "The CD will create notes to the beat of the music..",
         "fontSize": 20,
         "fontFamily": "Oswald",
         "fill": "white",
@@ -45,7 +55,7 @@
         "y": 100
       },
       {
-        
+
         "value": "Press space to jump over the notes",
         "fontSize": 20,
         "fontFamily": "Oswald",
@@ -54,7 +64,7 @@
         "y": 200
       },
       {
-        
+
         "value": "The star will also create large RED stones which you can break by holding X",
         "fontSize": 20,
         "fontFamily": "Oswald",
@@ -65,9 +75,8 @@
     ]
   },
   "beats": {
-  
-    "notes": [
-      {
+
+    "notes": [{
         "name": "F7",
         "midi": 101,
         "time": 37.7800,

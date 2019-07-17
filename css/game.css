@@ -209,13 +209,14 @@
 @keyframes flash{
   0%{
     filter: brightness(1)
+
   }
   40%{
-    filter: brightness(2)
+    filter: brightness(2)  hue-rotate(20deg)
   }
   100%{
   
-      filter: brightness(1)
+      filter: brightness(1)  hue-rotate(0deg)
     
   }
 }
@@ -291,12 +292,19 @@
 }
 @keyframes cdIn {
 	0% {
-		-webkit-transform: translateY(-700px);
-		        transform: translateY(700px)
-	}
+		-webkit-transform: translateY(-700px) scale(1.2);
+            transform: translateY(700px) scale(1.2);
+          
+  }
+  80%{
+    transform: scale(1.2);
+    -webkit-transform: scale(1.2)
+  }
 	100% {
-    -webkit-transform: translateY(0px);
-            transform: translateY(0px)
+    -webkit-transform: translateY(0px) scale(1);
+            transform: translateY(0px) scale(1);
+
+            
 	}
 }
 @-webkit-keyframes cdIn {

@@ -74,10 +74,15 @@ function goToNameCheck(locationURL){
 }
 
 function loader(locateURL, fName){
-    document.getElementById("load-svg").src = "img/loader.svg";
-		document.getElementById("load-svg").style.animation = "fade-in 1s ease-in-out";
+    document.getElementById("loader").style.visibility = "visible"
+    document.getElementById("loader").style.animation = "fade-in 1s ease-in-out";
     setTimeout(()=>{
-        location.href = locateURL + "?f=" + fName;
+      
+            lcdScreen.innerText = "Please Insert A Disc"
+       
+    },5000)
+  setTimeout(()=>{
+   location.href = locateURL + "?f=" + fName;
     }, 7900);
 }
 

@@ -28,6 +28,7 @@ header .title {
 	color: cornflowerblue;
 	animation: color-change-text 7.5s ease-in-out infinite;
 }
+
 /* Name Input */
 
 .enter-name {
@@ -257,13 +258,15 @@ input[type="text"]:hover, input[type="text"]:focus {
 /* Particles & Loader */
 
 #loader {
-	background: var(--blue-grey);
-	width: 100%;
-	height: 100vh;
+	background: white;
+	width:50%;
+	height: 80vh;
+	margin-left: 25%;
 	position: fixed;
 	z-index: 0;
 	top: 0;
 	left: 0;
+	color: black;
 }
 #loader img {
 	border: none;
@@ -272,4 +275,21 @@ input[type="text"]:hover, input[type="text"]:focus {
 	left: calc(50vw - 250px);
 	width: 500px;
 	height: 281.25px;
+}
+.loader h2{
+	background-color: #B0A89E;
+	display: inline-block;
+	padding: 1%;
+	margin: 1%;
+	color: black;
+	font-size: 200%;
+	font-family: "DSEG";
+	margin-top: 20%;
+
+}
+.loader h3{
+	color:black
+}
+.loader i{
+	color:black
 }

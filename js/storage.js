@@ -11,7 +11,9 @@ var dataArray = {
 				name: "Tutorial",
 				song: "Onestop",
 				artist: "David Yackley",
-				mapLocation: "maps/onestop.json"
+				mapLocation: "maps/onestop.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
 			}
 		},
 		cityscape: {
@@ -23,7 +25,9 @@ var dataArray = {
 				name: "Cityscape", 
 				song: "Town", 
 				artist: "Nathan Grigg",
-				mapLocation: "maps/town.json"
+				mapLocation: "maps/town.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
 			}
 		},
 		paradise: {
@@ -31,11 +35,27 @@ var dataArray = {
 			starsEarned: 0,
 			metadata: {
 				difficulty: "normal",
-				number: "02",
+				number: "03",
 				name: "Paradise", 
 				song: "Gangsta's Paradise", 
 				artist: "Jennifer Spengler",
-				mapLocation: "maps/gangstasparadise.json"
+				mapLocation: "maps/gangstasparadise.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
+			}
+		},
+		talkbox: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "easy",
+				number: "02",
+				name: "TalkBox", 
+				song: "TalkBox", 
+				artist: "Dj Quads",
+				mapLocation: "maps/talkbox.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
 			}
 		}
 	}
@@ -50,9 +70,9 @@ function updateStorage(){
 	document.getElementById("star-amount").innerText = dataArray.stars.toString();
 	setTimeout(updateStorage, 5000);
 }
-
+/* old
 // "Dynamic" Level Generator:
-var levelCode = "<div data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{3}</div><div class=\"lvl-song-info\"><span class=\"lvl-song s-name\">Song:&nbsp;{4}</span><hr><span class=\"lvl-song s-artist\">Artist:&nbsp;{5}</span></div><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';loadMap('{7}');\" class=\"lvl-btn btn\">Play!</button></div></div>";
+var levelCode = "<div data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{3}</div><div class=\"lvl-song-info\"><span class=\"lvl-song s-name\">Song:&nbsp;{4}</span><hr><span class=\"lvl-song s-artist\">Artist:&nbsp;{5}</span></div><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';showCd('{3}');setTimeout(function(){loadMap('{7}')},2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
 
 var levelList = document.getElementById("level-list");
 
@@ -77,6 +97,47 @@ function createLevel(lvlObject){
 		lvlObject.metadata.artist, 
 		lvlObject.metadata.mapLocation,
 		lvlObject.metadata.mapLocation
+	);
+	if(lvlObject.starsEarned >= 1){
+		tmp = tmp.replace("far", "fas");
+	}
+	if(lvlObject.starsEarned >= 2){
+		tmp = tmp.replace("far", "fas");
+	}
+	if(lvlObject.starsEarned == 3){
+		tmp = tmp.replace("far", "fas");
+	}
+	levelList.innerHTML = levelList.innerHTML + tmp;
+}
+*/
+// "Dynamic" Level Generator:
+var levelCode = "<div style='background: url(\"{7} \") top' data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{5}</div><div class=\"lvl-song-info\"><span style='color:{9}' class=\"lvl-song s-name\">{4}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';showCd('{3}');setTimeout(function(){loadMap('{7}')},2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+
+var levelList = document.getElementById("level-list");
+
+String.prototype.format = function() {
+	var args = arguments;
+	return this.replace(/{(\d+)}/g, function(match, number) { 
+		return typeof args[number] != 'undefined'
+			? args[number]
+			: match
+		;
+	});
+};
+
+function createLevel(lvlObject){
+	var tmp = levelCode;
+	tmp = tmp.format(
+		lvlObject.completed.toString(),
+		lvlObject.metadata.difficulty, 
+		lvlObject.metadata.number, 
+		lvlObject.metadata.name, 
+		lvlObject.metadata.song, 
+		lvlObject.metadata.artist, 
+		lvlObject.metadata.mapLocation,
+		lvlObject.metadata.background,
+		lvlObject.metadata.songNameColor
+
 	);
 	if(lvlObject.starsEarned >= 1){
 		tmp = tmp.replace("far", "fas");

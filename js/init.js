@@ -37,6 +37,7 @@ var backgroundLayer = new Konva.FastLayer();
 var backgroundImage = new Image();
 var backgoundSpeed = 0.5;
 var backgroundLoad = false
+var backgroundImpactAnim
 backgroundImage.onload = function () {
 	background = new Konva.Image({
 		x: 0,
@@ -71,6 +72,14 @@ backgroundImage.onload = function () {
 	background.listening(false)
 	background2.listening(false)
 	backgroundLoad = true
+	backgroundImpactAnim = new Konva.Tween({
+		node: background2,
+		duration: 0.5,
+		stroke: 'red',
+		fill: 'white',
+		strokeWidth: 5,
+	
+	})
 }
 //Text layer
 var textLayer = new Konva.FastLayer();
@@ -256,7 +265,7 @@ function moveEnemy() {
 		} else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
-		} else if (checkCollisions(player.width(), player.height(), player.getX() + 10, player.getY(), enemies[i].width() - 25, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX() + 20, player.getY(), enemies[i].width() - 55, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],

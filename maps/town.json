@@ -29,6 +29,34 @@
   
     ]
   },
+  "effects":[
+    {
+      "time": "48",
+      "effectType": "shakes",
+      "effect": "shakeFastTop",
+      "seconds": 0.7
+    },
+    {
+      "time": "49",
+      "effectType": "shakes",
+      "effect": "shakeFastLeft",
+      "seconds": 0.7
+    },
+    {
+      "time": "50",
+      "effectType": "shakes",
+      "effect": "shakeFastRight",
+      "seconds": 0.7
+    },
+    {
+      "time": "51",
+      "effectType": "shakes",
+      "effect": "shakeFastBottom",
+      "effect": "shakeFastBottom",
+      "seconds": 0.7
+    }
+   
+  ],
   "beats": {
 
     "notes": [
