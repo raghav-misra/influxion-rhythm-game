@@ -30,20 +30,6 @@ var dataArray = {
 				songNameColor: "white"
 			}
 		},
-		paradise: {
-			completed: false,
-			starsEarned: 0,
-			metadata: {
-				difficulty: "normal",
-				number: "03",
-				name: "Paradise", 
-				song: "Gangsta's Paradise", 
-				artist: "Jennifer Spengler",
-				mapLocation: "maps/gangstasparadise.json",
-				background: "backgrounds/dark-mtns.png",
-				songNameColor: "white"
-			}
-		},
 		talkbox: {
 			completed: false,
 			starsEarned: 0,
@@ -54,6 +40,20 @@ var dataArray = {
 				song: "TalkBox", 
 				artist: "Dj Quads",
 				mapLocation: "maps/talkbox.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
+			}
+		},
+		paradise: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "normal",
+				number: "03",
+				name: "Paradise", 
+				song: "Gangsta's Paradise", 
+				artist: "Jennifer Spengler",
+				mapLocation: "maps/gangstasparadise.json",
 				background: "backgrounds/dark-mtns.png",
 				songNameColor: "white"
 			}
@@ -111,7 +111,7 @@ function createLevel(lvlObject){
 }
 */
 // "Dynamic" Level Generator:
-var levelCode = "<div style='background: url(\"{7} \") top' data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{5}</div><div class=\"lvl-song-info\"><span style='color:{9}' class=\"lvl-song s-name\">{4}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';showCd('{3}');setTimeout(function(){loadMap('{7}')},2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+var levelCode = "<div style='background: url(\"{7} \") top; background-size: cover;' data-completed=\"{0}\" class=\"lvl {1}\"><div class=\"lvl-number\">{2}</div><div class=\"lvl-name\">{5}</div><div class=\"lvl-song-info\"><span style='color: {8}' class=\"lvl-song s-name\">{4}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{6}';showCd('{3}');setTimeout(function(){loadMap('{6}')},2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
 
 var levelList = document.getElementById("level-list");
 
