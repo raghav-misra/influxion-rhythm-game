@@ -8,9 +8,8 @@
     "noteColor": "white"
   },
   "texts": {
-    "text": [{
-
-        "value": "Cityscape",
+    "text": [{   
+        "value": "TalkBox",
         "fontSize": 80,
         "fontFamily": "Oswald",
         "fill": "white",

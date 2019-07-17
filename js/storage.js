@@ -51,7 +51,7 @@ var dataArray = {
 				difficulty: "normal",
 				number: "03",
 				name: "Paradise", 
-				song: "Gangsta's Paradise", 
+				song: "Gangsta’s Paradise", 
 				artist: "Jennifer Spengler",
 				mapLocation: "maps/gangstasparadise.json",
 				background: "backgrounds/dark-mtns.png",
