@@ -505,7 +505,7 @@ function levelCompleted(message, starsWin) {
 		else alert("Noooooo. You lost.");
 		alert("You got " + starsWin[1] + " stars.");
 		dataArray.stars = dataArray.stars + starsWin[1];
-		var nameTmp = beatMap.info.levelName;
+		var nameTmp = beatMap.info.levelName.toLowerCase();
 		dataArray.levels[nameTmp].completed = true;
 		dataArray.levels[nameTmp].starsEarned = starsWin[1];
 		buildLevels();
