@@ -111,7 +111,7 @@ function createLevel(lvlObject){
 }
 */
 // "Dynamic" Level Generator:
-var levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+var levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
 
 var levelList = document.getElementById("level-list");
 
@@ -145,7 +145,10 @@ function createLevel(lvlObject){
 	if(lvlObject.starsEarned >= 2){
 		tmp = tmp.replace("far", "fas");
 	}
-	if(lvlObject.starsEarned == 3){
+	if(lvlObject.starsEarned >= 3){
+		tmp = tmp.replace("far", "fas");
+	}
+	if(lvlObject.starsEarned >= 4){
 		tmp = tmp.replace("far", "fas");
 	}
 	levelList.innerHTML = levelList.innerHTML + tmp;
@@ -162,7 +165,6 @@ function buildLevels(){
 		}
 	}
 }
-buildLevels();
 
 // Get First Name
 dataArray.firstName = decodeURI(location.search.replace("?f=", "").toUpperCase());
@@ -189,6 +191,7 @@ else{
 	);
 }
 updateStorage();
+buildLevels();
 
 // utils
 function infinitePrompt(query, repeat = false){

@@ -44,16 +44,15 @@ hr{
 	position: relative;
 	border: 5px solid transparent;
 	background: white;
-	
+	border-radius: 10px;
 }
 
 .lvl .lvl-name{
 	display: block;
 	display: inline-block;
 	font-size: 20px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	width: 250px;
+	padding: 7.5px;
+	width: 235px;
 	color: white;
 	opacity: 0.7;
 }
@@ -66,10 +65,10 @@ hr{
 	border-color: cornflowerblue;
 }
 .lvl.normal .lvl-name{
-	background: green;
+	background: var(--custom-green);
 }
 .lvl.normal{
-	border-color: green;
+	border-color: var(--custom-green);
 }
 .lvl.difficult .lvl-name{
 	background: var(--disabled-red);
@@ -103,12 +102,13 @@ hr{
 
 .lvl .lvl-song{
 	color: white;
-	font-family: Oswald;
+	font-family: 'Squada One';
 	text-align: center;
 	display: block;
 	margin: 2.5px;
+	transform: skew(10deg) scaleX(0.85);
 	margin-top: 40px;
-	text-shadow: yellow 5px 5px 10px;
+	animation: color-change-text 5s ease-in-out infinite;
 	font-size: 30px;
 }
 
@@ -128,12 +128,12 @@ hr{
 
 /* Level Card Button */
 .lvl .btn{
-	color: var(--blue-grey);
+	color: white;
 	background: transparent;
 	width: 75px;
 	padding: 5px;
 	position: absolute;
-	border: 2px solid var(--blue-grey);
+	border: 2px solid white;
 	left: calc(70px);
 }
 
@@ -145,8 +145,8 @@ hr{
 }
 
 .lvl .btn:hover{
-	color: white !important;
-	background: var(--blue-grey) !important;
+	color: var(--blue-grey) !important;
+	background: white !important;
 }
 
 /* Difficulty 'Legend' */
@@ -167,6 +167,7 @@ hr{
 .lvl .lvl-star-rating i{
 	color: var(--star-yellow);
 	font-size: 35px;
+	text-shadow: 0 0 30px white;
 }
 
 .lvl .lvl-star-rating{
@@ -174,7 +175,8 @@ hr{
 	width: 100%;
 	text-align: center;
 	position: absolute;
-	top: 0;
+	top: 0px;
+	left: -1px;
 }
 
 /* Custom Alert/Popup Dialog */
