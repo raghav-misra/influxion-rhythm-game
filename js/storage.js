@@ -1,3 +1,6 @@
+var previewAudio = new Howl({
+src: ['maps/click.mp3']
+})
 var dataArray = {
 	"firstName": "", 
 	"stars": 0,
@@ -44,12 +47,40 @@ var dataArray = {
 				songNameColor: "white"
 			}
 		},
+		electro: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "easy",
+				number: "03",
+				name: "Electro Cabello",
+				song: "Electro Cabello",
+				artist: "Kevin MacLeod",
+				mapLocation: "maps/electrocabello.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
+			}
+		},
+		flares: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "normal",
+				number: "04",
+				name: "Flares",
+				song: "Flares",
+				artist: "NIVIRO",
+				mapLocation: "maps/flares.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
+			}
+		},
 		paradise: {
 			completed: false,
 			starsEarned: 0,
 			metadata: {
 				difficulty: "normal",
-				number: "03",
+				number: "05",
 				name: "Paradise",
 				song: "Gangsta’s Paradise",
 				artist: "Jennifer Spengler",
@@ -63,7 +94,7 @@ var dataArray = {
 			starsEarned: 0,
 			metadata: {
 				difficulty: "difficult",
-				number: "04",
+				number: "06",
 				name: "Skii",
 				song: "Skii",
 				artist: "Iscopizza X Lil Scar",
@@ -165,7 +196,13 @@ function createLevel(lvlObject) {
 	if (lvlObject.starsEarned >= 4) {
 		tmp = tmp.replace("far", "fas");
 	}
-	levelList.innerHTML = levelList.innerHTML + tmp;
+	var e = document.createElement('span')
+	e.innerHTML = tmp
+	e.onmouseover = function(){
+		
+	}
+	levelList.appendChild(e)
+
 }
 
 // Create Levels:

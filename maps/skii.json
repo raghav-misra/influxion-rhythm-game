@@ -12,18 +12,6 @@
       "effectType": "filters",
       "effect": "flashStrong",
       "seconds": 1.7
-    },
-    {
-      "time": "24.4",
-      "effectType": "bounces",
-      "effect": "bounceFoward",
-      "seconds": 0.5
-    },
-    {
-      "time": "36.33",
-      "effectType": "filters",
-      "effect": "flashStrong",
-      "seconds": 0.5
     }
   ],
   "texts": {

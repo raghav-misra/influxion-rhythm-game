@@ -1,0 +1,379 @@
+{
+  "info": {
+    "levelName": "Electro Cabello",
+    "songName": "Electro Cabello",
+    "path": "electrocabello.mp3",
+    "background": "dark-mtns.png",
+    "starScores": [8, 16, 32],
+    "noteColor": "white"
+  },
+  "effects": [{
+    "time": "16.40",
+    "effectType": "filters",
+    "effect": "flashStrong",
+    "seconds": 2
+  },
+  {
+    "time": "66",
+    "effectType": "filters",
+    "effect": "invert",
+    "seconds": 23
+  },
+  {
+    "time": "83",
+    "effectType": "filters",
+    "effect": "flashStrong",
+    "seconds": 1
+  },
+  {
+    "time": "85",
+    "effectType": "filters",
+    "effect": "flashStrong",
+    "seconds": 2
+  },
+  {
+    "time": "87.1",
+    "effectType": "filters",
+    "effect": "flashStrong",
+    "seconds": 2
+  },
+  {
+    "time": "90",
+    "effectType": "filters",
+    "effect": "invert",
+    "seconds": 1
+  }
+
+],
+  "texts": {
+    "text": [{
+
+        "value": "Electro Cabello",
+        "fontSize": 80,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 100
+      },
+      {
+
+        "value": "Song (Electro Cabello) by Kevin MacLeod",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 100,
+        "y": 200
+      },
+      {
+
+        "value": "There are no clefs in this level",
+        "fontSize": 20,
+        "fontFamily": "Oswald",
+        "fill": "white",
+        "x": 1000,
+        "y": 100
+      }
+    ]
+  },
+  "beats": {
+
+    "notes": [
+
+      {
+        "time": 7.255000
+      },
+      {
+        "time": 8.280000
+      },
+      {
+        "time": 9.308000
+      },
+      {
+        "time": 10.332000
+      },
+      {
+        "time": 11.357000
+      },
+      {
+        "time": 12.128000
+      },
+      {
+        "time": 13.409000
+      },
+      {
+        "time": 14.452000
+      },
+      {
+        "time": 15.460000
+      },
+      {
+        "time": 17.512000
+      },
+      {
+        "time": 18.539000
+      },
+      {
+        "time": 19.564000
+      },
+      {
+        "time": 20.349000
+      },
+      {
+        "time": 21.613000
+      },
+      {
+        "time": 22.640000
+      },
+      {
+        "time": 23.667000
+      },
+      {
+        "time": 24.695000
+      },
+      {
+        "time": 25.715000
+      },
+      {
+        "time": 27.769000
+      },
+      {
+        "time": 28.811000
+      },
+      {
+        "time": 29.838000
+      },
+      {
+        "time": 31.375000
+      },
+      {
+        "time": 32.145000
+      },
+      {
+        "time": 32.895000
+      },
+      {
+        "time": 33.922000
+      },
+      {
+        "time": 35.973000
+      },
+      {
+        "time": 37.000000
+      },
+      {
+        "time": 38.023000
+      },
+      {
+        "time": 39.051000
+      },
+      {
+        "time": 40.076000
+      },
+      {
+        "time": 42.124000
+      },
+      {
+        "time": 43.187000
+      },
+      {
+        "time": 44.178000
+      },
+      {
+        "time": 45.225000
+      },
+      {
+        "time": 46.229000
+      },
+      {
+        "time": 47.257000
+      },
+      {
+        "time": 49.306000
+      },
+      {
+        "time": 50.335000
+      },
+      {
+        "time": 52.384000
+      },
+      {
+        "time": 54.434000
+      },
+      {
+        "time": 55.463000
+      },
+      {
+        "time": 56.488000
+      },
+      {
+        "time": 57.513000
+      },
+      {
+        "time": 58.535000
+      },
+      {
+        "time": 59.563000
+      },
+      {
+        "time": 60.590000
+      },
+      {
+        "time": 61.616000
+      },
+      {
+        "time": 62.640000
+      },
+      {
+        "time": 64.197000
+      },
+      {
+        "time": 65.462000
+      },
+      {
+        "time": 66.743000
+      },
+      {
+        "time": 67.769000
+      },
+      {
+        "time": 68.795000
+      },
+      {
+        "time": 70.847000
+      },
+      {
+        "time": 71.874000
+      },
+      {
+        "time": 72.886000
+      },
+      {
+        "time": 73.923000
+      },
+      {
+        "time": 74.964000
+      },
+      {
+        "time": 75.990000
+      },
+      {
+        "time": 77.015000
+      },
+      {
+        "time": 78.042000
+      },
+      {
+        "time": 79.049000
+      },
+      {
+        "time": 80.075000
+      },
+      {
+        "time": 81.103000
+      },
+      {
+        "time": 82.143000
+      },
+      {
+        "time": 83.168000
+      },
+      {
+        "time": 84.195000
+      },
+      {
+        "time": 85.203000
+      },
+      {
+        "time": 86.248000
+      },
+      {
+        "time": 87.253000
+      },
+      {
+        "time": 88.537000
+      },
+      {
+        "time": 90.124000
+      },
+      {
+        "time": 91.359000
+      },
+      {
+        "time": 92.383000
+      },
+      {
+        "time": 93.411000
+      },
+      {
+        "time": 94.198000
+      },
+      {
+        "time": 95.461000
+      },
+      {
+        "time": 96.484000
+      },
+      {
+        "time": 97.512000
+      },
+      {
+        "time": 98.559000
+      },
+      {
+        "time": 100.588000
+      },
+      {
+        "time": 101.618000
+      },
+      {
+        "time": 102.402000
+      },
+      {
+        "time": 103.185000
+      },
+      {
+        "time": 104.693000
+      },
+      {
+        "time": 105.720000
+      },
+      {
+        "time": 106.744000
+      },
+      {
+        "time": 107.784000
+      },
+      {
+        "time": 108.809000
+      },
+      {
+        "time": 109.820000
+      },
+      {
+        "time": 111.871000
+      },
+      {
+        "time": 112.897000
+      },
+      {
+        "time": 113.922000
+      },
+      {
+        "time": 114.947000
+      },
+      {
+        "time": 115.972000
+      },
+      {
+        "time": 116.999000
+      },
+      {
+        "time": 118.024000
+      },
+      {
+        "time": 119.089000
+      }
+
+    ]
+  }
+}
