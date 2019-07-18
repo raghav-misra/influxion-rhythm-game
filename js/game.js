@@ -507,7 +507,8 @@ function levelCompleted(message, starsWin) {
 		updateInterval = null;
 		alert(message);
 		if (starsWin[0]) alert("Good Job!");
-		else if (message == "You Survived The Boss!" && starsWin[1] == 0) alert("But you didn't score enough to get any stars.");
+		else if (message == "You Survived The Boss!" && starsWin[1] == 0) 
+			alert("But you didn't score enough to get any stars.");
 		else alert("Noooooo. You lost.");
 		alert("You got " + starsWin[1] + " stars.");
 		dataArray.stars = dataArray.stars + starsWin[1];
@@ -533,5 +534,9 @@ function goBackToLevelScreen(msg, starsWin){
 }
 
 function showEndgamePopup(playerScore, playerHealth, bossHealth, message, starsWin){
-	
+	var starArray = beatMap.info.starScores;
+	document.getElementById("win-message").innerText = message;
+	document.getElementById("win-stars-earned").innerText = dataArray.firstName + ", You Earned " + starsWin[1] + "Stars";
+	document.getElementById("win-lose-popup").classList.remove("hide");
+	document.getElementById("final-score").innerText = "Your Final Score Is " + playerScore + ".";
 }

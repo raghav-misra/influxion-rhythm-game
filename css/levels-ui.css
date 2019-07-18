@@ -217,11 +217,30 @@ hr{
 
 /* Win Lose Popup */
 #win-lose-popup{
-	width: 100%;
+	width: calc(100% - 600px);
 	position: fixed;
-	height: 200px;
+	height: calc(100vh - 600px);
+	padding: 300px;
 	top: 0;
 	left: 0;
+	z-index: 666;
+	background: var(--blue-grey-translucent);
+}
+
+#win-message{
+	animation: color-change-text 5s ease-in-out infinite;
+	font-size: 35px;
+	text-transform: uppercase;
+	font-family: 'Squada One', sans-serif;
+}
+
+#win-stars-earned{
+	font-size: 25px;
+}
+
+#final-score{
+	font-size: 17.5px;
+	margin-top: 5px;
 }
 
 /* # of stars */

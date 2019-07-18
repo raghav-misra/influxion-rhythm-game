@@ -90,10 +90,15 @@
 		<button class="btn" id="popup-btn-yes">Beautiful Button</button>
 		<button class="btn" id="popup-btn-no">Beautiful Button</button>
 	</div>
-	<div id="win-lose-popup">
-		<span id="win-message"><!--Message--></span>
-		<hr class="white">
-		<span id="stars-earned"><!--Your Earned x Stars--><i class="fas fa-star"></i></span>
+	<div id="win-lose-popup" class="hide">
+		<div class="inner">
+			<span id="win-message">You Defeated The Boss!</span>
+			<hr class="white">
+			<span id="win-stars-earned">You Earned 4 Stars!</span><br>
+			<span id="final-score">Your Final Score Was 0.</span>
+			<hr class="white">
+			<button onclick="document.getElementById('win-lose-popup').classList.add('hide')" class="btn">Continue</button>
+		</div>
 	</div>
 	<!-- Scripts -->
 	<script src="js/ui.js">
