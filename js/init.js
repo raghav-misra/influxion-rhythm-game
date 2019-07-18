@@ -86,9 +86,10 @@ var textLayer = new Konva.FastLayer();
 //Main layer Players,Stars,Spikes
 var mainLayer = new Konva.FastLayer();
 //Player Data
-var player = new Konva.Rect({
+var player = new Konva.Circle({
 	width: 50,
 	height: 50,
+	radius: 20,
 	fill: '#4FC0A7',
 	y: 500,
 	x: 40,
