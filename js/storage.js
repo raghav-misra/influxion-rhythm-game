@@ -22,8 +22,8 @@ var dataArray = {
 			metadata: {
 				difficulty: "easy",
 				number: "01",
-				name: "Cityscape", 
-				song: "Town", 
+				name: "Cityscape",
+				song: "Town",
 				artist: "Nathan Grigg",
 				mapLocation: "maps/town.json",
 				background: "backgrounds/dark-mtns.png",
@@ -36,8 +36,8 @@ var dataArray = {
 			metadata: {
 				difficulty: "easy",
 				number: "02",
-				name: "TalkBox", 
-				song: "TalkBox", 
+				name: "TalkBox",
+				song: "TalkBox",
 				artist: "Dj Quads",
 				mapLocation: "maps/talkbox.json",
 				background: "backgrounds/dark-mtns.png",
@@ -50,22 +50,37 @@ var dataArray = {
 			metadata: {
 				difficulty: "normal",
 				number: "03",
-				name: "Paradise", 
-				song: "Gangsta’s Paradise", 
+				name: "Paradise",
+				song: "Gangsta’s Paradise",
 				artist: "Jennifer Spengler",
 				mapLocation: "maps/gangstasparadise.json",
 				background: "backgrounds/dark-mtns.png",
 				songNameColor: "white"
 			}
+		},
+		skii: {
+			completed: false,
+			starsEarned: 0,
+			metadata: {
+				difficulty: "difficult",
+				number: "04",
+				name: "Skii",
+				song: "Skii",
+				artist: "Iscopizza X Lil Scar",
+				mapLocation: "maps/skii.json",
+				background: "backgrounds/dark-mtns.png",
+				songNameColor: "white"
+			}
 		}
 	}
+	
 };
 
 // Update function
-function updateStorage(){
+function updateStorage() {
 	localStorage.setItem(
-		dataArray.firstName.toUpperCase()+"Store", 
-		JSON.stringify(dataArray)	
+		dataArray.firstName.toUpperCase() + "Store",
+		JSON.stringify(dataArray)
 	);
 	document.getElementById("star-amount").innerText = dataArray.stars.toString();
 	setTimeout(updateStorage, 5000);
@@ -115,17 +130,16 @@ var levelCode = "<div style='background-image: url(\"{0}\"); background-size: co
 
 var levelList = document.getElementById("level-list");
 
-String.prototype.format = function() {
+String.prototype.format = function () {
 	var args = arguments;
-	return this.replace(/{(\d+)}/g, function(match, number) { 
-		return typeof args[number] != 'undefined'
-			? args[number]
-			: match
-		;
+	return this.replace(/{(\d+)}/g, function (match, number) {
+		return typeof args[number] != 'undefined' ?
+			args[number] :
+			match;
 	});
 };
 
-function createLevel(lvlObject){
+function createLevel(lvlObject) {
 	var tmp = levelCode;
 	tmp = tmp.format(
 		lvlObject.metadata.background,
@@ -139,27 +153,27 @@ function createLevel(lvlObject){
 		lvlObject.metadata.song,
 		lvlObject.metadata.mapLocation
 	);
-	if(lvlObject.starsEarned >= 1){
+	if (lvlObject.starsEarned >= 1) {
 		tmp = tmp.replace("far", "fas");
 	}
-	if(lvlObject.starsEarned >= 2){
+	if (lvlObject.starsEarned >= 2) {
 		tmp = tmp.replace("far", "fas");
 	}
-	if(lvlObject.starsEarned >= 3){
+	if (lvlObject.starsEarned >= 3) {
 		tmp = tmp.replace("far", "fas");
 	}
-	if(lvlObject.starsEarned >= 4){
+	if (lvlObject.starsEarned >= 4) {
 		tmp = tmp.replace("far", "fas");
 	}
 	levelList.innerHTML = levelList.innerHTML + tmp;
 }
 
 // Create Levels:
-function buildLevels(){
+function buildLevels() {
 	dataArray.stars = 0;
 	levelList.innerHTML = "";
 	for (var lvlProp in dataArray["levels"]) {
-		if(dataArray["levels"].hasOwnProperty(lvlProp)){
+		if (dataArray["levels"].hasOwnProperty(lvlProp)) {
 			dataArray.stars += dataArray.levels[lvlProp].starsEarned;
 			createLevel(dataArray.levels[lvlProp]);
 		}
@@ -168,37 +182,35 @@ function buildLevels(){
 
 // Get First Name
 dataArray.firstName = decodeURI(location.search.replace("?f=", "").toUpperCase());
-if(dataArray.firstName.trim() == "") 
+if (dataArray.firstName.trim() == "")
 	dataArray.firstName = infinitePrompt("What's your first name?").trim().toUpperCase();
-setTimeout(()=>{
+setTimeout(() => {
 	popup.show(
-		"Welcome!", 
-		("Hey " + dataArray.firstName).trim() + "! Welcome To Influxion!", 
+		"Welcome!",
+		("Hey " + dataArray.firstName).trim() + "! Welcome To Influxion!",
 		"Let's Play!"
 	);
 }, 500);
 
 // Get From LocalStorage:
-if (localStorage.getItem(dataArray.firstName.toUpperCase()+"Store") !== null){
+if (localStorage.getItem(dataArray.firstName.toUpperCase() + "Store") !== null) {
 	dataArray = JSON.parse(
-		localStorage.getItem(dataArray.firstName.toUpperCase()+"Store")
+		localStorage.getItem(dataArray.firstName.toUpperCase() + "Store")
 	);
-}
-else{
+} else {
 	localStorage.setItem(
-		dataArray.firstName.toUpperCase()+"Store", 
-		JSON.stringify(dataArray)	
+		dataArray.firstName.toUpperCase() + "Store",
+		JSON.stringify(dataArray)
 	);
 }
 updateStorage();
 buildLevels();
 
 // utils
-function infinitePrompt(query, repeat = false){
+function infinitePrompt(query, repeat = false) {
 	var ans = prompt(query);
-	if(ans == null || ans.trim() == ""){
-		if(repeat) return infinitePrompt(query, true);
+	if (ans == null || ans.trim() == "") {
+		if (repeat) return infinitePrompt(query, true);
 		else return infinitePrompt("Let's try that again: " + query, true);
-	}
-	else return ans;
+	} else return ans;
 }
