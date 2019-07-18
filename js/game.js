@@ -515,17 +515,23 @@ function levelCompleted(message, starsWin) {
 		dataArray.levels[nameTmp].completed = true;
 		dataArray.levels[nameTmp].starsEarned = starsWin[1];
 		buildLevels();
-		goBackToLevelScreen();
+		goBackToLevelScreen(message, starsWin);
 	}, 2000);
 }
 
-function calcStarScore(score) {
+function calcStarScore(score){
 	var starArray = beatMap.info.starScores;
 	if (score >= starArray[0]) return [true, 1, true];
 	if (score >= starArray[1]) return [true, 2];
 	if (score >= starArray[2]) return [true, 3];
 	return [false, 0];
 }
-function goBackToLevelScreen(){
+function goBackToLevelScreen(msg, starsWin){
+	document.getElementById("levels").classList.remove("hide");
+	document.getElementById("boss-battle-ui").classList.add("hide");
+	showEndgamePopup(userScore, userHP, bossHP, msg, starsWin);
+}
 
+function showEndgamePopup(playerScore, playerHealth, bossHealth, message, starsWin){
+	
 }

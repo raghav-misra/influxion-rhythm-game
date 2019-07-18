@@ -90,7 +90,6 @@ hr{
 }
 
 .lvl.difficult .lvl-song-info{
-	background: var(--disabled-red);
 	padding: 10px;
 }
 
@@ -214,6 +213,15 @@ hr{
 	padding: 5px;
 	font-size: 15px;
 	margin: 5px;
+}
+
+/* Win Lose Popup */
+#win-lose-popup{
+	width: 100%;
+	position: fixed;
+	height: 200px;
+	top: 0;
+	left: 0;
 }
 
 /* # of stars */
