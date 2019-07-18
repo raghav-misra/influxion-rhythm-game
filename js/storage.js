@@ -1,5 +1,5 @@
 var dataArray = {
-	"firstName": "",
+	"firstName": "", 
 	"stars": 0,
 	"levels": {
 		tutorial: {
