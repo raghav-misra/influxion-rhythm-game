@@ -272,17 +272,23 @@ function effectManager(current){
 
 function loseGame() {
 	gameRunning = false;
-	soundEffects.lose.play();
 	cancelAnimationFrame(window.gameLoop)
-	music.stop()
 	cancelAnimationFrame(starAnimLoop)
 	beatStage = 0
+	requestAnimationFrame(killMusic)
 	setTimeout(function () {
+		music.stop()
 		loadMap(path)
-	}, 1000);
+	}, 2000);
 
 }
-
+function killMusic(){
+	if(music.rate() <= 0){
+		return;
+	}
+	music.rate(music.rate() - 0.01)
+	requestAnimationFrame(killMusic)
+}
 function winGame() {
 	gameRunning = false
 	effects.flips.remove()
