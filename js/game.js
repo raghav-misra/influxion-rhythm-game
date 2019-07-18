@@ -529,6 +529,7 @@ function calcStarScore(score){
 function goBackToLevelScreen(msg, starsWin){
 	document.getElementById("levels").classList.remove("hide");
 	document.getElementById("boss-battle-ui").classList.add("hide");
+	music.stop()
 	showEndgamePopup(userScore, userHP, bossHP, msg, starsWin);
 }
 
