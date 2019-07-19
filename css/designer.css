@@ -1,5 +1,6 @@
 /* Step Class */
 .step{
+		position: relative;
     display: block;
     width: calc(100% - 40px);
     padding: 20px;
@@ -11,15 +12,27 @@
     pointer-events: none;
 }
 
-.step .btn{
-    float: right;
+.step .input-text{
+	text-shadow: 0 0 15px white;
 }
 
-.step .song-text{
+.step .btn{
+    float: right;
+		position: relative;
+		width: 200px;
+}
+
+.step .input-text{
     float: left;
+		max-width: 70vh;
+		padding: 5px;
+		height: 30px;
+		border-radius: 10px;
+		overflow: hidden;
+		position: relative;
     font-size: 30px;
     margin-left: 10px;
-    margin-top: 26.5px;
+    margin-top: 21.5px;
     font-family: 'Squada One', sans-serif;
     text-transform: uppercase;
 }
@@ -37,4 +50,27 @@
     font-size: 30px;
 }
 
-/* Step 1 */
+/* Step 3 */
+#waveform{
+	position: relative;
+	width: 100%;
+	left: -20px;
+}
+
+#instruct{
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 360px;
+	width: 100%;
+}
+
+#instruct .txt{
+	display: inline-block;
+	margin: 10px;
+	font-size: 25px;
+}
+
+
+
+

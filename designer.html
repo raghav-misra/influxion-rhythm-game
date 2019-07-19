@@ -7,14 +7,39 @@
 	<title>Influxion - Designer</title>
 	<link href="css/shared.css" rel="stylesheet">
 	<link href="css/designer.css" rel="stylesheet">
+	<script src="js/effects.js"></script>
 </head>
-<body>
-	<div id="waveform"></div>
-	<input id="input" type="file"> <audio controls="" id="sound"></audio>
-	<p>Press V where you want to add a Note</p>
-	<p>Press C where you want to add a Clef</p>
-	<p id='status'></p>
-	<p id='export'></p>
+<body onkeypress="addBeat(event)">
+	<!-- Step 1: Upload A Song-->
+	<div id="step1" class="step">
+		<span class="title">Upload Your Song:</span>
+		<span class="song-text input-text">None</span>
+		<input id="get-song" class="hide" type="file" accept="audio/mp3, audio/wav">
+		<button class="btn" id="choose-song">Choose A Song</button>
+	</div>
+	<hr class="white">
+	<div id="step2" class="step disabled">
+		<span class="title">Choose A Background:</span>
+		<span class="background-text input-text">None</span>
+		<input type="color" id="get-background" class="hide">
+		<button class="btn" id="choose-background">Select A Color</button>
+	</div>
+	<hr class="white">
+	<div id="step3" class="step disabled">
+		<span class="title">Generate Obstacles:</span>
+		<span class="beats-text input-text">Incomplete</span>
+		<button class="btn" id="choose-beats">I'm Ready</button>
+		<br><br><br><br>
+		<div id="waveform"></div>
+		<div id="instruct">
+			<span class="txt">Use [C] to generate a clef obstacle.</span><br>
+			<span class="txt">Use [N] to generate a music obstacle.</span>
+		</div>
+	</div>
+	<hr class="white">
+	<br><br><br>
+	<button id="step4" class="btn disabled" disabled>create your level</button>
+	<script>effectElement = document.body;</script>
 	<script src="https://unpkg.com/wavesurfer.js">
 	</script> 
 	<script src="js/designer.js"></script>
