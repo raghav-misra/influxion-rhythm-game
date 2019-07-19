@@ -55,7 +55,7 @@ var dataArray = {
             metadata: {
                 difficulty: "easy",
                 number: "03",
-                name: "Electro Cabello",
+                name: "Electro",
                 song: "Electro Cabello",
                 artist: "Kevin MacLeod",
                 mapLocation: "maps/electrocabello.json",
@@ -199,35 +199,8 @@ function createLevel(lvlObject) {
         tmp = tmp.replace("far", "fas");
     }
     var e = document.createElement('span')
-    e.innerHTML = tmp
-/*
-    load(lvlObject.metadata.mapLocation, function(data) {
-
-        e.onmouseenter = function() {
-						previewAudio.stop()
-             previewAudio = new Howl({
-                src: ["maps/" + data.info.path],
-            })
-            previewAudio.on('load', function() {
-                if (gameRunning) {
-                    return;
-                }
-                previewAudio.play();
-            })
-            document.getElementById('levels').style.backgroundImage = "url(" + lvlObject.metadata.background + ")"
-
-
-
-
-        }
-				
-    })*/
-
-
-
-
-    levelList.appendChild(e)
-
+    e.innerHTML = tmp;
+    levelList.appendChild(e);
 }
 
 // Create Levels:

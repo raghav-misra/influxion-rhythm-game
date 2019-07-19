@@ -1,6 +1,6 @@
 {
   "info": {
-    "levelName": "Electro Cabello",
+    "levelName": "Electro",
     "songName": "Electro Cabello",
     "path": "electrocabello.mp3",
     "background": "dark-mtns.png",
@@ -46,7 +46,7 @@
   "texts": {
     "text": [{
 
-        "value": "Electro Cabello",
+        "value": "Electro",
         "fontSize": 80,
         "fontFamily": "Oswald",
         "fill": "white",

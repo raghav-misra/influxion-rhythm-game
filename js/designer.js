@@ -112,7 +112,6 @@ wavesurfer.on('ready', ()=>{
 
 document.getElementById("choose-beats").onclick = ()=>{
 	wavesurfer.load(URL.createObjectURL(songInput.files[0]));
-   uploadFile(songInput.files[0])
 	step3.getElementsByClassName("input-text")[0].innerHTML = "in progress";
 }
 

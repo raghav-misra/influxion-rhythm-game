@@ -16,7 +16,7 @@ header {
 	padding-top: calc(50vh - 250px);
 	position: fixed;
 	left: 0;
-	background: transparent;
+	background: var(--blue-grey);
 	height: 100vh;
 	width: 100vw;
 	z-index: 1;
@@ -258,7 +258,7 @@ input[type="text"]:hover, input[type="text"]:focus {
 /* Particles & Loader */
 
 #loader {
-	background: white;
+	background: transparent;
 	width:50%;
 	height: 80vh;
 	margin-left: 25%;
@@ -268,28 +268,47 @@ input[type="text"]:hover, input[type="text"]:focus {
 	left: 0;
 	color: black;
 }
-#loader img {
-	border: none;
-	position: absolute;
-	top: calc(50vh - 170px);
-	left: calc(50vw - 250px);
-	width: 500px;
-	height: 281.25px;
-}
-.loader h2{
+.cdplayer{
+	top: calc(50vh - 290px);
+	height: 600px;
+	width: 700px;
+	padding: 20px;
+	border: 5px var(--blue-grey) solid;
+	position: fixed;
+	overflow: hidden;
+	left: calc(50vw - 370px);
+	border-radius: 15px;
+	z-index: 10;
+	box-shadow: 2px 2px 50px rgb(0, 0, 0);
+	font-family: 'DSEG' !important;
+	background: white;
+  }
+  .cdplayer h2{
+	font-family: DSEG;
+	color:black;
+	overflow: hidden;
+	height: 35px;
+	font-size: 30px;
+	border-radius: 15px;
 	background-color: #B0A89E;
-	display: inline-block;
-	padding: 1%;
-	margin: 1%;
+	padding: 5px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+  }
+  .cdplayer h4{
+	text-transform: uppercase;
+	font-family: Squada One;
+	font-size: 130%;
 	color: black;
-	font-size: 200%;
-	font-family: "DSEG";
-	margin-top: 20%;
-
-}
-.loader h3{
-	color:black
-}
-.loader i{
-	color:black
-}
+  
+  }
+  .cdplayer i{
+	color:black;
+	margin: 1%;
+  }
+  .cdplayer img{
+	display: inline-block;
+	width: auto;
+	height: 50%;
+	margin: 75px;
+  }
