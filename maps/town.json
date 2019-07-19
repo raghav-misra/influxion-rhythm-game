@@ -3,7 +3,7 @@
     "levelName": "Cityscape",
     "songName": "Town.mid",
     "path": "town.mp3",
-    "background": "dark-mtns.png",
+    "background": "Cityscape.png",
     "starScores": [12, 24, 48],
     "noteColor": "white"
   },
@@ -51,7 +51,6 @@
     {
       "time": "51",
       "effectType": "shakes",
-      "effect": "shakeFastBottom",
       "effect": "shakeFastBottom",
       "seconds": 0.7
     }
