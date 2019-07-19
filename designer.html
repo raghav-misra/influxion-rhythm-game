@@ -1,72 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Influxion - Designer</title>
-    <link href="css/shared.css" rel="stylesheet" />
-    <link href="css/designer.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>Influxion - Designer</title>
+	<link href="css/shared.css" rel="stylesheet">
+	<link href="css/designer.css" rel="stylesheet">
 </head>
-
 <body>
-        <div id="waveform"></div>
-
-        <input type="file" id="input"/>
-        <audio id="sound" controls></audio>
-        <p>Press V where you want to add a Note</p>
-        <p>Press C where you want to add a Clef</p>
-        <p id='status'></p> 
-        <p id='export'></p>
-    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script>
-          var sound = document.getElementById('sound');
-        var map = []
-        document.body.onkeypress = function(key){
-            if(key.code == "KeyV"){
-                var note = {
-                    time: wavesurfer.getCurrentTime()
-                }
-                document.getElementById('status').innerText = "Saved"
-                map.push(note)
-                document.getElementById('export').innerText = JSON.stringify(map)
-                setTimeout(function(){
-                    document.getElementById('status').innerText = ""
-                },400)
-
-            }
-            if(key.code == "KeyC"){
-                var note = {
-                    time: wavesurfer.getCurrentTime(),
-                    type: "attack"
-                }
-                document.getElementById('status').innerText = "Saved"
-                map.push(note)
-                document.getElementById('export').innerText = JSON.stringify(map)
-                setTimeout(function(){
-                    document.getElementById('status').innerText = ""
-                },400)
-
-            }
-        }
-        var wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: 'white',
-    progressColor: 'purple'
-});
-        var input = document.getElementById('input')
-        input.onchange = function (e) {
-            wavesurfer.on('ready', function () {
-    wavesurfer.play();
-});
-          wavesurfer.load(URL.createObjectURL(this.files[0]))
-            sound.onend = function (e) {
-                URL.revokeObjectURL(this.src);
-            }
-        }
-    </script>
+	<div id="waveform"></div>
+	<input id="input" type="file"> <audio controls="" id="sound"></audio>
+	<p>Press V where you want to add a Note</p>
+	<p>Press C where you want to add a Clef</p>
+	<p id='status'></p>
+	<p id='export'></p>
+	<script src="https://unpkg.com/wavesurfer.js">
+	</script> 
+	<script src="js/designer.js"></script>
 </body>
-
 </html>
