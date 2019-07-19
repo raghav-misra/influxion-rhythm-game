@@ -266,7 +266,7 @@ function moveEnemy() {
 		} else if (enemies[i].getX() <= 0) {
 			enemies[i].destroy()
 			enemies.splice(i, 1)
-		} else if (checkCollisions(player.width(), player.height(), player.getX() + 20, player.getY(), enemies[i].width() - 55, enemies[i].height() - 25, enemies[i].getX(), enemies[i].getY()) && gameRunning) {
+		} else if (checkCollisions(player.width(), player.height(), player.getX() + 20, player.getY(), 30, 25, enemies[i].getX() + 30, enemies[i].getY()) && gameRunning) {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],

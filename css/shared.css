@@ -102,7 +102,7 @@ CSS Level 3 Optimized.
 	0% {background-color: cornflowerblue;}
 	25% {background-color: green;}
 	50% {background-color: rgb(175, 53, 175);}
-	75% {background-color: rgb(175, 163, 53);}
+	75% {background-color: var(--star-yellow);}
 	100% {background-color: cornflowerblue;}
 }
 @keyframes color-change-text-border {
@@ -111,4 +111,9 @@ CSS Level 3 Optimized.
 	50% {color: rgb(175, 53, 175);border-color: rgb(175, 53, 175);}
 	75% {color: rgb(175, 163, 53);border-color: rgb(175, 163, 53);}
 	100% {color: cornflowerblue;border-color: cornflowerblue;}
+}
+
+/* Hide class */
+.hide{
+	display: none !important;
 }

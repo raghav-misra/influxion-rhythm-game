@@ -1,72 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Influxion - Designer</title>
-    <link href="css/shared.css" rel="stylesheet" />
-    <link href="css/designer.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<title>Influxion - Designer</title>
+	<link href="css/shared.css" rel="stylesheet">
+	<link href="css/designer.css" rel="stylesheet">
+	<script src="js/effects.js"></script>
 </head>
-
-<body>
-        <div id="waveform"></div>
-
-        <input type="file" id="input"/>
-        <audio id="sound" controls></audio>
-        <p>Press V where you want to add a Note</p>
-        <p>Press C where you want to add a Clef</p>
-        <p id='status'></p> 
-        <p id='export'></p>
-    <script src="https://kit.fontawesome.com/b8185e1d28.js"></script>
-    <script src="https://unpkg.com/wavesurfer.js"></script>
-    <script>
-          var sound = document.getElementById('sound');
-        var map = []
-        document.body.onkeypress = function(key){
-            if(key.code == "KeyV"){
-                var note = {
-                    time: wavesurfer.getCurrentTime()
-                }
-                document.getElementById('status').innerText = "Saved"
-                map.push(note)
-                document.getElementById('export').innerText = JSON.stringify(map)
-                setTimeout(function(){
-                    document.getElementById('status').innerText = ""
-                },400)
-
-            }
-            if(key.code == "KeyC"){
-                var note = {
-                    time: wavesurfer.getCurrentTime(),
-                    type: "attack"
-                }
-                document.getElementById('status').innerText = "Saved"
-                map.push(note)
-                document.getElementById('export').innerText = JSON.stringify(map)
-                setTimeout(function(){
-                    document.getElementById('status').innerText = ""
-                },400)
-
-            }
-        }
-        var wavesurfer = WaveSurfer.create({
-    container: '#waveform',
-    waveColor: 'white',
-    progressColor: 'purple'
-});
-        var input = document.getElementById('input')
-        input.onchange = function (e) {
-            wavesurfer.on('ready', function () {
-    wavesurfer.play();
-});
-          wavesurfer.load(URL.createObjectURL(this.files[0]))
-            sound.onend = function (e) {
-                URL.revokeObjectURL(this.src);
-            }
-        }
-    </script>
+<body onkeypress="addBeat(event)">
+	<!-- Step 1: Upload A Song-->
+	<div id="step1" class="step">
+		<span class="title">Upload Your Song:</span>
+		<span class="song-text input-text">None</span>
+		<input id="get-song" class="hide" type="file" accept="audio/mp3, audio/wav">
+		<button class="btn" id="choose-song">Choose A Song</button>
+	</div>
+	<hr class="white">
+	<div id="step2" class="step disabled">
+		<span class="title">Choose A Background:</span>
+		<span class="background-text input-text">None</span>
+		<input type="color" id="get-background" class="hide">
+		<button class="btn" id="choose-background">Select A Color</button>
+	</div>
+	<hr class="white">
+	<div id="step3" class="step disabled">
+		<span class="title">Generate Obstacles:</span>
+		<span class="beats-text input-text">Incomplete</span>
+		<button class="btn" id="choose-beats">I'm Ready</button>
+		<br><br><br><br>
+		<div id="waveform"></div>
+		<div id="instruct">
+			<span class="txt">Use [C] to generate a clef obstacle.</span><br>
+			<span class="txt">Use [N] to generate a music obstacle.</span>
+		</div>
+	</div>
+	<hr class="white">
+	<br><br><br>
+	<button id="step4" class="btn disabled" disabled>create your level</button>
+	<div id="popup" class="popup hide"><hr class="white">
+		<span class="title">Finish Up Your New Level!</span>
+		<hr class="white">
+		<div class="text-field">
+			<span class="caption">Your Username:</span>
+			<input type="text" id="userNameBox" value="Anonymous">
+		</div>
+		<div class="text-field">
+			<span class="caption">Level Name:</span>
+			<input type="text" id="levelNameBox" value="New Influxion Level">
+		</div><br>
+		<div class="text-field">
+			<span class="caption">Song Name:</span>
+			<input type="text" id="songNameBox" value="Good Song">
+		</div>
+		<div class="text-field">
+			<span class="caption">Artist Name:</span>
+			<input type="text" id="artistNameBox" value="Anonymous">
+		</div><hr class="white">
+		<span class="title">↑ Fill In The Above Info ↑</span><hr class="white">
+		<button onclick="buildComplete()" class="btn">Alright!</button><hr class="white">
+	</div>
+	<script>effectElement = document.body;</script>
+	<script src="https://unpkg.com/wavesurfer.js">
+	</script> 
+	<script src="js/upload.js"></script>
+	<script src="js/designer.js"></script>
 </body>
-
 </html>

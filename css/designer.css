@@ -1,0 +1,143 @@
+/* Step Class */
+.step{
+		position: relative;
+    display: block;
+    width: calc(100% - 40px);
+    padding: 20px;
+    animation: color-change-background 7.5s ease-in-out infinite;
+}
+
+.step.disabled{
+    animation: none;
+    pointer-events: none;
+}
+
+.step .input-text{
+	text-shadow: 0 0 15px white;
+}
+
+.step .btn{
+    float: right;
+		position: relative;
+		width: 200px;
+}
+
+.step .input-text{
+    float: left;
+		max-width: 70vh;
+		padding: 5px;
+		height: 30px;
+		border-radius: 10px;
+		overflow: hidden;
+		position: relative;
+    font-size: 30px;
+    margin-left: 10px;
+    margin-top: 21.5px;
+    font-family: 'Squada One', sans-serif;
+    text-transform: uppercase;
+}
+
+.step::after {
+    content: "";
+    clear: both;
+    display: table; 
+}
+
+.step .title{
+    float: left;
+    position: relative;
+    top: 17.5px;
+    font-size: 30px;
+}
+
+/* Step 3 */
+#waveform{
+	position: relative;
+	width: 100%;
+	left: -20px;
+}
+
+#instruct{
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 360px;
+	width: 100%;
+}
+
+#instruct .txt{
+	display: inline-block;
+	margin: 10px;
+	font-size: 25px;
+}
+
+.popup{
+	display: block;
+	width: 480px;
+	height: 480px;
+	padding: 20px;
+	position: fixed;
+	z-index: 666;
+	background: var(--blue-grey);
+	box-shadow: 0 0 50px rgba(255, 255, 255, 0.329);
+	border-radius: 20px;
+	top: calc(50vh - 250px);
+	left: calc(50vw - 250px);
+}
+
+.popup hr{
+	margin: 10px;
+}
+
+.popup .title{
+	font-size: 30px;
+	font-family: "Squada One", sans-serif;
+}
+
+.text-field{
+	width: 125px;
+	text-align: center;
+	display: inline-block;
+	height: 75px;
+	padding: 10px;
+	background: var(--blue-grey);
+	border-radius: 20px;
+	box-shadow: 0 0 5px white;
+	margin: 10px;
+	transition: all ease-in-out 0.75s;
+}
+
+.text-field *{
+	margin: 5px;
+}
+
+.text-field span{
+	font-size: 20px;
+}
+
+.text-field input{
+	position: relative;
+	right: 5px;
+	top: 1px;
+	font-size: 15px;
+	width: 110px;
+	border-color: transparent;
+	border-top: 2px white solid;
+	border-bottom: 2px white solid;
+	text-align: center;
+	background: transparent;
+	padding: 5px;
+	transition: 0.75s ease-in-out;
+}
+
+.text-field input:hover, .text-field input:focus{
+	border-color: white;
+}
+
+.text-field input:focus{
+	border-radius: 10px;
+}
+
+
+
+
