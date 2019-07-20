@@ -83,7 +83,7 @@ var dataArray = {
                 song: "Gangsta’s Paradise",
                 artist: "Jennifer Spengler",
                 mapLocation: "maps/gangstasparadise.json",
-                background: "backgrounds/dark-mtns.png",
+                background: "backgrounds/Paradise.png",
                 songNameColor: "white"
             }
         },

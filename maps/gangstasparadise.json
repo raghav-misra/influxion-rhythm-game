@@ -3,7 +3,7 @@
     "levelName": "Paradise",
     "songName": "Gangsta's Paradise",
     "path": "gangstasparadise.mp3",
-    "background": "dark-mtns.png",
+    "background": "Paradise.png",
     "starScores": [12, 24, 48],
     "noteColor": "white"
   },
