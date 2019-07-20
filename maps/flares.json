@@ -3,7 +3,7 @@
     "levelName": "Flares",
     "songName": "NIVIRO Flares",
     "path": "flares.mp3",
-    "background": "dark-mtns.png",
+    "background": "flares.png",
     "starScores": [8, 16, 32],
     "noteColor": "white"
   },

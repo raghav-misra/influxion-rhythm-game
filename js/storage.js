@@ -1,8 +1,4 @@
-var previewAudio = {
-	stop: () =>{
-		return;
-	}
-}
+
 var dataArray = {
     "firstName": "",
     "stars": 0,
@@ -45,7 +41,7 @@ var dataArray = {
                 song: "TalkBox",
                 artist: "Dj Quads",
                 mapLocation: "maps/talkbox.json",
-                background: "backgrounds/dark-mtns.png",
+                background: "backgrounds/TalkBox.png",
                 songNameColor: "white"
             }
         },
@@ -59,7 +55,7 @@ var dataArray = {
                 song: "Electro Cabello",
                 artist: "Kevin MacLeod",
                 mapLocation: "maps/electrocabello.json",
-                background: "backgrounds/dark-mtns.png",
+                background: "backgrounds/electro.png",
                 songNameColor: "white"
             }
         },
@@ -73,7 +69,7 @@ var dataArray = {
                 song: "Flares",
                 artist: "NIVIRO",
                 mapLocation: "maps/flares.json",
-                background: "backgrounds/dark-mtns.png",
+                background: "backgrounds/flares.png",
                 songNameColor: "white"
             }
         },
@@ -120,7 +116,7 @@ function updateStorage() {
 }
 
 // "Dynamic" Level Generator:
-var levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage = 'none';previewAudio.stop();previewAudio = '';path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+var levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage = 'none';path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
 
 var levelList = document.getElementById("level-list");
 
@@ -135,7 +131,7 @@ String.prototype.format = function() {
 
 function createLevel(lvlObject,c = false, id = null) {
     if(c){//community levels
-         levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' class='lvl community'> <div class=\"lvl-number\">{3}</div> <div class=\"lvl-name\">{1}</div> <div class=\"lvl-song-info\"><span style='white' class=\"lvl-song s-name\">{2}</span> <div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage='none' ;previewAudio.stop();previewAudio='' ;path='{3}' ;showCd('{1}');setTimeout(function(){loadMapC({3}); },2000);\" class=\"lvl-btn btn\">Play!</button></div> </div> </div>";
+         levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' class='lvl community'> <div class=\"lvl-number\">{3}</div> <div class=\"lvl-name\">{1}</div> <div class=\"lvl-song-info\"><span style='white' class=\"lvl-song s-name\">{2}</span> <div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage='none' ;path='{3}' ;showCd('{1}');setTimeout(function(){loadMapC({3}); },2000);\" class=\"lvl-btn btn\">Play!</button></div> </div> </div>";
          console.log(lvlObject)
          var tmp = levelCode;
          tmp = tmp.format(
@@ -150,7 +146,7 @@ function createLevel(lvlObject,c = false, id = null) {
          document.getElementById('level-list-c').appendChild(e);
          
     }else{ // main levels
-    levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage = 'none';previewAudio.stop();previewAudio = '';path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
+    levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' data-completed=\"{1}\" class=\"lvl {2}\"><div class=\"lvl-number\">{3}</div><div class=\"lvl-name\">{4}</div><div class=\"lvl-song-info\"><span style='color:{5}' class=\"lvl-song s-name\">{6}</span><div class=\"lvl-star-rating\"><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i><i class=\"far fa-star\"></i></div><div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage = 'none';path='{7}';showCd('{8}');setTimeout(function(){loadMap('{9}'); },2000);\" class=\"lvl-btn btn\">Play!</button></div></div>";
     var tmp = levelCode;
     tmp = tmp.format(
         lvlObject.metadata.background,

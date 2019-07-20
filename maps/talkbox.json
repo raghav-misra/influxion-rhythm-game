@@ -3,7 +3,7 @@
     "levelName": "TalkBox",
     "songName": "TalkBox",
     "path": "talkbox.mp3",
-    "background": "dark-mtns.png",
+    "background": "TalkBox.png",
     "starScores": [12, 24, 48],
     "noteColor": "white"
   },

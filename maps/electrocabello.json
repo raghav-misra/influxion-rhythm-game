@@ -3,7 +3,7 @@
     "levelName": "Electro",
     "songName": "Electro Cabello",
     "path": "electrocabello.mp3",
-    "background": "dark-mtns.png",
+    "background": "electro.png",
     "starScores": [8, 16, 32],
     "noteColor": "white"
   },

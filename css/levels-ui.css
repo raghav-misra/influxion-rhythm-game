@@ -104,6 +104,7 @@ hr{
 
 .lvl .lvl-song{
 	color: white;
+	text-shadow: 1px 1px 2px white;
 	font-family: 'Squada One';
 	text-align: center;
 	display: block;
