@@ -316,3 +316,15 @@ function checkCollisions(rect1Width, rect1Height, rect1XPos, rect1YPos, rect2Wid
 		return false
 	}
 }
+
+function reloadLevelsPage(){
+	localStorage.setItem(
+        dataArray.firstName.toUpperCase() + "Store",
+        JSON.stringify(dataArray)
+    );
+	document.getElementById("star-amount").innerText = dataArray.stars.toString();
+	window.location.search = "?f=" + dataArray.firstName;
+	setTimeout(function(){
+		window.location.reload();
+	}, 500);
+}
