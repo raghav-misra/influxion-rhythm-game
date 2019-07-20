@@ -7,9 +7,9 @@ function uploadFile(dataObject, file) {
 	var fd = new FormData();
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	xhr.onreadystatechange = function(e) {
+	xhr.onreadystatechange = function (e) {
 		if (xhr.readyState == 4 && xhr.status == 200) {
-			
+
 			// File uploaded successfully
 			var tmp = dataObject;
 			var response = JSON.parse(xhr.responseText);
@@ -21,7 +21,7 @@ function uploadFile(dataObject, file) {
 				let data = await response.json()
 				return data;
 			}
-			getUserAsync().then(function(data) {
+			getUserAsync().then(function (data) {
 				console.log(data)
 				var map = data.result || []; // In case result is null/undefined
 				map.push(mapStruct)
@@ -33,6 +33,22 @@ function uploadFile(dataObject, file) {
 					body: JSON.stringify(map),
 				});
 				alert("Your map was uploaded to the community levels!")
+				fetch('https://discordapp.com/api/webhooks/602262417615093782/rgJLaDMERQcLQ8vElypadasQdnSZycNGTGZsJ89e3af0TiKLmmFgcqW-ZBN086xZKPZ6', {
+						headers: {
+							'Content-type': 'application/json'
+						},
+						method: 'POST',
+						body: JSON.stringify({
+							content: "Map Uploaded!",
+							username: "uploads"
+						})
+
+
+
+					})
+					.then(response => response.json())
+					.then(response => console.log('Success:', JSON.stringify(response)))
+					.catch(error => console.log('thanks for uploading!'));
 				location.href = "index.html"
 			});
 		}
