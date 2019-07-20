@@ -132,7 +132,7 @@ String.prototype.format = function() {
 function createLevel(lvlObject,c = false, id = null) {
     if(c){//community levels
          levelCode = "<div style='background-image: url(\"{0}\"); background-size: cover; background-position: center;' class='lvl community'> <div class=\"lvl-number\">{3}</div> <div class=\"lvl-name\">{1}</div> <div class=\"lvl-song-info\"><span style='white' class=\"lvl-song s-name\">{2}</span> <div class=\"lvl-btn-contain\"><button onclick=\"document.getElementById('levels').style.backgroundImage='none' ;path='{3}' ;showCd('{1}');setTimeout(function(){loadMapC({3}); },2000);\" class=\"lvl-btn btn\">Play!</button></div> </div> </div>";
-         console.log(lvlObject)
+      
          var tmp = levelCode;
          tmp = tmp.format(
              lvlObject.info.background,
@@ -197,7 +197,7 @@ function buildCommunity(){
         return data;
     }
     getUserAsync().then(function(data) {
-        console.log(data)
+   
          communityData = data.result || []; // In case result is null/undefined
          communityData.forEach(function(map,id){
             createLevel(map,true,id)
