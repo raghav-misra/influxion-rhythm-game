@@ -94,13 +94,16 @@ var player = new Konva.Rect({
 	y: 500,
 	x: 40,
 });
-var sword = new Konva.Line({
-	x: 90,
-	y: 500,
-	points: [0, 0, 0, 50],
-	stroke: 'red',
-	opacity: 0,
-	tension: 1
+var sword = new Konva.RegularPolygon({
+	x: 100,
+	y: 530,
+	sides: 3,
+	radius: 20,
+	fill: '#580103',
+	rotation: 90,
+	shadowColor: '#F8D092',
+	shadowBlur: 20,
+	shadowOpacity: 0.9,
 });
 var playerPosition = {
 	x: 40,
@@ -148,18 +151,7 @@ stage.add(mainLayer);
 function playerInputHandler() {
 	if (keys["x"] == true && playerPosition.jump == false) {
 		mainLayer.add(sword)
-		var swordAnim = new Konva.Tween({
-			node: sword,
-			points: [5, 0, 5, 70],
-			duration: 0.2,
-			opacity: 1,
-			onFinish: function(){
-				swordAnim.destroy()
-			}
-		
-		})
-		swordAnim.play()
-
+	
 		swordOn = true
 	} else if (keys[" "] == true) {
 		sword.remove()
@@ -172,15 +164,8 @@ function playerInputHandler() {
 		}
 	} else {
 		if(swordOn){
-		sword.to({
-			duration: 0,
-			opacity: 0,
-			points: [0, 0, 0, 70],
-			onFinish: function(){
-				sword.remove()
-				swordOn = false
-			}
-		})
+			sword.remove()
+			swordOn = false
 	
 	}
 		
@@ -270,8 +255,8 @@ function moveEnemy() {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],
-					y: 1000,
-					duration: 0.1,
+					opacity: 0,
+					duration: 1,
 					easing: Konva.Easings.EaseIn,
 					onFinish: function () {
 						breakRock.destroy();

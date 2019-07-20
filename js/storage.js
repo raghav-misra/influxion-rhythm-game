@@ -31,7 +31,7 @@ var dataArray = {
                 song: "Town",
                 artist: "Nathan Grigg",
                 mapLocation: "maps/town.json",
-                background: "backgrounds/dark-mtns.png",
+                background: "backgrounds/Cityscape.png",
                 songNameColor: "white"
             }
         },

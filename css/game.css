@@ -261,6 +261,7 @@
   left: calc(50vw - 370px);
   border-radius: 15px;
   z-index: 10;
+  transition: all 10s linear;
   box-shadow: 2px 2px 50px rgb(0, 0, 0);
   font-family: 'DSEG' !important;
   background: white;
