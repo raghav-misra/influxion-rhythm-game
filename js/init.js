@@ -90,7 +90,7 @@ var player = new Konva.Rect({
 	width: 50,
 	height: 50,
 	radius: 20,
-	fill: '#4FC0A7',
+	fill: '#2E3D7C',
 	y: 500,
 	x: 40,
 });
@@ -255,8 +255,8 @@ function moveEnemy() {
 			if (swordOn) {
 				var breakRock = new Konva.Tween({
 					node: enemies[i],
-					opacity: 0,
-					duration: 1,
+					y: 1000,
+					duration: 0.1,
 					easing: Konva.Easings.EaseIn,
 					onFinish: function () {
 						breakRock.destroy();

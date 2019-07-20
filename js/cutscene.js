@@ -8,7 +8,7 @@ var stageCutscene = new Konva.Stage({
 var cutsceneLayer1 = new Konva.FastLayer();
 var cutsceneLayer0 = new Konva.FastLayer();
 
-function bossIntroCutscene(xpathsong) {
+function bossIntroCutscene(xpathsong,c = false) {
 	game.classList.add('fade-out')
 	setTimeout(function() {
 		cutsceneDiv = document.getElementById('cutscene')
@@ -178,7 +178,7 @@ function bossIntroCutscene(xpathsong) {
 								})
 								soundEffects.bossTalk.play()
 								setTimeout(() => {
-									openBossDiv(xpathsong);
+									openBossDiv(xpathsong,c);
 								}, 5000);
 							}
 						})
@@ -193,12 +193,18 @@ function bossIntroCutscene(xpathsong) {
 	}, 1000)
 }
 
-function openBossDiv(xpathsong) {
+function openBossDiv(xpathsong,c) {
 	cutsceneLayer0.remove()
 	cutsceneLayer1.remove()
 	cutsceneDiv.classList.add('fade-out')
+	
 	setTimeout(function() {
 		document.getElementById('boss-battle-ui').classList.remove('hide')
+		if(c){
+			buildGame(communityData[xpathsong])
+			cutsceneDiv.classList.add('hide')
+			return;
+		}
 		loadMIDI(xpathsong);
 		cutsceneDiv.classList.add('hide')
 	}, 5000)

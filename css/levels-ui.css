@@ -14,7 +14,9 @@ body{
 	margin-top: 225px;
 	text-align: center;
 }
-
+.community{
+	margin: 20px;
+}
 /* Sticky Header */
 .sticky-hdr{
 	position: fixed;

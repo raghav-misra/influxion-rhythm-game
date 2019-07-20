@@ -1,26 +1,15 @@
 var stringy
 
 function uploadFile(dataObject, file) {
-	alert("Please wait while we process your level!")
+	alert("Please wait while we process your level! Do not press anything")
 	var url = 'https://api.cloudinary.com/v1_1/obliv-cf/auto/upload';
 	var xhr = new XMLHttpRequest();
 	var fd = new FormData();
 	xhr.open('POST', url, true);
 	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
-	/*
-		// Reset the upload progress bar
-		document.getElementById('progress').style.width = 0;
-		// Update progress (can be used to show progress indicator)
-		xhr.upload.addEventListener("progress", function(e) {
-			var progress = Math.round((e.loaded * 100.0) / e.total);
-			document.getElementById('progress').style.width = progress + "%";
-
-			console.log(`fileuploadprogress data.loaded: ${e.loaded},
-		data.total: ${e.total}`);
-		});
-	*/
 	xhr.onreadystatechange = function(e) {
 		if (xhr.readyState == 4 && xhr.status == 200) {
+			
 			// File uploaded successfully
 			var tmp = dataObject;
 			var response = JSON.parse(xhr.responseText);
@@ -28,7 +17,7 @@ function uploadFile(dataObject, file) {
 			tmp.info.path = url;
 			mapStruct = tmp;
 			async function getUserAsync() {
-				let response = await fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps');
+				let response = await fetch('https://www.jsonstore.io/a3a8e80eeb67eb27e906c949aaa072678e04093c4febf8d145015c7819fd1843/maps');
 				let data = await response.json()
 				return data;
 			}
@@ -36,7 +25,7 @@ function uploadFile(dataObject, file) {
 				console.log(data)
 				var map = data.result || []; // In case result is null/undefined
 				map.push(mapStruct)
-				fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps', {
+				fetch('https://www.jsonstore.io/a3a8e80eeb67eb27e906c949aaa072678e04093c4febf8d145015c7819fd1843/maps', {
 					headers: {
 						'Content-type': 'application/json'
 					},
@@ -44,8 +33,8 @@ function uploadFile(dataObject, file) {
 					body: JSON.stringify(map),
 				});
 				alert("Your map was uploaded to the community levels!")
+				location.href = "index.html"
 			});
-			//END IF
 		}
 	};
 	fd.append('upload_preset', "ivu0b1k5");

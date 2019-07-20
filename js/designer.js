@@ -39,10 +39,14 @@ function buildComplete(){
 	var songName = document.getElementById("songNameBox").value.trim() || "Good Song";
 	var userName = document.getElementById("userNameBox").value.trim() || "Anonymous";
 	var artistName = document.getElementById("artistNameBox").value.trim() || "Anonymous";
+	if(levelName.length > 29){
+		alert('Your level name can not be over 29 characters')
+		return;
+	}
 	mapStruct.info.levelName = levelName.toLowerCase();
 	mapStruct.info.songName = songName;
 	mapStruct.texts.text[0].value = mapStruct.texts.text[0].value.replace("New Influxion Level", levelName).replace("Anonymous", userName);
-	mapStruct.texts.text[1].value = mapStruct.texts.text[0].value.replace("Good Song", songName).replace("Anonymous", artistName);
+	mapStruct.texts.text[1].value = mapStruct.texts.text[1].value.replace("Good Song", songName).replace("Anonymous", artistName);
 	compileJSON(mapStruct, songInput.files[0]);
 }
 
@@ -52,12 +56,24 @@ function addBeat(event){
 	if(!createBeatBool) return;
 	var note = {
 	}
-	if(event.code == "KeyN"){
+	if(event.code == "KeyC"){
 		note.time = wavesurfer.getCurrentTime();
+		document.getElementById('clef').style.color = "white"
+		document.getElementById('note').style.color = "#27ae60"
+		document.getElementById('note').style.transform = "scale(1.2,1.2)"
+		setTimeout(function(){
+			document.getElementById('note').style.transform = "scale(1,1)"
+		},500)
 	}
-	else if(event.code == "KeyC"){
+	else if(event.code == "KeyX"){
 		note.time = wavesurfer.getCurrentTime();
 		note.type = "attack";
+		document.getElementById('note').style.color = "white"
+		document.getElementById('clef').style.color = "#27ae60"
+		document.getElementById('clef').style.transform = "scale(1.2,1.2)"
+		setTimeout(function(){
+			document.getElementById('clef').style.transform = "scale(1,1)"
+		},500)
 	}
 	else return;
 	mapStruct.beats.notes.push(note);
@@ -65,6 +81,11 @@ function addBeat(event){
 
 function songUpdate(){
 	if(wavesurfer.getCurrentTime() >= wavesurfer.getDuration() && wavesurfer.getCurrentTime() != 0){
+		if(mapStruct.beats.notes.length == 0){
+			alert("Your Map Can't be empty! Please try again")
+			location.reload()
+			return;
+		}
 		wavesurfer.stop();
 		createBeatBool = false;
 		step3.getElementsByClassName("input-text")[0].innerHTML = "finished";
@@ -104,7 +125,6 @@ var wavesurfer = WaveSurfer.create({
 });
 
 wavesurfer.on('ready', ()=>{
-	document.getElementById("instruct").classList.add("hide");
 	wavesurfer.play();
 	songUpdate();
 	createBeatBool = true;

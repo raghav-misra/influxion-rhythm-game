@@ -14,6 +14,8 @@
 	<div id="step1" class="step">
 		<span class="title">Upload Your Song:</span>
 		<span class="song-text input-text">None</span>
+		<a>Don't have one on hand? Grab some for free at</a>
+		<a href="https://incompetech.filmmusic.io/search/">https://incompetech.filmmusic.io/search/</a>
 		<input id="get-song" class="hide" type="file" accept="audio/mp3, audio/wav">
 		<button class="btn" id="choose-song">Choose A Song</button>
 	</div>
@@ -31,10 +33,11 @@
 		<button class="btn" id="choose-beats">I'm Ready</button>
 		<br><br><br><br>
 		<div id="waveform"></div>
-		<div id="instruct">
-			<span class="txt">Use [C] to generate a clef obstacle.</span><br>
-			<span class="txt">Use [N] to generate a music obstacle.</span>
-		</div>
+	
+			<p id='clef' class="txt">Use [X] to generate a clef obstacle.</p>	
+			<p id='note'class="txt">Use [C] to generate a note obstacle.</p>
+			<p id='note'class="txt">Do not create obstacles until you pass 7 seconds of the song</p>
+		
 	</div>
 	<hr class="white">
 	<br><br><br>

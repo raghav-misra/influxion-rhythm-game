@@ -70,7 +70,12 @@
 	margin: 10px;
 	font-size: 25px;
 }
-
+#note{
+	transition: all 0.5s;
+}
+#clef{
+	transition: all 0.5s;
+}
 .popup{
 	display: block;
 	width: 480px;
