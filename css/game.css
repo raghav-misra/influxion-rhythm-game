@@ -290,6 +290,7 @@
   margin: 1%;
 }
 .cdplayer img{
+  transition: 5s ease-in-out;
   width: auto;
   height: 70%;
   

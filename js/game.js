@@ -50,8 +50,8 @@ function loadGame(data) {
 			spikesData.push(note)
 		})
 		//load background
-		backgroundImage.src = "backgrounds/" + map.info.background;
-		
+		if(map.hasOwnProperty("online")) backgroundImage.src = map.info.background;
+		else backgroundImage.src = "backgrounds/" + map.info.background;
 		//load texts
 		map.texts.text.forEach(function (textData) {
 			var text = new Konva.Text({ //spike drawer
@@ -69,8 +69,10 @@ function loadGame(data) {
 
 		})
 		//load music
+		var srcTmp = "maps/" + map.info.path;
+		if(map.hasOwnProperty("online")) srcTmp = map.info.path;
 		music = new Howl({
-			src: ["maps/" + map.info.path],
+			src: [srcTmp],
 			onload: function(){
 				console.log('loaded')
 				music.play()
@@ -390,15 +392,21 @@ function loadMIDI(path) {
 function buildGame(data) {
 	var tmpMap = {
 		arrayCounter: 0,
-		beatArray: []
+		beatArray: [],
+		online: false
 	};
 	tmpMap.info = data.info;
 	data.beats.notes.forEach(function (note) {
 		tmpMap.beatArray.push(note);
 	});
+	if(data.hasOwnProperty("online")){
+		tmpMap.online = true;
+	}
 	beatMap = tmpMap;
+	var srcTmp = "maps/" + tmpMap.info.path;
+	if(data.hasOwnProperty("online")) srcTmp = tmpMap.info.path;
 	song = new Howl({
-		src: ["maps/" + tmpMap.info.path]
+		src: [srcTmp]
 	});
 	song.play();
 	console.log("loadedgametotally");
@@ -460,7 +468,6 @@ function toFixed(num, fixed) {
 	return num.toString().match(re)[0];
 }
 
-// Optimised LeHuy's input function:
 function checkPress(key) {
 	if (beats.hasOwnProperty(key.code) == false || inGame == false || pressReady == false) {
 		return;
@@ -505,25 +512,23 @@ function addRating(rating) {
 function levelCompleted(message, starsWin) {
 	clearInterval(updateInterval);
 	setTimeout(function () {
+		if(starsWin[0] == false) loseBattleNoise();
 		updateInterval = null;
-		alert(message);
-		if (starsWin[0]) alert("Good Job!");
-		else if (message == "You Survived The Boss!" && starsWin[1] == 0) 
-			alert("But you didn't score enough to get any stars.");
-		else alert("Noooooo. You lost.");
 		alert("You got " + starsWin[1] + " stars.");
 		dataArray.stars = dataArray.stars + starsWin[1];
-		var nameTmp = beatMap.info.levelName.toLowerCase();
-		dataArray.levels[nameTmp].completed = true;
-		dataArray.levels[nameTmp].starsEarned = starsWin[1];
-		buildLevels();
+		if(beatMap.online == false){
+			var nameTmp = beatMap.info.levelName.toLowerCase();
+			dataArray.levels[nameTmp].completed = true;
+			dataArray.levels[nameTmp].starsEarned = starsWin[1];
+			buildLevels();
+		}
 		goBackToLevelScreen(message, starsWin);
 	}, 2000);
 }
 
 function calcStarScore(score){
 	var starArray = beatMap.info.starScores;
-	if (score >= starArray[0]) return [true, 1, true];
+	if (score >= starArray[0]) return [true, 1];
 	if (score >= starArray[1]) return [true, 2];
 	if (score >= starArray[2]) return [true, 3];
 	return [false, 0];
@@ -531,14 +536,21 @@ function calcStarScore(score){
 function goBackToLevelScreen(msg, starsWin){
 	document.getElementById("levels").classList.remove("hide");
 	document.getElementById("boss-battle-ui").classList.add("hide");
-	music.stop()
+	setTimeout(()=>{ song.stop(); }, 5000);
 	showEndgamePopup(userScore, userHP, bossHP, msg, starsWin);
 }
 
 function showEndgamePopup(playerScore, playerHealth, bossHealth, message, starsWin){
-	var starArray = beatMap.info.starScores;
 	document.getElementById("win-message").innerText = message;
-	document.getElementById("win-stars-earned").innerText = dataArray.firstName + ", You Earned " + starsWin[1] + "Stars";
+	document.getElementById("win-stars-earned").innerText = dataArray.firstName + ", You Earned " + starsWin[1] + " Stars";
 	document.getElementById("win-lose-popup").classList.remove("hide");
 	document.getElementById("final-score").innerText = "Your Final Score Is " + playerScore + ".";
+}
+
+// Kill Song Sound For Loss:
+function loseBattleNoise(){
+	if(song.rate() <= 0){
+		return;
+	}
+	song.rate(song.rate() - 0.01);
 }

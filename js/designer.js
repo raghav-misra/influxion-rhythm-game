@@ -1,4 +1,5 @@
 var mapStruct = {
+	"online": true,
 	"info": {
 		"levelName": "New Influxion Level",
 		"songName": "Good Song",
@@ -7,7 +8,6 @@ var mapStruct = {
 		"starScores": [0, 0, 0],
 		"noteColor": "white"
 	},
-	
 	"effects": [], // Useless placeholder
 	"texts": {
 		"text": [
