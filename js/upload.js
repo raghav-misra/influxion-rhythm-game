@@ -16,6 +16,7 @@ function uploadFile(dataObject, file) {
 			var url = response.secure_url;
 			tmp.info.path = url;
 			mapStruct = tmp;
+			
 			async function getUserAsync() {
 				let response = await fetch('https://www.jsonstore.io/a3a8e80eeb67eb27e906c949aaa072678e04093c4febf8d145015c7819fd1843/maps');
 				let data = await response.json()
@@ -34,22 +35,24 @@ function uploadFile(dataObject, file) {
 				});
 				alert("Your map was uploaded to the community levels!")
 				fetch('https://discordapp.com/api/webhooks/602262417615093782/rgJLaDMERQcLQ8vElypadasQdnSZycNGTGZsJ89e3af0TiKLmmFgcqW-ZBN086xZKPZ6', {
-						headers: {
-							'Content-type': 'application/json'
-						},
-						method: 'POST',
-						body: JSON.stringify({
-							content: "Map Uploaded!",
-							username: "uploads"
-						})
-
-
-
+					headers: {
+						'Content-type': 'application/json'
+					},
+					method: 'POST',
+					body: JSON.stringify({
+						content: "Map Uploaded!",
+						username: "uploads"
 					})
-					.then(response => response.json())
-					.then(response => console.log('Success:', JSON.stringify(response)))
-					.catch(error => console.log('thanks for uploading!'));
-				location.href = "index.html"
+
+
+
+				})
+				.then(function(response){
+					location.href = "index.html"
+				})
+				.then(response => console.log('Success:', JSON.stringify(response)))
+				.catch(error => console.log('thanks for uploading!'));
+			
 			});
 		}
 	};
