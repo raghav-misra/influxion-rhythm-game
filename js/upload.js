@@ -1,9 +1,11 @@
+var stringy 
 function uploadFile(dataObject, file) {
-  var url = 'https://api.cloudinary.com/v1_1/obliv-cf/auto/upload';
-  var xhr = new XMLHttpRequest();
-  var fd = new FormData();
-  xhr.open('POST', url, true);
-  xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+	alert("Please wait while we process your level!")
+	var url = 'https://api.cloudinary.com/v1_1/obliv-cf/auto/upload';
+	var xhr = new XMLHttpRequest();
+	var fd = new FormData();
+	xhr.open('POST', url, true);
+	xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 	/*
 		// Reset the upload progress bar
 		document.getElementById('progress').style.width = 0;
@@ -16,26 +18,56 @@ function uploadFile(dataObject, file) {
 		data.total: ${e.total}`);
 		});
 	*/
-  xhr.onreadystatechange = function(e) {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      // File uploaded successfully
+	xhr.onreadystatechange = function (e) {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			// File uploaded successfully
 			var tmp = dataObject;
 			var response = JSON.parse(xhr.responseText);
 			var url = response.secure_url;
 			tmp.info.path = url;
 			mapStruct = tmp;
-			var stringy = JSON.stringify(tmp);
-			alert(stringy);
-      return stringy;
-    }
-  };
+			async function getUserAsync() {
+				let response = await fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps');
+				let data = await response.json()
+				return data;
+			}
+			getUserAsync()
+				.then(function (data) {
+					console.log(data)
+					var map = data.result
+					map.push(mapStruct)
+					fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps', {
+						headers: {
+							'Content-type': 'application/json'
+						},
+						method: 'POST',
 
-  fd.append('upload_preset', "ivu0b1k5");
-  fd.append('tags', 'browser_upload');
-  fd.append('file', file);
-  xhr.send(fd);
+						body: JSON.stringify(map),
+					});
+
+					alert("Your map was uploaded to the commnunity levels!")
+				});
+
+
+
+
+
+
+
+
+			//END IF
+
+
+
+		}
+	};
+
+	fd.append('upload_preset', "ivu0b1k5");
+	fd.append('tags', 'browser_upload');
+	fd.append('file', file);
+	xhr.send(fd);
 }
 
-function compileJSON(dataObject, audio){
+function compileJSON(dataObject, audio) {
 	return uploadFile(dataObject, audio);
 }
