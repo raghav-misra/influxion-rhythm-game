@@ -34,7 +34,7 @@ function uploadFile(dataObject, file) {
 			}
 			getUserAsync().then(function(data) {
 				console.log(data)
-				var map = data.result
+				var map = data.result || []; // In case result is null/undefined
 				map.push(mapStruct)
 				fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps', {
 					headers: {
