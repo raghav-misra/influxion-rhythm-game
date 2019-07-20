@@ -1,4 +1,7 @@
+var stringy
+
 function uploadFile(dataObject, file) {
+	alert("Please wait while we process your level!")
 	var url = 'https://api.cloudinary.com/v1_1/obliv-cf/auto/upload';
 	var xhr = new XMLHttpRequest();
 	var fd = new FormData();
@@ -16,38 +19,41 @@ function uploadFile(dataObject, file) {
 		data.total: ${e.total}`);
 		});
 	*/
-	xhr.onreadystatechange = function (e) {
+	xhr.onreadystatechange = function(e) {
 		if (xhr.readyState == 4 && xhr.status == 200) {
+			// File uploaded successfully
 			var tmp = dataObject;
 			var response = JSON.parse(xhr.responseText);
 			var url = response.secure_url;
 			tmp.info.path = url;
 			mapStruct = tmp;
-			var stringy = JSON.stringify(tmp);
-			getMap().then(function (data) {
-				map = data.result
-				map.push(tmp)
-				fetch('https://www.jsonstore.io/92fa9c8786f40bc6bcbfe70d505aa0254317d83f5118730aace9614081271ad0/maps', {
+			async function getUserAsync() {
+				let response = await fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps');
+				let data = await response.json()
+				return data;
+			}
+			getUserAsync().then(function(data) {
+				console.log(data)
+				var map = data.result
+				map.push(mapStruct)
+				fetch('https://www.jsonstore.io/3e671511c12832dbd8f691648bfaecd3d50b92ef4fdd3986a6bc9e09bee56191/maps', {
 					headers: {
 						'Content-type': 'application/json'
 					},
 					method: 'POST',
-
-					body: stringy,
+					body: JSON.stringify(map),
 				});
-				alert('Hey your level was uploaded to our community! Check it out on the main game!')
+				alert("Your map was uploaded to the community levels!")
 			});
-		fd.append('upload_preset', "ivu0b1k5");
-		fd.append('tags', 'browser_upload');
-		fd.append('file', file);
-		xhr.send(fd);
-	}
+			//END IF
+		}
+	};
+	fd.append('upload_preset', "ivu0b1k5");
+	fd.append('tags', 'browser_upload');
+	fd.append('file', file);
+	xhr.send(fd);
 }
-	function compileJSON(dataObject, audio) {
-		return uploadFile(dataObject, audio);
-	}
-	async function getMap() {
-		let response = await fetch('https://www.jsonstore.io/92fa9c8786f40bc6bcbfe70d505aa0254317d83f5118730aace9614081271ad0/maps');
-		let data = await response.json()
-		return data;
-	}
+
+function compileJSON(dataObject, audio) {
+	return uploadFile(dataObject, audio);
+}
