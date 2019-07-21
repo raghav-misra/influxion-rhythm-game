@@ -56,12 +56,14 @@ backgroundImage.onload = function () {
 	backgroundLayer.add(background)
 	backgroundLayer.add(background3)
 	background2 = new Konva.Rect({
-		x: 0,
+		x: -10,
 		y: 555,
+		stroke: 'white',
+		strokeWidth: 5,
 		fill: 'black',
-		width: size,
+		width: size + 20,
 		height: 550,
-	});
+	});	
 	backgroundLayer.add(background2)
 	backgroundLoad = true
 	background.cache()

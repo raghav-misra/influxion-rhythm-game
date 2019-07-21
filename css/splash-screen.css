@@ -312,3 +312,19 @@ input[type="text"]:hover, input[type="text"]:focus {
 	height: 50%;
 	margin: 75px;
   }
+	.cdplayer .btn{
+		position: absolute;
+		border-radius: 0;
+		border: 2px var(--blue-grey) solid;
+		border-right: none;
+		border-top-left-radius: 15px;
+		border-bottom-left-radius: 15px;
+		color: var(--blue-grey);
+		right: -15px;
+		top: 95px;
+	}
+
+	.cdplayer .btn:hover{
+		color:white;
+		background: var(--blue-grey);
+	}

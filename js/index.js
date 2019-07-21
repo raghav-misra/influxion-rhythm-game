@@ -69,6 +69,9 @@ function goToNameCheck(locationURL) {
 
 function loader(locateURL, fName) {
     document.getElementById("loader").style.animation = "fade-in 1s ease-in-out";
+		document.getElementById("skip").onclick = ()=>{
+			location.href = locateURL + "?f=" + fName;
+		}
 	setTimeout(() => {
 		lcdScreen.innerText = "Loading Influxion. . .";
     }, 5000)
