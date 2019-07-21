@@ -5,9 +5,9 @@ The only skill you need is your knowledge of a song!
 
 ---
 #### Links:
-- Click [HERE](https://influxionfinal.raghavm.repl.co/) to play Influxion!
-- Click [HERE](https://repl.it/@raghavm/InfluxionFinal) to view the source REPL!
-- Click [HERE](https://github.com/mrcool4000/influxion-rhythm-game) to view the project on GitHub!
+Click [HERE](https://coming.soon/to-theaters) to play Influxion!
+Click [HERE](https://coming.soon/to-theaters) to view the source REPL!
+Click [HERE](https://github.com/mrcool4000/influxion-rhythm-game) to view the project on GitHub!
 ---
 ### What Is Influxion?
 To fit with the theme of the music jam (music if that wasn't obvious), we built Influxion because we guessed that many of the other submissions would be music players, music builders, et cetera. We wanted our project to be different but fun to play/use nevertheless. **Influxion** blends the elements of a rhythm game into a less strict and more approachable platformer game.
@@ -49,27 +49,6 @@ To fit with the theme of the music jam (music if that wasn't obvious), we built 
  - Flares = Flares by [NIVIRO](https://www.youtube.com/channel/UCYsQBXpnkduQxGo3z1lstZw)
  - Paradise = Gangsta's Paradise by Jennifer Spengler
  - Skii = Skii by [Lil Scar X Iscopizza (Peninsula Records)](https://www.youtube.com/channel/UCrmVTYUv3BNQHllJyXrZtUg/)
- ---
-
-##### Proof that we developed in repl.it:
-Although we used GitHub, we developed Influxion in multiple repls. We have them linked below (the links are in no specific order):
- - https://repl.it/@raghavm/InfluxionFinal - Final Revision
- - https://repl.it/@LehuyH/InfluxionFinal
- - https://repl.it/@LehuyH/FreshCookedRotation
- - https://repl.it/@LehuyH/SongJellyTheNeverEndingParadox
- - https://repl.it/@LehuyH/SongJellyEndgame-1
- - https://repl.it/@LehuyH/SongJellyEndgame
- - https://repl.it/@LehuyH/UnconsciousFluffyCharactercode
- - https://repl.it/@LehuyH/UnlawfulFastMicrostation
- - https://repl.it/@LehuyH/AbandonedBetterComputergraphics
- - https://repl.it/@LehuyH/animejs-test
- - https://repl.it/@raghavm/SongJellyEndgameII-TheParadoxContinues-1
- - https://repl.it/@raghavm/SongJellyEndgameII-TheParadoxContinues
- - https://repl.it/@raghavm/LumberingAggravatingPhysics
- - https://repl.it/@raghavm/SongJellyTheNeverEndingParadox-1
- - https://repl.it/@raghavm/SongJellyTheNeverEndingParadox
- - https://repl.it/@raghavm/SongJellyEndgame
-
-
+ 
 
 

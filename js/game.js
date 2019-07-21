@@ -290,6 +290,7 @@ function effectManager(current) {
 
 function loseGame() {
 	gameRunning = false;
+	globalId++;
 	cancelAnimationFrame(window.gameLoop)
 	cancelAnimationFrame(starAnimLoop)
 	beatStage = 0

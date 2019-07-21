@@ -213,7 +213,7 @@ if (dataArray.firstName.trim() == "")
 setTimeout(() => {
     popup.show(
         "Welcome!",
-        ("Hey " + dataArray.firstName).trim() + "! Welcome To Influxion!",
+        ("Hey " + dataArray.firstName).trim() + "! Welcome To Influxion! First Time? Play the Tutorial (00)!",
         "Let's Play!"
     );
 }, 500);
