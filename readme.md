@@ -49,6 +49,27 @@ To fit with the theme of the music jam (music if that wasn't obvious), we built 
  - Flares = Flares by [NIVIRO](https://www.youtube.com/channel/UCYsQBXpnkduQxGo3z1lstZw)
  - Paradise = Gangsta's Paradise by Jennifer Spengler
  - Skii = Skii by [Lil Scar X Iscopizza (Peninsula Records)](https://www.youtube.com/channel/UCrmVTYUv3BNQHllJyXrZtUg/)
- 
+ ---
+
+##### Proof that we developed in repl.it:
+Although we used GitHub, we developed Influxion in multiple repls. We have them linked below (the links are in no specific order):
+ - https://repl.it/@raghavm/InfluxionFinal - Final Revision
+ - https://repl.it/@LehuyH/InfluxionFinal
+ - https://repl.it/@LehuyH/FreshCookedRotation
+ - https://repl.it/@LehuyH/SongJellyTheNeverEndingParadox
+ - https://repl.it/@LehuyH/SongJellyEndgame-1
+ - https://repl.it/@LehuyH/SongJellyEndgame
+ - https://repl.it/@LehuyH/UnconsciousFluffyCharactercode
+ - https://repl.it/@LehuyH/UnlawfulFastMicrostation
+ - https://repl.it/@LehuyH/AbandonedBetterComputergraphics
+ - https://repl.it/@LehuyH/animejs-test
+ - https://repl.it/@raghavm/SongJellyEndgameII-TheParadoxContinues-1
+ - https://repl.it/@raghavm/SongJellyEndgameII-TheParadoxContinues
+ - https://repl.it/@raghavm/LumberingAggravatingPhysics
+ - https://repl.it/@raghavm/SongJellyTheNeverEndingParadox-1
+ - https://repl.it/@raghavm/SongJellyTheNeverEndingParadox
+ - https://repl.it/@raghavm/SongJellyEndgame
+
+
 
 
